@@ -33,10 +33,10 @@ namespace Projekt
                     }
                 );
             });
-
-            //plc.BackColor = Color.Black;
-            
-            //flpPlayers.Controls.Add(plc);
+            //////////////////////
+            //TO DO:////////////
+            // Dodaj za kapetana oznaku, dodavanje favorita itd....
+           
         }
 
 
