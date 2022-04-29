@@ -19,7 +19,7 @@ namespace Lib.Model
         public bool Captain { get; set; }
 
         [JsonProperty("shirt_number")]
-        public long ShirtNumber { get; set; }
+        public int ShirtNumber { get; set; }
 
         [JsonProperty("position")]
         public string Position { get; set; }

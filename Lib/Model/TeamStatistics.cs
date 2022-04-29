@@ -69,8 +69,11 @@ namespace Lib.Model
         [JsonProperty("substitutes")]
         public List<Player> Substitutes { get; set; }
 
-        public IEnumerable<Player> GetPlayers()
-         => StartingEleven.Concat(Substitutes);
+        public List<Player> GetPlayers()
+        {
+            StartingEleven.AddRange(Substitutes);
+            return StartingEleven;
+        }
 
         public string GetPlayerStrings()
         {

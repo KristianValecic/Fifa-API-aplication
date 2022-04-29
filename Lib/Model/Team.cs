@@ -103,5 +103,8 @@ namespace Lib.Model
                 }
             }
         }
+
+        internal bool CompareCountryName(Team team)
+            => Country == team.Country;
     }
 }

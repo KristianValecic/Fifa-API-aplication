@@ -92,9 +92,19 @@ namespace Lib.Model
         //=> $"{IfIntIsNull(AwayTeamStatistics.FoulsCommitted)} {IfIntIsNull(HomeTeamStatistics.FoulsCommitted)}";
         //=> $"H: {HomeTeamStatistics.GetPlayers()}\nA: {AwayTeamStatistics.GetPlayers()}";
 
-        public object getAllPlayers()
+        public IEnumerable<Player> GetAllPlayers()
         {
             return HomeTeamStatistics.GetPlayers().Concat(AwayTeamStatistics.GetPlayers());
+        }
+
+        public List<Player> GetPlayerFromTeam(Team team)
+        {
+            if (HomeTeam.CompareCountryName(team))
+            {
+                return (List<Player>)HomeTeamStatistics.GetPlayers();
+            }
+            return (List<Player>)AwayTeamStatistics.GetPlayers();
+
         }
 
         public void GetAllPlayersGoalsCards()

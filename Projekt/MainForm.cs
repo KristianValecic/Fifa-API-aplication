@@ -135,11 +135,32 @@ namespace Projekt
             //settings.TeamCode = cbTeams.SelectedItem.ToString();
             //Spremi postavke.
             settings.SaveFile();
-
-            TeamViewForm teamViewForm = new TeamViewForm();
-            teamViewForm.Show();
+            OpenTeamViewForm();
         }
 
+        private async Task LoadMatches(IList<Match> matches, Team team)
+        {
+
+        }
+
+        private async Task OpenTeamViewForm()
+        {
+            TeamViewForm teamViewForm = new TeamViewForm();
+            teamViewForm.team = settings.SelectedTeam;
+            //LoadMatches(teamViewForm.matches, teamViewForm.team);
+
+            try
+            {
+                teamViewForm.matches = (settings.IsOnline) ? await repo.GetOnlineDataAsync<List<Match>>(Match.GetEndpoint(settings.IsOnline, settings.IsMale, teamViewForm.team.ToString()))
+                                   : await repo.GetOfflineDataAsync<List<Match>>(Match.GetEndpoint(settings.IsOnline, settings.IsMale, teamViewForm.team.ToString()));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            teamViewForm.Show();
+        }
 
         private bool IfChecked()
         {
