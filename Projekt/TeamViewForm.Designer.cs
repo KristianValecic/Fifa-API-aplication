@@ -30,6 +30,8 @@
         {
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.RemoveFromFavorites = new System.Windows.Forms.Button();
+            this.MoveToFavorites = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.flpFavorites = new System.Windows.Forms.FlowLayoutPanel();
@@ -52,6 +54,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.RemoveFromFavorites);
+            this.tabPage1.Controls.Add(this.MoveToFavorites);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.flpFavorites);
@@ -63,6 +67,26 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // RemoveFromFavorites
+            // 
+            this.RemoveFromFavorites.Location = new System.Drawing.Point(420, 262);
+            this.RemoveFromFavorites.Name = "RemoveFromFavorites";
+            this.RemoveFromFavorites.Size = new System.Drawing.Size(84, 35);
+            this.RemoveFromFavorites.TabIndex = 5;
+            this.RemoveFromFavorites.Text = "Maknite iz favorita";
+            this.RemoveFromFavorites.UseVisualStyleBackColor = true;
+            this.RemoveFromFavorites.Click += new System.EventHandler(this.RemoveFromFavorites_Click);
+            // 
+            // MoveToFavorites
+            // 
+            this.MoveToFavorites.Location = new System.Drawing.Point(330, 262);
+            this.MoveToFavorites.Name = "MoveToFavorites";
+            this.MoveToFavorites.Size = new System.Drawing.Size(84, 35);
+            this.MoveToFavorites.TabIndex = 4;
+            this.MoveToFavorites.Text = "Prebacite u favorite";
+            this.MoveToFavorites.UseVisualStyleBackColor = true;
+            this.MoveToFavorites.Click += new System.EventHandler(this.MoveToFavorites_Click);
             // 
             // label2
             // 
@@ -107,7 +131,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(792, 471);
+            this.tabPage2.Size = new System.Drawing.Size(838, 541);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -137,5 +161,7 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button MoveToFavorites;
+        private System.Windows.Forms.Button RemoveFromFavorites;
     }
 }

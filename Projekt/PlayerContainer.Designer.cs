@@ -31,7 +31,9 @@
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.lbPlrNumber = new System.Windows.Forms.Label();
             this.lbPlrName = new System.Windows.Forms.Label();
+            this.pictureBoxCaptain = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCaptain)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox
@@ -44,6 +46,7 @@
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
+            this.pictureBox.Click += new System.EventHandler(this.pictureBox_Click);
             // 
             // lbPlrNumber
             // 
@@ -55,6 +58,7 @@
             this.lbPlrNumber.Size = new System.Drawing.Size(29, 31);
             this.lbPlrNumber.TabIndex = 1;
             this.lbPlrNumber.Text = "1";
+            this.lbPlrNumber.Click += new System.EventHandler(this.pictureBox_Click);
             // 
             // lbPlrName
             // 
@@ -66,19 +70,35 @@
             this.lbPlrName.Size = new System.Drawing.Size(74, 16);
             this.lbPlrName.TabIndex = 2;
             this.lbPlrName.Text = "Testno ime";
+            this.lbPlrName.Click += new System.EventHandler(this.pictureBox_Click);
+            // 
+            // pictureBoxCaptain
+            // 
+            this.pictureBoxCaptain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBoxCaptain.Image = global::Projekt.Images.captainShirt;
+            this.pictureBoxCaptain.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxCaptain.Name = "pictureBoxCaptain";
+            this.pictureBoxCaptain.Size = new System.Drawing.Size(207, 207);
+            this.pictureBoxCaptain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxCaptain.TabIndex = 3;
+            this.pictureBoxCaptain.TabStop = false;
+            this.pictureBoxCaptain.Click += new System.EventHandler(this.pictureBox_Click);
             // 
             // PlayerContainer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.lbPlrName);
             this.Controls.Add(this.lbPlrNumber);
             this.Controls.Add(this.pictureBox);
+            this.Controls.Add(this.pictureBoxCaptain);
             this.Name = "PlayerContainer";
             this.Size = new System.Drawing.Size(207, 207);
             this.Load += new System.EventHandler(this.PlayerContainer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCaptain)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -89,5 +109,6 @@
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Label lbPlrNumber;
         private System.Windows.Forms.Label lbPlrName;
+        private System.Windows.Forms.PictureBox pictureBoxCaptain;
     }
 }

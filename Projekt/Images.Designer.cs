@@ -63,6 +63,16 @@ namespace Projekt {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap captainShirt {
+            get {
+                object obj = ResourceManager.GetObject("captainShirt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap shirt {
             get {
                 object obj = ResourceManager.GetObject("shirt", resourceCulture);
