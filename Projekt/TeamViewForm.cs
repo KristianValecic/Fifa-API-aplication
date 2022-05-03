@@ -16,12 +16,13 @@ namespace Projekt
         public IList<Match> matches;
         public Team team;
 
-        private const int listLimit = 3;
+        //private const int listLimit = 3;
 
         public TeamViewForm()
         {
             InitializeComponent();
         }
+
 
         private void LoadFlpPlayers()
         {
@@ -43,7 +44,6 @@ namespace Projekt
            
         }
 
-
         private void TeamViewForm_Load(object sender, EventArgs e)
         {
             LoadFlpPlayers();
@@ -51,41 +51,33 @@ namespace Projekt
 
         private void MoveToFavorites_Click(object sender, EventArgs e)
         {
-            if (flpFavorites.Controls.Count == listLimit)
+            //if (flpFavorites.Controls.Count == listLimit)
+            if (flpFavorites.Controls.Count == PlayerContainer.GetListLimit() ||
+                (PlayerContainer.selectedList.Count > (PlayerContainer.GetListLimit() - flpFavorites.Controls.Count) &&
+                flpFavorites.Controls.Count != 0)) // Mora provjeriti je li odabrano previse igraca
             {
-                MessageBox.Show("Lista favorita je puna");
+                MessageBox.Show($"Lista favorita prima samo {PlayerContainer.GetListLimit()} igrača");
                 return;
             }
-
-            List<PlayerContainer> selectedList = new List<PlayerContainer>();
-
-            foreach (PlayerContainer item in flpPlayers.Controls)
-            {
-                if (item.selected)
-                {
-                    selectedList.Add(item);
-                    item.BackColor = Color.White;
-                    item.selected = false;
-                }
-                
-            }
-            selectedList.ForEach(flpFavorites.Controls.Add);
-            PlayerContainer.ResetCounter(listLimit);
+            //PlayerContainer.ResetCounter();
+            AddPlayersToList(PlayerContainer.selectedList, flpFavorites.Controls);
         }
+
 
         private void RemoveFromFavorites_Click(object sender, EventArgs e)
         {
-            foreach (PlayerContainer item in flpFavorites.Controls)
-            {
-                if (item.selected)
-                {
-                    item.selected = false;
-                    item.BackColor = Color.White;
+            AddPlayersToList(PlayerContainer.selectedListFavorites, flpPlayers.Controls);
+        }
 
-                    flpFavorites.Controls.Remove(item); 
-                    flpPlayers.Controls.Add(item);
-                }
-            }
+        private void AddPlayersToList(List<PlayerContainer> fromList, Control.ControlCollection toList)
+        {
+
+            fromList.ForEach(p => {
+                p.BackColor = Color.White;
+                toList.Add(p);
+            });
+
+            fromList.Clear();
         }
     }
 }

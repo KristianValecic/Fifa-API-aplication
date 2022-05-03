@@ -15,10 +15,11 @@ namespace Projekt
 {
     public partial class PlayerContainer : UserControl
     {
-        private static int selectedCount = 0;
-        public static IList<PlayerContainer> selectedList;
-        public static IList<PlayerContainer> selectedListFavorites;
-        public bool selected;
+        public static List<PlayerContainer> selectedList = new List<PlayerContainer>();
+        public static List<PlayerContainer> selectedListFavorites = new List<PlayerContainer>();
+
+        //private static int selectedCount = 0;
+        private static int listLimit = 3;
 
         public Player player;
 
@@ -27,13 +28,7 @@ namespace Projekt
             InitializeComponent();
         }
 
-        public static void ResetCounter(int listLimit) {
-
-            if (selectedCount == listLimit)
-            {
-                selectedCount = 0;
-            }
-        }
+        internal static int GetListLimit() => listLimit;
 
         private void PlayerContainer_Load(object sender, EventArgs e)
         {
@@ -52,7 +47,6 @@ namespace Projekt
             }
         }
 
-
         private void Center(Label label)
         {
             //int shirtWidth = (int)Math.Round((pictureBox.Width * 0.6), 0);
@@ -67,39 +61,54 @@ namespace Projekt
 
         private void pictureBox_Click(object sender, EventArgs e)
         {
-            if (selectedCount == 3 && this.BackColor == Color.White)
-            {
-                this.BackColor = this.BackColor;
-                return;
-            }
+            //if (selectedCount == listLimit && this.BackColor == Color.White)
+            //{
+            //    this.BackColor = this.BackColor;
+            //    return;
+            //}
 
             if (this.BackColor == Color.White)
             {
-                this.BackColor = Color.DodgerBlue;
+                
+                //ResetCounter();
                 //selectedCount++;
-                FavoriteOrPlayerList(this);
-                selected = true;
+                AddFavoriteOrPlayerList(this);
             }
             else
             {
-                this.BackColor = Color.White;
+                
+                //ResetCounter();
                 //selectedCount--;
-                selectedList.Remove(this);
-                selected = false;
+                RemoveFavoriteOrPlayerList(this);
             }
         }
 
-        private void FavoriteOrPlayerList(PlayerContainer plContainer)
+        private void RemoveFavoriteOrPlayerList(PlayerContainer plContainer)
         {
-            if (plContainer.Parent.Name == "flpFavorites")
+            if(plContainer.Parent.Name == "flpFavorites" )
             {
+                this.BackColor = Color.White;
+                selectedListFavorites.Remove(this);
+            }
+            else if (plContainer.Parent.Name == "flpPlayers" )
+            {
+                this.BackColor = Color.White;
+                selectedList.Remove(this);
+            }
+        }
+
+        private void AddFavoriteOrPlayerList(PlayerContainer plContainer)
+        {
+            if (plContainer.Parent.Name == "flpFavorites" && selectedListFavorites.Count < listLimit)
+            {
+                this.BackColor = Color.DodgerBlue;
                 selectedListFavorites.Add(this);
             }
-            else if (plContainer.Parent.Name == "flpPlayers")
+            else if (plContainer.Parent.Name == "flpPlayers" && selectedList.Count < listLimit)
             {
+                this.BackColor = Color.DodgerBlue;
                 selectedList.Add(this);
             }
-
         }
     }
 }
