@@ -63,15 +63,19 @@ namespace Lib.Model
             File.WriteAllText(PARAMS_PATH, FormatForFileLine());
         }
 
-        public void SaveFavorite(Player player)
+        public void SaveFavoritePlayer(List<Player> players)
         {
-            //players.Add(player);
             if (!File.Exists(FAVORITES_PATH))
             {
                 File.Create(FAVORITES_PATH).Close();
             }
 
-            File.AppendAllText(FAVORITES_PATH, FormatFavoritesForFileLine(player));
+            //clears file
+            File.Create(FAVORITES_PATH).Close(); 
+
+            //writes all players in file
+            players.ForEach(p => File.AppendAllText(FAVORITES_PATH, FormatFavoritesForFileLine(p)));
+
         }
 
         public void ReadFromFile()

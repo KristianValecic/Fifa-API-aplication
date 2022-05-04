@@ -106,14 +106,23 @@ namespace Projekt
             });
 
             fromList.Clear();
+            SaveFavorites();
         }
 
         private void Form_FormClosing(object sender, FormClosingEventArgs e)
         {
+           SaveFavorites();
+        }
+
+        private void SaveFavorites()
+        {
+            List<Player> tempList = new List<Player>();
+
             foreach (PlayerContainer c in flpFavorites.Controls)
             {
-                settings.SaveFavorite(c.player);
+                tempList.Add(c.player);
             }
+                settings.SaveFavoritePlayer(tempList);
         }
     }
 }
