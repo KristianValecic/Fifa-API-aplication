@@ -1,1 +1,1 @@
-True|False|POL
+True|False|KOR

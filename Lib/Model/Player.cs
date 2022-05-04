@@ -12,6 +12,8 @@ namespace Lib.Model
         private int goals = 0;
         private int yellowcards = 0;
 
+        public bool Favorite { get; set; }
+
         [JsonProperty("name")]
         public string Name { get; set; }
 
@@ -33,5 +35,8 @@ namespace Lib.Model
 
         public override string ToString()
          => $"{Name}, {ShirtNumber}, {Position}{(Captain ? ", Captain": "")}";
+
+        public override bool Equals(object obj)
+         => obj is Player other && Name == other.Name && ShirtNumber == other.ShirtNumber;
     }
 }

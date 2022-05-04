@@ -16,6 +16,7 @@ namespace Projekt
         public IList<Match> matches;
         public Team team;
 
+        private Settings settings = new Settings();
         //private const int listLimit = 3;
 
         public TeamViewForm()
@@ -23,25 +24,43 @@ namespace Projekt
             InitializeComponent();
         }
 
-
         private void LoadFlpPlayers()
         {
             List<Player> players = matches.ElementAt(0).GetPlayerFromTeam(team);
+
+            if (settings.FavoritesFileExists())
+            {
+                //flpFavorites.Controls.Add(settings.LoadFavorites());
+                LoadflpFavorites(players);
+            }
 
             players.ForEach(p =>
             {
                 flpPlayers.Controls.Add(
                     new PlayerContainer {
-                        //p.Captain ? player = p : player = p,
                         player = p
                     }
                 );
             });
             //////////////////////
-            //TO DO:////////////
-            // dodavanje favorita popravi....
-            // posebno punjenje liste za flpFav i flpPlayer
-           
+            ////////TO DO:///////
+            //Popravi da se savea i kada se zatvori samo galvna forma
+        }
+
+        private void LoadflpFavorites(List<Player> players)
+        {
+            settings.LoadFavorites();
+            foreach (Player p in settings.players)
+            {
+                Player player = players.FirstOrDefault(p.Equals);
+                player.Favorite = true;
+                players.Remove(player);
+                flpFavorites.Controls.Add(
+                new PlayerContainer
+                {
+                    player = player
+                });
+            }
         }
 
         private void TeamViewForm_Load(object sender, EventArgs e)
@@ -51,33 +70,50 @@ namespace Projekt
 
         private void MoveToFavorites_Click(object sender, EventArgs e)
         {
-            //if (flpFavorites.Controls.Count == listLimit)
             if (flpFavorites.Controls.Count == PlayerContainer.GetListLimit() ||
-                (PlayerContainer.selectedList.Count > (PlayerContainer.GetListLimit() - flpFavorites.Controls.Count) &&
-                flpFavorites.Controls.Count != 0)) // Mora provjeriti je li odabrano previse igraca
+            (PlayerContainer.selectedList.Count > (PlayerContainer.GetListLimit() - flpFavorites.Controls.Count) &&
+            flpFavorites.Controls.Count != 0))
             {
                 MessageBox.Show($"Lista favorita prima samo {PlayerContainer.GetListLimit()} igrača");
                 return;
             }
-            //PlayerContainer.ResetCounter();
-            AddPlayersToList(PlayerContainer.selectedList, flpFavorites.Controls);
+            CheckIfSelected(PlayerContainer.selectedList.Count == 0 );
+            AddPlayersToList(PlayerContainer.selectedList, flpFavorites.Controls, true);
         }
 
+        private void CheckIfSelected(bool condition)
+        {
+            if (condition)
+            {
+                MessageBox.Show("Odaberite igrače");
+                return;
+            }
+        }
 
         private void RemoveFromFavorites_Click(object sender, EventArgs e)
-        {
-            AddPlayersToList(PlayerContainer.selectedListFavorites, flpPlayers.Controls);
+        { 
+            CheckIfSelected(PlayerContainer.selectedListFavorites.Count == 0);
+            AddPlayersToList(PlayerContainer.selectedListFavorites, flpPlayers.Controls, false);
         }
 
-        private void AddPlayersToList(List<PlayerContainer> fromList, Control.ControlCollection toList)
+        private void AddPlayersToList(List<PlayerContainer> fromList, Control.ControlCollection toList, bool isFav)
         {
-
             fromList.ForEach(p => {
                 p.BackColor = Color.White;
-                toList.Add(p);
+                p.player.Favorite = isFav;
+                p.ShowFavoriteStar();
+               toList.Add(p);
             });
 
             fromList.Clear();
+        }
+
+        private void Form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            foreach (PlayerContainer c in flpFavorites.Controls)
+            {
+                settings.SaveFavorite(c.player);
+            }
         }
     }
 }

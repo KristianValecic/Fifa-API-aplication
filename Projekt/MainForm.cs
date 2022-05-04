@@ -25,7 +25,7 @@ namespace Projekt
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            if (settings.IfFileExists())
+            if (settings.IfSettingsFileExists())
             {
                 ////otvori s postojecim postavkama.
                 //this.Visible = false;
@@ -134,7 +134,7 @@ namespace Projekt
             settings.SelectedTeam = teams.FirstOrDefault(cbTeams.SelectedItem.Equals);
             //settings.TeamCode = cbTeams.SelectedItem.ToString();
             //Spremi postavke.
-            settings.SaveFile();
+            settings.SaveSettings();
             OpenTeamViewForm();
         }
 

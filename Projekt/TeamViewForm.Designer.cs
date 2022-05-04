@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.RemoveFromFavorites = new System.Windows.Forms.Button();
@@ -35,10 +36,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.flpFavorites = new System.Windows.Forms.FlowLayoutPanel();
+            this.cmsFavoritesList = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.makniOznačeneFavoriteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dodajSlikuToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.flpPlayers = new System.Windows.Forms.FlowLayoutPanel();
+            this.cmsPlayerList = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.dodajIgračeUFavoriteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dodajSlikuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.cmsFavoritesList.SuspendLayout();
+            this.cmsPlayerList.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -111,20 +120,64 @@
             // flpFavorites
             // 
             this.flpFavorites.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flpFavorites.ContextMenuStrip = this.cmsFavoritesList;
             this.flpFavorites.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flpFavorites.Location = new System.Drawing.Point(3, 308);
             this.flpFavorites.Name = "flpFavorites";
             this.flpFavorites.Size = new System.Drawing.Size(832, 230);
             this.flpFavorites.TabIndex = 1;
             // 
+            // cmsFavoritesList
+            // 
+            this.cmsFavoritesList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.makniOznačeneFavoriteToolStripMenuItem,
+            this.dodajSlikuToolStripMenuItem1});
+            this.cmsFavoritesList.Name = "cmsFavoritesList";
+            this.cmsFavoritesList.Size = new System.Drawing.Size(204, 48);
+            // 
+            // makniOznačeneFavoriteToolStripMenuItem
+            // 
+            this.makniOznačeneFavoriteToolStripMenuItem.Name = "makniOznačeneFavoriteToolStripMenuItem";
+            this.makniOznačeneFavoriteToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.makniOznačeneFavoriteToolStripMenuItem.Text = "Makni označene favorite";
+            this.makniOznačeneFavoriteToolStripMenuItem.Click += new System.EventHandler(this.RemoveFromFavorites_Click);
+            // 
+            // dodajSlikuToolStripMenuItem1
+            // 
+            this.dodajSlikuToolStripMenuItem1.Name = "dodajSlikuToolStripMenuItem1";
+            this.dodajSlikuToolStripMenuItem1.Size = new System.Drawing.Size(203, 22);
+            this.dodajSlikuToolStripMenuItem1.Text = "Dodaj Sliku";
+            // 
             // flpPlayers
             // 
             this.flpPlayers.AutoScroll = true;
+            this.flpPlayers.ContextMenuStrip = this.cmsPlayerList;
             this.flpPlayers.Location = new System.Drawing.Point(3, 26);
             this.flpPlayers.Name = "flpPlayers";
             this.flpPlayers.Size = new System.Drawing.Size(827, 230);
             this.flpPlayers.TabIndex = 0;
             this.flpPlayers.WrapContents = false;
+            // 
+            // cmsPlayerList
+            // 
+            this.cmsPlayerList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dodajIgračeUFavoriteToolStripMenuItem,
+            this.dodajSlikuToolStripMenuItem});
+            this.cmsPlayerList.Name = "cmsPlayerList";
+            this.cmsPlayerList.Size = new System.Drawing.Size(247, 48);
+            // 
+            // dodajIgračeUFavoriteToolStripMenuItem
+            // 
+            this.dodajIgračeUFavoriteToolStripMenuItem.Name = "dodajIgračeUFavoriteToolStripMenuItem";
+            this.dodajIgračeUFavoriteToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
+            this.dodajIgračeUFavoriteToolStripMenuItem.Text = "Dodaj označene igrače u favorite";
+            this.dodajIgračeUFavoriteToolStripMenuItem.Click += new System.EventHandler(this.MoveToFavorites_Click);
+            // 
+            // dodajSlikuToolStripMenuItem
+            // 
+            this.dodajSlikuToolStripMenuItem.Name = "dodajSlikuToolStripMenuItem";
+            this.dodajSlikuToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
+            this.dodajSlikuToolStripMenuItem.Text = "Dodaj sliku";
             // 
             // tabPage2
             // 
@@ -144,10 +197,13 @@
             this.Controls.Add(this.tabControl);
             this.Name = "TeamViewForm";
             this.Text = "TeamViewForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_FormClosing);
             this.Load += new System.EventHandler(this.TeamViewForm_Load);
             this.tabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.cmsFavoritesList.ResumeLayout(false);
+            this.cmsPlayerList.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -163,5 +219,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button MoveToFavorites;
         private System.Windows.Forms.Button RemoveFromFavorites;
+        private System.Windows.Forms.ContextMenuStrip cmsFavoritesList;
+        private System.Windows.Forms.ToolStripMenuItem makniOznačeneFavoriteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dodajSlikuToolStripMenuItem1;
+        private System.Windows.Forms.ContextMenuStrip cmsPlayerList;
+        private System.Windows.Forms.ToolStripMenuItem dodajIgračeUFavoriteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dodajSlikuToolStripMenuItem;
     }
 }

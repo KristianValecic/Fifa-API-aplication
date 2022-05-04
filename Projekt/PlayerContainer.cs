@@ -10,6 +10,7 @@ using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Input;
 
 namespace Projekt
 {
@@ -18,7 +19,6 @@ namespace Projekt
         public static List<PlayerContainer> selectedList = new List<PlayerContainer>();
         public static List<PlayerContainer> selectedListFavorites = new List<PlayerContainer>();
 
-        //private static int selectedCount = 0;
         private static int listLimit = 3;
 
         public Player player;
@@ -32,18 +32,34 @@ namespace Projekt
 
         private void PlayerContainer_Load(object sender, EventArgs e)
         {
-            pictureBoxCaptain.Visible = false;
+            PicBoxCaptain.Visible = false;
+            PicBoxFavorite.Visible = false;
 
             lbPlrName.Text = player.Name;
             Center(lbPlrName);
 
             lbPlrNumber.Text = player.ShirtNumber.ToString();
             Center(lbPlrNumber);
+            
+            lbPosition.Text = player.Position;
+            Center(lbPosition);
 
             if (player.Captain)
             {
-                pictureBoxCaptain.Visible = true;
-                pictureBox.Visible = false;
+                PicBoxCaptain.Visible = true;
+                PicBoxShirt.Visible = false;
+            }
+            ShowFavoriteStar();
+        }
+
+        public void ShowFavoriteStar() // private/ public
+        {
+            if (player.Favorite)
+            {
+                PicBoxFavorite.Visible = true;
+            }else
+            {
+                PicBoxFavorite.Visible = false;
             }
         }
 
@@ -59,27 +75,18 @@ namespace Projekt
             label.Location = new Point(middle - labelMid, label.Location.Y);
         }
 
-        private void pictureBox_Click(object sender, EventArgs e)
+        private void SelectPlayerContainer_MouseClick(object sender, System.Windows.Forms.MouseEventArgs e)
         {
-            //if (selectedCount == listLimit && this.BackColor == Color.White)
-            //{
-            //    this.BackColor = this.BackColor;
-            //    return;
-            //}
-
-            if (this.BackColor == Color.White)
+            if (e.Button == MouseButtons.Left)
             {
-                
-                //ResetCounter();
-                //selectedCount++;
-                AddFavoriteOrPlayerList(this);
-            }
-            else
-            {
-                
-                //ResetCounter();
-                //selectedCount--;
-                RemoveFavoriteOrPlayerList(this);
+                if (this.BackColor == Color.White)
+                {
+                    AddFavoriteOrPlayerList(this);
+                }
+                else
+                {
+                    RemoveFavoriteOrPlayerList(this);
+                }
             }
         }
 

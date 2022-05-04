@@ -1,1 +1,8 @@
 Lokalizacija stringova iz message boxa
+save-anje omiljenih igraca
+
+nekako dovedi favorite listu iz teamViewForme
+
+optional-------------
+dodaj da desni klik automatski mice tog na kojem je
+Imena na dresovima u dva reda
