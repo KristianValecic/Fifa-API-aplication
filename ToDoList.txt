@@ -1,8 +1,10 @@
 Lokalizacija stringova iz message boxa
-save-anje omiljenih igraca
-
-nekako dovedi favorite listu iz teamViewForme
+drag'n'drop favorita
+Stavljanje slika
 
 optional-------------
 dodaj da desni klik automatski mice tog na kojem je
 Imena na dresovima u dva reda
+
+Popravi save favorita kada se ugasi glavna forma a nista se ne napravi na TeamViewForm
+Dodaj micanje slika na contextMenuStrip

@@ -147,6 +147,7 @@
             this.dodajSlikuToolStripMenuItem1.Name = "dodajSlikuToolStripMenuItem1";
             this.dodajSlikuToolStripMenuItem1.Size = new System.Drawing.Size(203, 22);
             this.dodajSlikuToolStripMenuItem1.Text = "Dodaj Sliku";
+            this.dodajSlikuToolStripMenuItem1.Click += new System.EventHandler(this.AddPlayerImg_Click);
             // 
             // flpPlayers
             // 
@@ -178,6 +179,7 @@
             this.dodajSlikuToolStripMenuItem.Name = "dodajSlikuToolStripMenuItem";
             this.dodajSlikuToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
             this.dodajSlikuToolStripMenuItem.Text = "Dodaj sliku";
+            this.dodajSlikuToolStripMenuItem.Click += new System.EventHandler(this.AddPlayerImg_Click);
             // 
             // tabPage2
             // 

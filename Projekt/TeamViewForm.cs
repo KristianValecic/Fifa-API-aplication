@@ -1,4 +1,5 @@
-﻿using Lib.Model;
+﻿using Lib.Dal;
+using Lib.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,19 +17,29 @@ namespace Projekt
         public IList<Match> matches;
         public Team team;
 
-        private Settings settings = new Settings();
-        //private const int listLimit = 3;
+        private OpenFileDialog ofd = new OpenFileDialog();
+        private FavoritePlayers favoritePlayers = new FavoritePlayers();
+        
 
         public TeamViewForm()
         {
             InitializeComponent();
+            InitOpenFileDialog();
+        }
+
+        private void InitOpenFileDialog()
+        {
+            ofd.Filter = "Pictures|*.jpeg;*.jpg;*.png;|All files|*.*";
+            //ofd.Multiselect = fasle;
+            ofd.Title = "Load pictures...";
+            ofd.InitialDirectory = Application.StartupPath;
         }
 
         private void LoadFlpPlayers()
         {
             List<Player> players = matches.ElementAt(0).GetPlayerFromTeam(team);
 
-            if (settings.FavoritesFileExists())
+            if (favoritePlayers.IfFileExists())
             {
                 //flpFavorites.Controls.Add(settings.LoadFavorites());
                 LoadflpFavorites(players);
@@ -44,13 +55,13 @@ namespace Projekt
             });
             //////////////////////
             ////////TO DO:///////
-            //Popravi da se savea i kada se zatvori samo galvna forma
+            //
         }
 
         private void LoadflpFavorites(List<Player> players)
         {
-            settings.LoadFavorites();
-            foreach (Player p in settings.players)
+            favoritePlayers.LoadFromFile();
+            foreach (Player p in favoritePlayers.players)
             {
                 Player player = players.FirstOrDefault(p.Equals);
                 player.Favorite = true;
@@ -70,15 +81,28 @@ namespace Projekt
 
         private void MoveToFavorites_Click(object sender, EventArgs e)
         {
-            if (flpFavorites.Controls.Count == PlayerContainer.GetListLimit() ||
-            (PlayerContainer.selectedList.Count > (PlayerContainer.GetListLimit() - flpFavorites.Controls.Count) &&
-            flpFavorites.Controls.Count != 0))
+            if (flpFavorites.Controls.Count >= PlayerContainer.GetListLimit() ||
+            (PlayerContainer.selectedList.Count > (PlayerContainer.GetListLimit() - flpFavorites.Controls.Count)/* && flpFavorites.Controls.Count != 0*/) ||
+            PlayerContainer.selectedList.Count > PlayerContainer.GetListLimit())
             {
                 MessageBox.Show($"Lista favorita prima samo {PlayerContainer.GetListLimit()} igrača");
                 return;
             }
             CheckIfSelected(PlayerContainer.selectedList.Count == 0 );
             AddPlayersToList(PlayerContainer.selectedList, flpFavorites.Controls, true);
+        }
+
+        public void AddPlayerToFavoriteList(List<PlayerContainer> selectedList)
+        {
+            selectedList.ForEach(p => {
+                p.BackColor = Color.White;
+                p.player.Favorite = true;
+                p.ShowFavoriteStar();
+                flpFavorites.Controls.Add(p);
+            });
+
+            selectedList.Clear();
+            SaveFavorites();
         }
 
         private void CheckIfSelected(bool condition)
@@ -122,7 +146,23 @@ namespace Projekt
             {
                 tempList.Add(c.player);
             }
-                settings.SaveFavoritePlayer(tempList);
+            favoritePlayers.players = tempList;
+            favoritePlayers.SaveToFile();
+        }
+
+        private void AddPlayerImg_Click(object sender, EventArgs e) => LoadPictures();
+
+        private void LoadPictures()
+        {
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                var selectedList = PlayerContainer.selectedList.Concat(PlayerContainer.selectedListFavorites);
+                foreach (PlayerContainer plContainer in selectedList)
+                {
+                    //plContainer.SetImage(Image.FromFile(ofd.FileName));
+                    plContainer.ChangeImage(Image.FromFile(ofd.FileName), ofd.FileName);
+                }
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Lib.Model;
+﻿using Lib.Dal;
+using Lib.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,20 +20,26 @@ namespace Projekt
         public static List<PlayerContainer> selectedList = new List<PlayerContainer>();
         public static List<PlayerContainer> selectedListFavorites = new List<PlayerContainer>();
 
-        private static int listLimit = 3;
+        private static readonly int listLimit = 3;
+        //private bool imageChanged = false;
+        private PlayerImage playerImage = new PlayerImage();
 
         public Player player;
 
         public PlayerContainer()
         {
             InitializeComponent();
+            if (playerImage.IfFileExists())
+            {
+                playerImage.LoadFromFile(); 
+            }
         }
 
         internal static int GetListLimit() => listLimit;
 
         private void PlayerContainer_Load(object sender, EventArgs e)
         {
-            PicBoxCaptain.Visible = false;
+
             PicBoxFavorite.Visible = false;
 
             lbPlrName.Text = player.Name;
@@ -44,10 +51,17 @@ namespace Projekt
             lbPosition.Text = player.Position;
             Center(lbPosition);
 
-            if (player.Captain)
+            if (playerImage.PlayerExists(player.Name))
             {
-                PicBoxCaptain.Visible = true;
-                PicBoxShirt.Visible = false;
+                //load corresponding saved image
+                //PicBoxShirt.Image = Image.FromFile(playerImage.GetImage(player.Name));
+                string imgPath = playerImage.GetImage(player.Name);
+                ChangeImage(Image.FromFile(imgPath), imgPath);
+            }
+            else if (player.Captain)
+            {
+                // SetImage(Images.captainShirt);
+                PicBoxShirt.Image = Images.captainShirt;
             }
             ShowFavoriteStar();
         }
@@ -77,8 +91,8 @@ namespace Projekt
 
         private void SelectPlayerContainer_MouseClick(object sender, System.Windows.Forms.MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
-            {
+            //if (e.Button == MouseButtons.Left)
+            //{
                 if (this.BackColor == Color.White)
                 {
                     AddFavoriteOrPlayerList(this);
@@ -87,7 +101,7 @@ namespace Projekt
                 {
                     RemoveFavoriteOrPlayerList(this);
                 }
-            }
+            //}
         }
 
         private void RemoveFavoriteOrPlayerList(PlayerContainer plContainer)
@@ -111,11 +125,25 @@ namespace Projekt
                 this.BackColor = Color.DodgerBlue;
                 selectedListFavorites.Add(this);
             }
-            else if (plContainer.Parent.Name == "flpPlayers" && selectedList.Count < listLimit)
+            else if (plContainer.Parent.Name == "flpPlayers" /*&& selectedList.Count < listLimit*/)
             {
                 this.BackColor = Color.DodgerBlue;
                 selectedList.Add(this);
             }
+        }
+
+        internal void ChangeImage(Image image, string filePath)
+        {
+            lbPlrName.Visible = false;
+            lbPlrNumber.Visible = false;
+            lbPosition.Visible = false;
+
+            //imageChanged = true;
+            playerImage.GivePlayerImage(player, filePath);
+            PicBoxShirt.Image = image;
+            
+
+            playerImage.SaveToFile();
         }
     }
 }

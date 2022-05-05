@@ -21,11 +21,13 @@ namespace Projekt
         public MainForm()
         {
             InitializeComponent();
+
+            StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            if (settings.IfSettingsFileExists())
+            if (settings.IfFileExists())
             {
                 ////otvori s postojecim postavkama.
                 //this.Visible = false;
@@ -36,7 +38,7 @@ namespace Projekt
 
         private void SetSettings()
         {
-            settings.ReadFromFile();
+            settings.LoadFromFile();
             if (settings.IsMale)
             {
                 rbMale.Checked = true;
@@ -134,7 +136,7 @@ namespace Projekt
             settings.SelectedTeam = teams.FirstOrDefault(cbTeams.SelectedItem.Equals);
             //settings.TeamCode = cbTeams.SelectedItem.ToString();
             //Spremi postavke.
-            settings.SaveSettings();
+            settings.SaveToFile();
             OpenTeamViewForm();
         }
 

@@ -76,12 +76,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dal\FavoritePlayers.cs" />
+    <Compile Include="Dal\PlayerImage.cs" />
     <Compile Include="Dal\IRepository.cs" />
+    <Compile Include="Dal\ISaveable.cs" />
     <Compile Include="Dal\Repository.cs" />
     <Compile Include="Dal\RepositoryFactory.cs" />
     <Compile Include="Model\Match.cs" />
     <Compile Include="Model\Player.cs" />
-    <Compile Include="Model\Settings.cs" />
+    <Compile Include="Dal\Settings.cs" />
     <Compile Include="Model\Team.cs" />
     <Compile Include="Model\TeamEvent.cs" />
     <Compile Include="Model\TeamStatistics.cs" />

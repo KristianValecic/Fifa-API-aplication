@@ -28,15 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lbPlrNumber = new System.Windows.Forms.Label();
             this.lbPlrName = new System.Windows.Forms.Label();
             this.lbPosition = new System.Windows.Forms.Label();
             this.PicBoxFavorite = new System.Windows.Forms.PictureBox();
             this.PicBoxShirt = new System.Windows.Forms.PictureBox();
-            this.PicBoxCaptain = new System.Windows.Forms.PictureBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.prebaciUFavoriteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxFavorite)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxShirt)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PicBoxCaptain)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbPlrNumber
@@ -92,23 +94,24 @@
             this.PicBoxShirt.Image = global::Projekt.Images.shirt;
             this.PicBoxShirt.Location = new System.Drawing.Point(0, 0);
             this.PicBoxShirt.Name = "PicBoxShirt";
-            this.PicBoxShirt.Size = new System.Drawing.Size(207, 207);
+            this.PicBoxShirt.Size = new System.Drawing.Size(207, 208);
             this.PicBoxShirt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PicBoxShirt.TabIndex = 0;
             this.PicBoxShirt.TabStop = false;
             this.PicBoxShirt.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SelectPlayerContainer_MouseClick);
             // 
-            // PicBoxCaptain
+            // contextMenuStrip1
             // 
-            this.PicBoxCaptain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PicBoxCaptain.Image = global::Projekt.Images.captainShirt;
-            this.PicBoxCaptain.Location = new System.Drawing.Point(0, 0);
-            this.PicBoxCaptain.Name = "PicBoxCaptain";
-            this.PicBoxCaptain.Size = new System.Drawing.Size(207, 207);
-            this.PicBoxCaptain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PicBoxCaptain.TabIndex = 3;
-            this.PicBoxCaptain.TabStop = false;
-            this.PicBoxCaptain.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SelectPlayerContainer_MouseClick);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.prebaciUFavoriteToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(167, 26);
+            // 
+            // prebaciUFavoriteToolStripMenuItem
+            // 
+            this.prebaciUFavoriteToolStripMenuItem.Name = "prebaciUFavoriteToolStripMenuItem";
+            this.prebaciUFavoriteToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.prebaciUFavoriteToolStripMenuItem.Text = "Prebaci u favorite";
             // 
             // PlayerContainer
             // 
@@ -121,13 +124,13 @@
             this.Controls.Add(this.lbPlrName);
             this.Controls.Add(this.lbPlrNumber);
             this.Controls.Add(this.PicBoxShirt);
-            this.Controls.Add(this.PicBoxCaptain);
             this.Name = "PlayerContainer";
             this.Size = new System.Drawing.Size(207, 207);
             this.Load += new System.EventHandler(this.PlayerContainer_Load);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SelectPlayerContainer_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxFavorite)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxShirt)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PicBoxCaptain)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -138,8 +141,9 @@
         private System.Windows.Forms.PictureBox PicBoxShirt;
         private System.Windows.Forms.Label lbPlrNumber;
         private System.Windows.Forms.Label lbPlrName;
-        private System.Windows.Forms.PictureBox PicBoxCaptain;
         private System.Windows.Forms.Label lbPosition;
         private System.Windows.Forms.PictureBox PicBoxFavorite;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem prebaciUFavoriteToolStripMenuItem;
     }
 }
