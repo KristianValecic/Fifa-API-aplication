@@ -139,10 +139,29 @@ namespace Projekt
             lbPosition.Visible = false;
 
             //imageChanged = true;
-            playerImage.GivePlayerImage(player, filePath);
+            playerImage.GivePlayerImage(player.Name, filePath);
             PicBoxShirt.Image = image;
             
 
+            playerImage.SaveToFile();
+        }
+
+        internal void DefaultImage()
+        {
+            lbPlrName.Visible = true;
+            lbPlrNumber.Visible = true;
+            lbPosition.Visible = true;
+
+            if (player.Captain)
+            {
+                PicBoxShirt.Image = Images.captainShirt;
+            }
+            else
+            {
+                PicBoxShirt.Image = Images.shirt;
+            }
+
+            playerImage.RemovePlayerImage(player.Name);
             playerImage.SaveToFile();
         }
     }

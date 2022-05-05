@@ -41,7 +41,7 @@ namespace Lib.Dal
                     //Favorite = true
                 });
             }
-            File.Delete(FAVORITES_PATH);
+            //File.Delete(FAVORITES_PATH);
         }
 
         public void SaveToFile()

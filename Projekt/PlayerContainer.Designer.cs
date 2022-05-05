@@ -58,7 +58,7 @@
             this.lbPlrName.AutoSize = true;
             this.lbPlrName.BackColor = System.Drawing.Color.DarkGray;
             this.lbPlrName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPlrName.Location = new System.Drawing.Point(64, 35);
+            this.lbPlrName.Location = new System.Drawing.Point(64, 45);
             this.lbPlrName.Name = "lbPlrName";
             this.lbPlrName.Size = new System.Drawing.Size(74, 16);
             this.lbPlrName.TabIndex = 2;
@@ -92,9 +92,9 @@
             // PicBoxShirt
             // 
             this.PicBoxShirt.Image = global::Projekt.Images.shirt;
-            this.PicBoxShirt.Location = new System.Drawing.Point(0, 0);
+            this.PicBoxShirt.Location = new System.Drawing.Point(3, 3);
             this.PicBoxShirt.Name = "PicBoxShirt";
-            this.PicBoxShirt.Size = new System.Drawing.Size(207, 208);
+            this.PicBoxShirt.Size = new System.Drawing.Size(198, 198);
             this.PicBoxShirt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PicBoxShirt.TabIndex = 0;
             this.PicBoxShirt.TabStop = false;

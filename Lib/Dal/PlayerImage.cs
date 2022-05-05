@@ -5,7 +5,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Lib.Dal
 {
@@ -61,10 +60,10 @@ namespace Lib.Dal
             }
         }
 
-        public void GivePlayerImage(Player player, string filePath)
+        public void GivePlayerImage(string playerName, string filePath)
         {
             //playerImagesList.Add(FormatForFileLine(player.Name, filePath));
-            playerImages[player.Name] = filePath;
+            playerImages[playerName] = filePath;
         }
 
         public bool PlayerExists(string playerName)
@@ -74,6 +73,11 @@ namespace Lib.Dal
                 return true;
             }
             return false;
+        }
+
+        public void RemovePlayerImage(string playerName)
+        {
+            playerImages.Remove(playerName);
         }
     }
 }

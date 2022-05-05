@@ -44,6 +44,8 @@
             this.dodajIgračeUFavoriteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dodajSlikuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.makniSlikuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.makniSlikuToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.cmsFavoritesList.SuspendLayout();
@@ -131,9 +133,10 @@
             // 
             this.cmsFavoritesList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.makniOznačeneFavoriteToolStripMenuItem,
-            this.dodajSlikuToolStripMenuItem1});
+            this.dodajSlikuToolStripMenuItem1,
+            this.makniSlikuToolStripMenuItem1});
             this.cmsFavoritesList.Name = "cmsFavoritesList";
-            this.cmsFavoritesList.Size = new System.Drawing.Size(204, 48);
+            this.cmsFavoritesList.Size = new System.Drawing.Size(204, 92);
             // 
             // makniOznačeneFavoriteToolStripMenuItem
             // 
@@ -163,9 +166,10 @@
             // 
             this.cmsPlayerList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dodajIgračeUFavoriteToolStripMenuItem,
-            this.dodajSlikuToolStripMenuItem});
+            this.dodajSlikuToolStripMenuItem,
+            this.makniSlikuToolStripMenuItem});
             this.cmsPlayerList.Name = "cmsPlayerList";
-            this.cmsPlayerList.Size = new System.Drawing.Size(247, 48);
+            this.cmsPlayerList.Size = new System.Drawing.Size(247, 70);
             // 
             // dodajIgračeUFavoriteToolStripMenuItem
             // 
@@ -190,6 +194,20 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // makniSlikuToolStripMenuItem
+            // 
+            this.makniSlikuToolStripMenuItem.Name = "makniSlikuToolStripMenuItem";
+            this.makniSlikuToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
+            this.makniSlikuToolStripMenuItem.Text = "Makni sliku";
+            this.makniSlikuToolStripMenuItem.Click += new System.EventHandler(this.RemoveImage_click);
+            // 
+            // makniSlikuToolStripMenuItem1
+            // 
+            this.makniSlikuToolStripMenuItem1.Name = "makniSlikuToolStripMenuItem1";
+            this.makniSlikuToolStripMenuItem1.Size = new System.Drawing.Size(203, 22);
+            this.makniSlikuToolStripMenuItem1.Text = "Makni sliku";
+            this.makniSlikuToolStripMenuItem1.Click += new System.EventHandler(this.RemoveImage_click);
             // 
             // TeamViewForm
             // 
@@ -227,5 +245,7 @@
         private System.Windows.Forms.ContextMenuStrip cmsPlayerList;
         private System.Windows.Forms.ToolStripMenuItem dodajIgračeUFavoriteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dodajSlikuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem makniSlikuToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem makniSlikuToolStripMenuItem;
     }
 }

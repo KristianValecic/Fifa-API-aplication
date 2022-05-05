@@ -164,5 +164,16 @@ namespace Projekt
                 }
             }
         }
+
+        private void RemoveImage_click(object sender, EventArgs e) => RemovePictures();
+
+        private void RemovePictures()
+        {
+            var selectedList = PlayerContainer.selectedList.Concat(PlayerContainer.selectedListFavorites);
+            foreach (PlayerContainer plContainer in selectedList)
+            {
+                plContainer.DefaultImage();
+            }
+        }
     }
 }
