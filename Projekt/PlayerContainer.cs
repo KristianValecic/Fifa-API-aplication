@@ -19,12 +19,10 @@ namespace Projekt
     {
         public static List<PlayerContainer> selectedList = new List<PlayerContainer>();
         public static List<PlayerContainer> selectedListFavorites = new List<PlayerContainer>();
+        public Player player;
 
         private static readonly int listLimit = 3;
-        //private bool imageChanged = false;
-        private PlayerImage playerImage = new PlayerImage();
-
-        public Player player;
+        private PlayerImageRepository playerImage = new PlayerImageRepository();
 
         public PlayerContainer()
         {
@@ -39,7 +37,6 @@ namespace Projekt
 
         private void PlayerContainer_Load(object sender, EventArgs e)
         {
-
             PicBoxFavorite.Visible = false;
 
             lbPlrName.Text = player.Name;
@@ -51,7 +48,7 @@ namespace Projekt
             lbPosition.Text = player.Position;
             Center(lbPosition);
 
-            if (playerImage.PlayerExists(player.Name))
+            if (playerImage.PlayerHasPicture(player.Name))
             {
                 //load corresponding saved image
                 //PicBoxShirt.Image = Image.FromFile(playerImage.GetImage(player.Name));
@@ -66,7 +63,7 @@ namespace Projekt
             ShowFavoriteStar();
         }
 
-        public void ShowFavoriteStar() // private/ public
+        public void ShowFavoriteStar()
         {
             if (player.Favorite)
             {
@@ -138,7 +135,6 @@ namespace Projekt
             lbPlrNumber.Visible = false;
             lbPosition.Visible = false;
 
-            //imageChanged = true;
             playerImage.GivePlayerImage(player.Name, filePath);
             PicBoxShirt.Image = image;
             

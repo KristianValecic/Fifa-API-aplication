@@ -140,10 +140,10 @@ namespace Projekt
             OpenTeamViewForm();
         }
 
-        private async Task LoadMatches(IList<Match> matches, Team team)
-        {
+        //private async Task LoadMatches(IList<Match> matches, Team team)
+        //{
 
-        }
+        //}
 
         private async Task OpenTeamViewForm()
         {

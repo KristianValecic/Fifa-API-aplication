@@ -1,0 +1,236 @@
+﻿++Solution 'Projekt' ‎(2 of 2 projects)
+i:{00000000-0000-0000-0000-000000000000}:Projekt.sln
+++Lib
+i:{00000000-0000-0000-0000-000000000000}:Lib
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:
+++Properties
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:d:\faks\.net praktikum\fifa-api-aplication\lib\properties\
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\properties\
+++References
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:
+++Dal
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:d:\faks\.net praktikum\fifa-api-aplication\lib\dal\
+++FavoritePlayers.cs
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:d:\faks\.net praktikum\fifa-api-aplication\lib\dal\favoriteplayers.cs
+++IRepository.cs
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:d:\faks\.net praktikum\fifa-api-aplication\lib\dal\irepository.cs
+++ISaveable.cs
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:d:\faks\.net praktikum\fifa-api-aplication\lib\dal\isaveable.cs
+++PlayerImage.cs
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:d:\faks\.net praktikum\fifa-api-aplication\lib\dal\playerimage.cs
+++Repository.cs
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:d:\faks\.net praktikum\fifa-api-aplication\lib\dal\repository.cs
+++RepositoryFactory.cs
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:d:\faks\.net praktikum\fifa-api-aplication\lib\dal\repositoryfactory.cs
+++Settings.cs
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:d:\faks\.net praktikum\fifa-api-aplication\lib\dal\settings.cs
+++Model
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:d:\faks\.net praktikum\fifa-api-aplication\lib\model\
+++Match.cs
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:d:\faks\.net praktikum\fifa-api-aplication\lib\model\match.cs
+++Player.cs
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:d:\faks\.net praktikum\fifa-api-aplication\lib\model\player.cs
+++Team.cs
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:d:\faks\.net praktikum\fifa-api-aplication\lib\model\team.cs
+++TeamEvent.cs
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:d:\faks\.net praktikum\fifa-api-aplication\lib\model\teamevent.cs
+++TeamStatistics.cs
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:d:\faks\.net praktikum\fifa-api-aplication\lib\model\teamstatistics.cs
+++Weather.cs
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:d:\faks\.net praktikum\fifa-api-aplication\lib\model\weather.cs
+++app.config
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:d:\faks\.net praktikum\fifa-api-aplication\lib\app.config
+++packages.config
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:d:\faks\.net praktikum\fifa-api-aplication\lib\packages.config
+++AssemblyInfo.cs
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:d:\faks\.net praktikum\fifa-api-aplication\lib\properties\assemblyinfo.cs
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\properties\assemblyinfo.cs
+++Microsoft.Bcl.AsyncInterfaces
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:
+++Microsoft.CSharp
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:
+++Newtonsoft.Json
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:
+++RestSharp
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:
+++System
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:
+++System.Buffers
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:
+++System.Core
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:
+++System.Data
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:
+++System.Data.DataSetExtensions
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:
+++System.Memory
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:
+++System.Net.Http
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:
+++System.Numerics
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:
+++System.Numerics.Vectors
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:
+++System.Runtime.CompilerServices.Unsafe
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:
+++System.Text.Encodings.Web
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:
+++System.Text.Json
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:
+++System.Threading.Tasks.Extensions
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:
+++System.ValueTuple
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:
+++System.Windows.Forms
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:
+++System.Xml
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:
+++System.Xml.Linq
+i:{77c118a2-dde5-420a-bc67-ae9b6508afaa}:
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:
+++Projekt
+i:{00000000-0000-0000-0000-000000000000}:Projekt
+++bin
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\
+++obj
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\obj\
+++Resources
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\resources\
+++captainShirt.png
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\resources\captainshirt.png
+++favorite.png
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\resources\favorite.png
+++shirt.png
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\resources\shirt.png
+++star-svgrepo-com.png
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\resources\star-svgrepo-com.png
+++App.config
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\app.config
+++Images.resx
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\images.resx
+++MainForm.cs
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\mainform.cs
+++PlayerContainer.cs
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\playercontainer.cs
+++Program.cs
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\program.cs
+++TeamViewForm.cs
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\teamviewform.cs
+++Resources.resx
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\properties\resources.resx
+++Settings.settings
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\properties\settings.settings
+++PresentationCore
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:
+++System.Deployment
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:
+++System.DirectoryServices
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:
+++System.Drawing
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:
+++Debug
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\obj\debug\
+++Release
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\release\
+++Images.Designer.cs
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\images.designer.cs
+++MainForm.Designer.cs
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\mainform.designer.cs
+++MainForm.resx
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\mainform.resx
+++PlayerContainer.Designer.cs
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\playercontainer.designer.cs
+++PlayerContainer.resx
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\playercontainer.resx
+++TeamViewForm.Designer.cs
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\teamviewform.designer.cs
+++TeamViewForm.resx
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\teamviewform.resx
+++Resources.Designer.cs
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\properties\resources.designer.cs
+++Settings.Designer.cs
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\properties\settings.designer.cs
+++men
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\men\
+++women
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\women\
+++favorites.txt
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\favorites.txt
+++Lib.dll
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\lib.dll
+++Lib.dll.config
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\lib.dll.config
+++Lib.pdb
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\lib.pdb
+++Microsoft.Bcl.AsyncInterfaces.dll
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\microsoft.bcl.asyncinterfaces.dll
+++Microsoft.Bcl.AsyncInterfaces.xml
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\microsoft.bcl.asyncinterfaces.xml
+++Newtonsoft.Json.dll
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\newtonsoft.json.dll
+++Newtonsoft.Json.xml
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\newtonsoft.json.xml
+++Projekt.exe
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\projekt.exe
+++Projekt.exe.config
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\projekt.exe.config
+++Projekt.pdb
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\projekt.pdb
+++RestSharp.dll
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\restsharp.dll
+++RestSharp.xml
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\restsharp.xml
+++starting_parameters.txt
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\starting_parameters.txt
+++System.Buffers.dll
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\system.buffers.dll
+++System.Buffers.xml
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\system.buffers.xml
+++System.Memory.dll
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\system.memory.dll
+++System.Memory.xml
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\system.memory.xml
+++System.Numerics.Vectors.dll
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\system.numerics.vectors.dll
+++System.Numerics.Vectors.xml
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\system.numerics.vectors.xml
+++System.Text.Encodings.Web.dll
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\system.text.encodings.web.dll
+++System.Text.Encodings.Web.xml
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\system.text.encodings.web.xml
+++System.Text.Json.dll
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\system.text.json.dll
+++System.Text.Json.xml
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\system.text.json.xml
+++System.Threading.Tasks.Extensions.dll
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\system.threading.tasks.extensions.dll
+++System.Threading.Tasks.Extensions.xml
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\system.threading.tasks.extensions.xml
+++System.ValueTuple.dll
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\system.valuetuple.dll
+++System.ValueTuple.xml
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\system.valuetuple.xml
+++.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\obj\debug\.netframework,version=v4.7.2.assemblyattributes.cs
+++group_results.json
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\men\group_results.json
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\women\group_results.json
+++matches.json
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\men\matches.json
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\women\matches.json
+++results.json
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\men\results.json
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\women\results.json
+++teams.json
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\men\teams.json
+i:{0a36622f-f474-452b-9434-9af4de7accc3}:d:\faks\.net praktikum\fifa-api-aplication\projekt\bin\debug\women\teams.json

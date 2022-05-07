@@ -13,35 +13,48 @@ namespace Lib.Dal
         private const string FAVORITES_PATH = "favorites.txt";
         private const char DELIM = '|';
 
-        public List<Player> players = new List<Player>();
+        public List<Player> favoritePlayersList = new List<Player>();
 
         public bool IfFileExists()
         {
             if (!File.Exists(FAVORITES_PATH))
             {
+                SaveToFile();
                 return false;
             }
+            LoadFromFile();
             return true;
         }
 
         private string FormatForFileLine(Player player) // probaj maknu playera
-            => $"{player.Name}{DELIM}{player.ShirtNumber}\n"; //dodati jezik
+            => $"{player.Name}{DELIM}{player.ShirtNumber}\n";
 
 
-        public void LoadFromFile()
+        public void LoadFromFile()  // mozda on treba provjeravati je li postoji igrac iz tima, ne neka duga funkcija
         {
             string[] lines = File.ReadAllLines(FAVORITES_PATH);
+            if (lines.Length == 0)
+            {
+                return;
+            }
             foreach (var l in lines)
             {
                 string[] details = l.Split(DELIM);
-                players.Add(new Player
+                favoritePlayersList.Add(new Player
                 {
                     Name = details[0],
                     ShirtNumber = int.Parse(details[1]),
-                    //Favorite = true
                 });
             }
-            //File.Delete(FAVORITES_PATH);
+        }
+
+        public bool FavoritesExist()
+        {
+            if (favoritePlayersList.Count == 0)
+            {
+                return false;
+            }
+            return true;
         }
 
         public void SaveToFile()
@@ -55,8 +68,7 @@ namespace Lib.Dal
             File.Create(FAVORITES_PATH).Close();
 
             //writes all players in file
-            players.ForEach(p => File.AppendAllText(FAVORITES_PATH, FormatForFileLine(p)));
-
+            favoritePlayersList.ForEach(p => File.AppendAllText(FAVORITES_PATH, FormatForFileLine(p)));
         }
     }
 }

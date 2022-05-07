@@ -20,14 +20,9 @@ namespace Lib.Model
 
         public Team SelectedTeam { get; set; }
 
-        //public string TeamCode { get; set; }
-        
-        //public string Culture { get; set; }
-
 
         private string FormatForFileLine()
             => $"{IsMale}{DELIM}{IsOnline}{DELIM}{SelectedTeam.FifaCode}"; //dodati jezik
-        //=> $"{IsMale}{DELIM}{IsOnline}{DELIM}{TeamCode}"; //dodati jezik
 
 
         public bool IfFileExists()

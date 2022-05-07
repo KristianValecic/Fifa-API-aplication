@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Lib.Dal
 {
-    public class PlayerImage : ISaveable
+    public class PlayerImageRepository : ISaveable
     {
         private const string PATH = "images.txt";
         private const char DELIM = '|';
@@ -66,7 +66,7 @@ namespace Lib.Dal
             playerImages[playerName] = filePath;
         }
 
-        public bool PlayerExists(string playerName)
+        public bool PlayerHasPicture(string playerName)
         {
             if (playerImages.ContainsKey(playerName))
             {

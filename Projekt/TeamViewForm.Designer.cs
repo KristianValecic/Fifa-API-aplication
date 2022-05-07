@@ -39,23 +39,29 @@
             this.cmsFavoritesList = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.makniOznačeneFavoriteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dodajSlikuToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.makniSlikuToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.flpPlayers = new System.Windows.Forms.FlowLayoutPanel();
             this.cmsPlayerList = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.dodajIgračeUFavoriteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dodajSlikuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.makniSlikuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.makniSlikuToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.flpList = new System.Windows.Forms.FlowLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnSortYellowCards = new System.Windows.Forms.Button();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.cmsFavoritesList.SuspendLayout();
             this.cmsPlayerList.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
             // 
             this.tabControl.Controls.Add(this.tabPage1);
             this.tabControl.Controls.Add(this.tabPage2);
+            this.tabControl.Controls.Add(this.tabPage3);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Location = new System.Drawing.Point(0, 0);
             this.tabControl.Name = "tabControl";
@@ -76,7 +82,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(838, 541);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Omiljeni igrači";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // RemoveFromFavorites
@@ -136,7 +142,7 @@
             this.dodajSlikuToolStripMenuItem1,
             this.makniSlikuToolStripMenuItem1});
             this.cmsFavoritesList.Name = "cmsFavoritesList";
-            this.cmsFavoritesList.Size = new System.Drawing.Size(204, 92);
+            this.cmsFavoritesList.Size = new System.Drawing.Size(204, 70);
             // 
             // makniOznačeneFavoriteToolStripMenuItem
             // 
@@ -151,6 +157,13 @@
             this.dodajSlikuToolStripMenuItem1.Size = new System.Drawing.Size(203, 22);
             this.dodajSlikuToolStripMenuItem1.Text = "Dodaj Sliku";
             this.dodajSlikuToolStripMenuItem1.Click += new System.EventHandler(this.AddPlayerImg_Click);
+            // 
+            // makniSlikuToolStripMenuItem1
+            // 
+            this.makniSlikuToolStripMenuItem1.Name = "makniSlikuToolStripMenuItem1";
+            this.makniSlikuToolStripMenuItem1.Size = new System.Drawing.Size(203, 22);
+            this.makniSlikuToolStripMenuItem1.Text = "Makni sliku";
+            this.makniSlikuToolStripMenuItem1.Click += new System.EventHandler(this.RemoveImage_click);
             // 
             // flpPlayers
             // 
@@ -185,16 +198,6 @@
             this.dodajSlikuToolStripMenuItem.Text = "Dodaj sliku";
             this.dodajSlikuToolStripMenuItem.Click += new System.EventHandler(this.AddPlayerImg_Click);
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(838, 541);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
             // makniSlikuToolStripMenuItem
             // 
             this.makniSlikuToolStripMenuItem.Name = "makniSlikuToolStripMenuItem";
@@ -202,12 +205,57 @@
             this.makniSlikuToolStripMenuItem.Text = "Makni sliku";
             this.makniSlikuToolStripMenuItem.Click += new System.EventHandler(this.RemoveImage_click);
             // 
-            // makniSlikuToolStripMenuItem1
+            // tabPage2
             // 
-            this.makniSlikuToolStripMenuItem1.Name = "makniSlikuToolStripMenuItem1";
-            this.makniSlikuToolStripMenuItem1.Size = new System.Drawing.Size(203, 22);
-            this.makniSlikuToolStripMenuItem1.Text = "Makni sliku";
-            this.makniSlikuToolStripMenuItem1.Click += new System.EventHandler(this.RemoveImage_click);
+            this.tabPage2.Controls.Add(this.flpList);
+            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.btnSortYellowCards);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(838, 541);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Rang lista igrača";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // flpList
+            // 
+            this.flpList.AutoScroll = true;
+            this.flpList.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpList.Location = new System.Drawing.Point(6, 97);
+            this.flpList.Name = "flpList";
+            this.flpList.Size = new System.Drawing.Size(431, 436);
+            this.flpList.TabIndex = 4;
+            this.flpList.WrapContents = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(315, 68);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(122, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Sortiraj golove \\/";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.SortGoals_Click);
+            // 
+            // btnSortYellowCards
+            // 
+            this.btnSortYellowCards.Location = new System.Drawing.Point(168, 68);
+            this.btnSortYellowCards.Name = "btnSortYellowCards";
+            this.btnSortYellowCards.Size = new System.Drawing.Size(141, 23);
+            this.btnSortYellowCards.TabIndex = 2;
+            this.btnSortYellowCards.Text = "Sortiraj zute kartone \\/";
+            this.btnSortYellowCards.UseVisualStyleBackColor = true;
+            this.btnSortYellowCards.Click += new System.EventHandler(this.btnSortYellowCards_Click);
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(838, 541);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Utakmice";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // TeamViewForm
             // 
@@ -224,6 +272,7 @@
             this.tabPage1.PerformLayout();
             this.cmsFavoritesList.ResumeLayout(false);
             this.cmsPlayerList.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -247,5 +296,9 @@
         private System.Windows.Forms.ToolStripMenuItem dodajSlikuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem makniSlikuToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem makniSlikuToolStripMenuItem;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSortYellowCards;
+        private System.Windows.Forms.FlowLayoutPanel flpList;
     }
 }

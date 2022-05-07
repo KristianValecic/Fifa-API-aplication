@@ -19,6 +19,9 @@ namespace Projekt
 
         private OpenFileDialog ofd = new OpenFileDialog();
         private FavoritePlayers favoritePlayers = new FavoritePlayers();
+        private List<Player> allPlayers = new List<Player>();
+        private List<Player> players = new List<Player>();
+        private bool teamHasFavorites = false;
         
 
         public TeamViewForm()
@@ -27,56 +30,97 @@ namespace Projekt
             InitOpenFileDialog();
         }
 
-        private void InitOpenFileDialog()
+        private void TeamViewForm_Load(object sender, EventArgs e)
         {
-            ofd.Filter = "Pictures|*.jpeg;*.jpg;*.png;|All files|*.*";
-            //ofd.Multiselect = fasle;
-            ofd.Title = "Load pictures...";
-            ofd.InitialDirectory = Application.StartupPath;
+            LoadPlayers();
+            LoadFavoritePlayers();
+            LoadFlpPlayers();
+            LoadListOfPlayers();
+            LoadflpFavorites();
         }
 
-        private void LoadFlpPlayers()
+        private void LoadFavoritePlayers()
         {
-            List<Player> players = matches.ElementAt(0).GetPlayerFromTeam(team);
-
             if (favoritePlayers.IfFileExists())
             {
-                //flpFavorites.Controls.Add(settings.LoadFavorites());
-                LoadflpFavorites(players);
+                SetFavorites(allPlayers);
             }
+        }
 
-            players.ForEach(p =>
+
+        private void LoadListOfPlayers()
+        {
+            flpList.Controls.Clear();
+            allPlayers.ForEach(p =>
             {
-                flpPlayers.Controls.Add(
-                    new PlayerContainer {
+                flpList.Controls.Add(
+                    new PlayerContainerRow
+                    {
                         player = p
                     }
                 );
             });
-            //////////////////////
-            ////////TO DO:///////
-            //
         }
 
-        private void LoadflpFavorites(List<Player> players)
+        private void LoadFlpPlayers()
         {
-            favoritePlayers.LoadFromFile();
-            foreach (Player p in favoritePlayers.players)
+            allPlayers.ForEach(players.Add);
+
+            players.ForEach(p =>
+             {
+                 if (p.Favorite == false)
+                 {
+                     flpPlayers.Controls.Add(
+                         new PlayerContainer
+                         {
+                             player = p
+                         }
+                     );
+                 }
+             }) ;
+        }
+        private void InitOpenFileDialog()
+        {
+            ofd.Filter = "Pictures|*.jpeg;*.jpg;*.png;|All files|*.*";
+            ofd.Title = "Load pictures...";
+            ofd.InitialDirectory = Application.StartupPath;
+        }
+
+        private void SetFavorites(List<Player> players)
+        {
+            foreach (Player p in favoritePlayers.favoritePlayersList)
             {
                 Player player = players.FirstOrDefault(p.Equals);
-                player.Favorite = true;
-                players.Remove(player);
-                flpFavorites.Controls.Add(
-                new PlayerContainer
+                if (player != null)
                 {
-                    player = player
-                });
+                    player.Favorite = true;
+
+                }
             }
         }
 
-        private void TeamViewForm_Load(object sender, EventArgs e)
+        private void LoadflpFavorites() //List<Player> players
         {
-            LoadFlpPlayers();
+            
+
+            allPlayers.ForEach(p => { 
+                if (p != null && p.Favorite == true)
+                {
+                    players.Remove(p);
+                        flpFavorites.Controls.Add(
+                        new PlayerContainer
+                        {
+                            player = p
+                        });
+                }
+            });
+        }
+
+        private void LoadPlayers()
+        {
+            Match match = matches.ElementAt(0);
+            allPlayers = match.GetPlayerFromTeam(team);
+            match.GetAllPlayersGoalsCards();
         }
 
         private void MoveToFavorites_Click(object sender, EventArgs e)
@@ -131,6 +175,7 @@ namespace Projekt
 
             fromList.Clear();
             SaveFavorites();
+            LoadListOfPlayers();
         }
 
         private void Form_FormClosing(object sender, FormClosingEventArgs e)
@@ -146,8 +191,11 @@ namespace Projekt
             {
                 tempList.Add(c.player);
             }
-            favoritePlayers.players = tempList;
-            favoritePlayers.SaveToFile();
+            favoritePlayers.favoritePlayersList = tempList;
+            //if (flpFavorites.Controls.Count != 0)
+            //{
+                favoritePlayers.SaveToFile(); 
+            //}
         }
 
         private void AddPlayerImg_Click(object sender, EventArgs e) => LoadPictures();
@@ -159,10 +207,10 @@ namespace Projekt
                 var selectedList = PlayerContainer.selectedList.Concat(PlayerContainer.selectedListFavorites);
                 foreach (PlayerContainer plContainer in selectedList)
                 {
-                    //plContainer.SetImage(Image.FromFile(ofd.FileName));
                     plContainer.ChangeImage(Image.FromFile(ofd.FileName), ofd.FileName);
                 }
             }
+            LoadListOfPlayers();
         }
 
         private void RemoveImage_click(object sender, EventArgs e) => RemovePictures();
@@ -174,6 +222,17 @@ namespace Projekt
             {
                 plContainer.DefaultImage();
             }
+            LoadListOfPlayers();
+        }
+
+        private void btnSortYellowCards_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SortGoals_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

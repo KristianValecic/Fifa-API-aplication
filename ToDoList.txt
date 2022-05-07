@@ -1,9 +1,12 @@
 Lokalizacija stringova iz message boxa
 drag'n'drop favorita
 Stavljanje slika
+error na makni sliku, ako default 
+Sort goals i yellowcards
+Napravi Slike za druge user kontrole
 
 optional-------------
 dodaj da desni klik automatski mice tog na kojem je
 Imena na dresovima u dva reda
 
-Dodaj micanje slika na contextMenuStrip
+Prokuzi treba li spremati za vise timova favorite

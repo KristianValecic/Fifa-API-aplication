@@ -38,5 +38,8 @@ namespace Lib.Model
 
         public override bool Equals(object obj)
          => obj is Player other && Name == other.Name && ShirtNumber == other.ShirtNumber;
+
+        public object FormatForTabel()
+                 => $"{Name}, {ShirtNumber}\t\t{Position}{(Captain ? ", (Captain)" : "")}";
     }
 }

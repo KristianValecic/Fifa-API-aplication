@@ -65,8 +65,15 @@
     <Compile Include="PlayerContainer.Designer.cs">
       <DependentUpon>PlayerContainer.cs</DependentUpon>
     </Compile>
+    <Compile Include="PlayerContainerRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PlayerContainerRow.Designer.cs">
+      <DependentUpon>PlayerContainerRow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RowComparer.cs" />
     <Compile Include="TeamViewForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PlayerContainer.resx">
       <DependentUpon>PlayerContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlayerContainerRow.resx">
+      <DependentUpon>PlayerContainerRow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
