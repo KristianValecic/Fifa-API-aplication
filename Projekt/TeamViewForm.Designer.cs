@@ -47,9 +47,12 @@
             this.makniSlikuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.flpList = new System.Windows.Forms.FlowLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSortGoals = new System.Windows.Forms.Button();
             this.btnSortYellowCards = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.lbGoalsSort = new System.Windows.Forms.Label();
+            this.lbyellowCardsSort = new System.Windows.Forms.Label();
+            this.pnlSelectedPlayerPlaceholder = new System.Windows.Forms.Panel();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.cmsFavoritesList.SuspendLayout();
@@ -207,8 +210,11 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.pnlSelectedPlayerPlaceholder);
+            this.tabPage2.Controls.Add(this.lbyellowCardsSort);
+            this.tabPage2.Controls.Add(this.lbGoalsSort);
             this.tabPage2.Controls.Add(this.flpList);
-            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.btnSortGoals);
             this.tabPage2.Controls.Add(this.btnSortYellowCards);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -228,23 +234,23 @@
             this.flpList.TabIndex = 4;
             this.flpList.WrapContents = false;
             // 
-            // button1
+            // btnSortGoals
             // 
-            this.button1.Location = new System.Drawing.Point(168, 68);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(122, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Sortiraj golove \\/";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.SortGoals_Click);
+            this.btnSortGoals.Location = new System.Drawing.Point(154, 68);
+            this.btnSortGoals.Name = "btnSortGoals";
+            this.btnSortGoals.Size = new System.Drawing.Size(94, 23);
+            this.btnSortGoals.TabIndex = 3;
+            this.btnSortGoals.Text = "Sortiraj golove";
+            this.btnSortGoals.UseVisualStyleBackColor = true;
+            this.btnSortGoals.Click += new System.EventHandler(this.SortGoals_Click);
             // 
             // btnSortYellowCards
             // 
-            this.btnSortYellowCards.Location = new System.Drawing.Point(296, 68);
+            this.btnSortYellowCards.Location = new System.Drawing.Point(295, 68);
             this.btnSortYellowCards.Name = "btnSortYellowCards";
-            this.btnSortYellowCards.Size = new System.Drawing.Size(141, 23);
+            this.btnSortYellowCards.Size = new System.Drawing.Size(112, 23);
             this.btnSortYellowCards.TabIndex = 2;
-            this.btnSortYellowCards.Text = "Sortiraj zute kartone \\/";
+            this.btnSortYellowCards.Text = "Sortiraj zute kartone";
             this.btnSortYellowCards.UseVisualStyleBackColor = true;
             this.btnSortYellowCards.Click += new System.EventHandler(this.SortYellowCards_Click);
             // 
@@ -256,6 +262,31 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Utakmice";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // lbGoalsSort
+            // 
+            this.lbGoalsSort.AutoSize = true;
+            this.lbGoalsSort.Location = new System.Drawing.Point(254, 73);
+            this.lbGoalsSort.Name = "lbGoalsSort";
+            this.lbGoalsSort.Size = new System.Drawing.Size(17, 13);
+            this.lbGoalsSort.TabIndex = 5;
+            this.lbGoalsSort.Text = "\\/";
+            // 
+            // lbyellowCardsSort
+            // 
+            this.lbyellowCardsSort.AutoSize = true;
+            this.lbyellowCardsSort.Location = new System.Drawing.Point(413, 73);
+            this.lbyellowCardsSort.Name = "lbyellowCardsSort";
+            this.lbyellowCardsSort.Size = new System.Drawing.Size(17, 13);
+            this.lbyellowCardsSort.TabIndex = 6;
+            this.lbyellowCardsSort.Text = "\\/";
+            // 
+            // pnlSelectedPlayerPlaceholder
+            // 
+            this.pnlSelectedPlayerPlaceholder.Location = new System.Drawing.Point(469, 97);
+            this.pnlSelectedPlayerPlaceholder.Name = "pnlSelectedPlayerPlaceholder";
+            this.pnlSelectedPlayerPlaceholder.Size = new System.Drawing.Size(361, 438);
+            this.pnlSelectedPlayerPlaceholder.TabIndex = 7;
             // 
             // TeamViewForm
             // 
@@ -273,6 +304,7 @@
             this.cmsFavoritesList.ResumeLayout(false);
             this.cmsPlayerList.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -297,8 +329,11 @@
         private System.Windows.Forms.ToolStripMenuItem makniSlikuToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem makniSlikuToolStripMenuItem;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSortGoals;
         private System.Windows.Forms.Button btnSortYellowCards;
         private System.Windows.Forms.FlowLayoutPanel flpList;
+        private System.Windows.Forms.Label lbyellowCardsSort;
+        private System.Windows.Forms.Label lbGoalsSort;
+        private System.Windows.Forms.Panel pnlSelectedPlayerPlaceholder;
     }
 }

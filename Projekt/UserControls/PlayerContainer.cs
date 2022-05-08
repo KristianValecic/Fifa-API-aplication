@@ -1,5 +1,6 @@
 ﻿using Lib.Dal;
 using Lib.Model;
+using Lib.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -37,22 +38,23 @@ namespace Projekt
 
         private void PlayerContainer_Load(object sender, EventArgs e)
         {
-            PicBoxFavorite.Visible = false;
-
             lbPlrName.Text = player.Name;
-            Center(lbPlrName);
+            PlayerContainerUtils.Center(lbPlrName, this.Width);
 
             lbPlrNumber.Text = player.ShirtNumber.ToString();
-            Center(lbPlrNumber);
+            PlayerContainerUtils.Center(lbPlrNumber, this.Width);
             
             lbPosition.Text = player.Position;
-            Center(lbPosition);
+            PlayerContainerUtils.Center(lbPosition, this.Width);
 
-            if (playerImage.PlayerHasPicture(player.Name))
+            SetPicture();
+        }
+
+        private void SetPicture()
+        {
+            if (PlayerImageRepository.PlayerHasPicture(player.Name))
             {
-                //load corresponding saved image
-                //PicBoxShirt.Image = Image.FromFile(playerImage.GetImage(player.Name));
-                string imgPath = playerImage.GetImage(player.Name);
+                string imgPath = PlayerImageRepository.GetImage(player.Name);
                 ChangeImage(Image.FromFile(imgPath), imgPath);
             }
             else if (player.Captain)
@@ -63,28 +65,7 @@ namespace Projekt
             ShowFavoriteStar();
         }
 
-        public void ShowFavoriteStar()
-        {
-            if (player.Favorite)
-            {
-                PicBoxFavorite.Visible = true;
-            }else
-            {
-                PicBoxFavorite.Visible = false;
-            }
-        }
-
-        private void Center(Label label)
-        {
-            //int shirtWidth = (int)Math.Round((pictureBox.Width * 0.6), 0);
-            //if (label.Width >= shirtWidth)
-            //{                                                     STAVLJA LABEL U DVA REDA
-            //    label.MaximumSize = new Size(shirtWidth, 0);
-            //}
-            int middle = this.Width / 2;
-            int labelMid = (label.Width / 2);
-            label.Location = new Point(middle - labelMid, label.Location.Y);
-        }
+        public void ShowFavoriteStar() => PlayerContainerUtils.ShowFavoriteStar(PicBoxFavorite, player);
 
         private void SelectPlayerContainer_MouseClick(object sender, System.Windows.Forms.MouseEventArgs e)
         {
@@ -122,7 +103,7 @@ namespace Projekt
                 this.BackColor = Color.DodgerBlue;
                 selectedListFavorites.Add(this);
             }
-            else if (plContainer.Parent.Name == "flpPlayers" /*&& selectedList.Count < listLimit*/)
+            else if (plContainer.Parent.Name == "flpPlayers")
             {
                 this.BackColor = Color.DodgerBlue;
                 selectedList.Add(this);

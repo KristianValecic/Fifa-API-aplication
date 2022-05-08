@@ -73,3 +73,4 @@ D:\Faks\.NET Praktikum\Fifa-API-aplication\Projekt\obj\Debug\Projekt.exe
 D:\Faks\.NET Praktikum\Fifa-API-aplication\Projekt\obj\Debug\Projekt.pdb
 D:\Faks\.NET Praktikum\Fifa-API-aplication\Projekt\obj\Debug\Projekt.Images.resources
 D:\Faks\.NET Praktikum\Fifa-API-aplication\Projekt\obj\Debug\Projekt.PlayerContainerRow.resources
+D:\Faks\.NET Praktikum\Fifa-API-aplication\Projekt\obj\Debug\Projekt.PlayerContainerSelected.resources

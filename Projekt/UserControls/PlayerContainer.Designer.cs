@@ -87,6 +87,7 @@
             this.PicBoxFavorite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PicBoxFavorite.TabIndex = 5;
             this.PicBoxFavorite.TabStop = false;
+            this.PicBoxFavorite.Visible = false;
             this.PicBoxFavorite.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SelectPlayerContainer_MouseClick);
             // 
             // PicBoxShirt

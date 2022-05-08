@@ -50,6 +50,7 @@
             this.PicBoxShirt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PicBoxShirt.TabIndex = 0;
             this.PicBoxShirt.TabStop = false;
+            this.PicBoxShirt.Click += new System.EventHandler(this.PlayerContainerRow_Click);
             // 
             // lbName
             // 
@@ -60,6 +61,7 @@
             this.lbName.Size = new System.Drawing.Size(61, 16);
             this.lbName.TabIndex = 1;
             this.lbName.Text = "Ime i broj";
+            this.lbName.Click += new System.EventHandler(this.PlayerContainerRow_Click);
             // 
             // label2
             // 
@@ -70,6 +72,7 @@
             this.label2.Size = new System.Drawing.Size(52, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "Golovi: ";
+            this.label2.Click += new System.EventHandler(this.PlayerContainerRow_Click);
             // 
             // label3
             // 
@@ -80,6 +83,7 @@
             this.label3.Size = new System.Drawing.Size(71, 16);
             this.label3.TabIndex = 4;
             this.label3.Text = "Žuti karton:";
+            this.label3.Click += new System.EventHandler(this.PlayerContainerRow_Click);
             // 
             // lbGoals
             // 
@@ -100,6 +104,7 @@
             this.lbYellowCards.Size = new System.Drawing.Size(14, 16);
             this.lbYellowCards.TabIndex = 6;
             this.lbYellowCards.Text = "1";
+            this.lbYellowCards.Click += new System.EventHandler(this.PlayerContainerRow_Click);
             // 
             // PicBoxFavorite
             // 
@@ -110,6 +115,8 @@
             this.PicBoxFavorite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PicBoxFavorite.TabIndex = 7;
             this.PicBoxFavorite.TabStop = false;
+            this.PicBoxFavorite.Visible = false;
+            this.PicBoxFavorite.Click += new System.EventHandler(this.PlayerContainerRow_Click);
             // 
             // lbShirtNumber
             // 
@@ -120,6 +127,7 @@
             this.lbShirtNumber.Size = new System.Drawing.Size(61, 16);
             this.lbShirtNumber.TabIndex = 8;
             this.lbShirtNumber.Text = "Ime i broj";
+            this.lbShirtNumber.Click += new System.EventHandler(this.PlayerContainerRow_Click);
             // 
             // PlayerContainerRow
             // 
@@ -136,6 +144,7 @@
             this.Name = "PlayerContainerRow";
             this.Size = new System.Drawing.Size(402, 73);
             this.Load += new System.EventHandler(this.PlayerControlRow_Load);
+            this.Click += new System.EventHandler(this.PlayerContainerRow_Click);
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxShirt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxFavorite)).EndInit();
             this.ResumeLayout(false);

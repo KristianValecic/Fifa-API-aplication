@@ -27,9 +27,6 @@ namespace Lib.Model
         public string Position { get; set; }
 
         public int Goals { get; set; }
-        //    get => goals;
-        //    set => goals += match.GetGoal(this);
-        //}
 
         public int YellowCards { get; set; }
 

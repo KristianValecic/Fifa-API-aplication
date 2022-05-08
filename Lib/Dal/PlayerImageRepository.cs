@@ -38,7 +38,7 @@ namespace Lib.Dal
             }
         }
 
-        public string GetImage(string name)
+        public static string GetImage(string name) //remove static?
             => playerImages[name];
 
         public void SaveToFile()
@@ -66,7 +66,7 @@ namespace Lib.Dal
             playerImages[playerName] = filePath;
         }
 
-        public bool PlayerHasPicture(string playerName)
+        public static bool PlayerHasPicture(string playerName) //remove static?
         {
             if (playerImages.ContainsKey(playerName))
             {
@@ -75,7 +75,7 @@ namespace Lib.Dal
             return false;
         }
 
-        public void RemovePlayerImage(string playerName)
+        public void RemovePlayerImage(string playerName) //remove static?
         {
             playerImages.Remove(playerName);
         }

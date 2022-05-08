@@ -24,6 +24,11 @@ namespace Projekt
         private List<Player> players = new List<Player>();
         private bool teamHasFavorites = false;
         private bool initialLoad = true;
+        private bool goalsDesc = true;
+        private bool yellowCardsDesc = true;
+        private string descCharacter = @"\/";
+        private string ascCharacter = @"/\";
+
 
 
         public TeamViewForm()
@@ -128,26 +133,19 @@ namespace Projekt
             allPlayers = matches.ElementAt(0).GetPlayersFromTeam(team); //samo prvobitno da dobijes 
             foreach (var match in matches)
             {
-                //var tempPlayers = new List<Player>();
-                //match.GetAllPlayersGoalsCards();
-                //if (match.HasGoalOrCardEvent(team))
-                //{
-                    var tempPlayers = match.GetPlayersFromTeam(team);
-                    tempPlayers.ForEach(p => {
-                        //if (match.PlayerHasGoalOrCardEvent(p))
-                        //{
-                            match.GetAllPlayerGoalsCards(p, team);
-                            allPlayers.ForEach((player) =>
+                var tempPlayers = match.GetPlayersFromTeam(team);
+                tempPlayers.ForEach(p => {
+
+                        match.GetAllPlayerGoalsCards(p, team);
+                        allPlayers.ForEach((player) =>
+                        {
+                            if (p.Equals(player) && (p.Goals != 0 && p.YellowCards != 0))
                             {
-                                if (p.Equals(player) && (p.Goals != 0 && p.YellowCards != 0))
-                                {
-                                    player.Goals += p.Goals;
-                                    player.YellowCards += p.YellowCards;
-                                }
-                            }); 
-                        //}
+                                player.Goals += p.Goals;
+                                player.YellowCards += p.YellowCards;
+                            }
+                        }); 
                     }); 
-                //}
             }
         }
 
@@ -169,7 +167,7 @@ namespace Projekt
             selectedList.ForEach(p => {
                 p.BackColor = Color.White;
                 p.player.Favorite = true;
-                p.ShowFavoriteStar();
+                //p.ShowFavoriteStar();
                 flpFavorites.Controls.Add(p);
             });
 
@@ -247,7 +245,7 @@ namespace Projekt
         {
             var selectedList = PlayerContainer.selectedList.Concat(PlayerContainer.selectedListFavorites);
             foreach (PlayerContainer plContainer in selectedList)
-            {
+            { 
                 plContainer.DefaultImage();
             }
             LoadListOfPlayers();
@@ -255,14 +253,43 @@ namespace Projekt
 
         private void SortYellowCards_Click(object sender, EventArgs e)
         {
-            playersListForSort.Sort((a, b) => -a.YellowCards.CompareTo(b.YellowCards));
+            if (yellowCardsDesc)
+            {
+                playersListForSort.Sort((a, b) => -a.YellowCards.CompareTo(b.YellowCards));
+                yellowCardsDesc = false;
+                lbyellowCardsSort.Text = ascCharacter;
+            }
+            else
+            {
+                playersListForSort.Sort((a, b) => a.YellowCards.CompareTo(b.YellowCards));
+                yellowCardsDesc = true;
+                lbyellowCardsSort.Text = descCharacter;
+            }
             LoadListOfPlayers();
         }
 
         private void SortGoals_Click(object sender, EventArgs e)
         {
-            playersListForSort.Sort((a, b) => -a.Goals.CompareTo(b.Goals));
+            if (goalsDesc)
+            {
+                playersListForSort.Sort((a, b) => -a.Goals.CompareTo(b.Goals));
+                goalsDesc = false;
+                btnSortGoals.Text = $"{btnSortGoals.Text} {ascCharacter}";
+                lbGoalsSort.Text = ascCharacter;
+            }
+            else
+            {
+                playersListForSort.Sort((a, b) => a.Goals.CompareTo(b.Goals));
+                goalsDesc = true;
+                lbGoalsSort.Text = descCharacter;
+            }
             LoadListOfPlayers();
+        }
+
+        public void ShowSelectedPlayerFromRow()
+        {
+            pnlSelectedPlayerPlaceholder.Controls.Clear();
+            pnlSelectedPlayerPlaceholder.Controls.Add(PlayerContainerSelected.GetSelectedPlayerControl(PlayerContainerRow.selectedPlayer));
         }
     }
 }
