@@ -20,9 +20,11 @@ namespace Projekt
         private OpenFileDialog ofd = new OpenFileDialog();
         private FavoritePlayers favoritePlayers = new FavoritePlayers();
         private List<Player> allPlayers = new List<Player>();
+        private List<Player> playersListForSort = new List<Player>();
         private List<Player> players = new List<Player>();
         private bool teamHasFavorites = false;
-        
+        private bool initialLoad = true;
+
 
         public TeamViewForm()
         {
@@ -50,8 +52,15 @@ namespace Projekt
 
         private void LoadListOfPlayers()
         {
+            if (initialLoad == true)
+            {
+                allPlayers.ForEach(playersListForSort.Add);
+                initialLoad = false;
+            }
+
             flpList.Controls.Clear();
-            allPlayers.ForEach(p =>
+
+            playersListForSort.ForEach(p =>
             {
                 flpList.Controls.Add(
                     new PlayerContainerRow
@@ -79,6 +88,7 @@ namespace Projekt
                  }
              }) ;
         }
+
         private void InitOpenFileDialog()
         {
             ofd.Filter = "Pictures|*.jpeg;*.jpg;*.png;|All files|*.*";
@@ -94,15 +104,12 @@ namespace Projekt
                 if (player != null)
                 {
                     player.Favorite = true;
-
                 }
             }
         }
 
-        private void LoadflpFavorites() //List<Player> players
+        private void LoadflpFavorites()
         {
-            
-
             allPlayers.ForEach(p => { 
                 if (p != null && p.Favorite == true)
                 {
@@ -118,9 +125,30 @@ namespace Projekt
 
         private void LoadPlayers()
         {
-            Match match = matches.ElementAt(0);
-            allPlayers = match.GetPlayerFromTeam(team);
-            match.GetAllPlayersGoalsCards();
+            allPlayers = matches.ElementAt(0).GetPlayersFromTeam(team); //samo prvobitno da dobijes 
+            foreach (var match in matches)
+            {
+                //var tempPlayers = new List<Player>();
+                //match.GetAllPlayersGoalsCards();
+                //if (match.HasGoalOrCardEvent(team))
+                //{
+                    var tempPlayers = match.GetPlayersFromTeam(team);
+                    tempPlayers.ForEach(p => {
+                        //if (match.PlayerHasGoalOrCardEvent(p))
+                        //{
+                            match.GetAllPlayerGoalsCards(p, team);
+                            allPlayers.ForEach((player) =>
+                            {
+                                if (p.Equals(player) && (p.Goals != 0 && p.YellowCards != 0))
+                                {
+                                    player.Goals += p.Goals;
+                                    player.YellowCards += p.YellowCards;
+                                }
+                            }); 
+                        //}
+                    }); 
+                //}
+            }
         }
 
         private void MoveToFavorites_Click(object sender, EventArgs e)
@@ -225,14 +253,16 @@ namespace Projekt
             LoadListOfPlayers();
         }
 
-        private void btnSortYellowCards_Click(object sender, EventArgs e)
+        private void SortYellowCards_Click(object sender, EventArgs e)
         {
-
+            playersListForSort.Sort((a, b) => -a.YellowCards.CompareTo(b.YellowCards));
+            LoadListOfPlayers();
         }
 
         private void SortGoals_Click(object sender, EventArgs e)
         {
-
+            playersListForSort.Sort((a, b) => -a.Goals.CompareTo(b.Goals));
+            LoadListOfPlayers();
         }
     }
 }

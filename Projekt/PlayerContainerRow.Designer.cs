@@ -35,6 +35,7 @@
             this.lbGoals = new System.Windows.Forms.Label();
             this.lbYellowCards = new System.Windows.Forms.Label();
             this.PicBoxFavorite = new System.Windows.Forms.PictureBox();
+            this.lbShirtNumber = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxShirt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxFavorite)).BeginInit();
             this.SuspendLayout();
@@ -54,7 +55,7 @@
             // 
             this.lbName.AutoSize = true;
             this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbName.Location = new System.Drawing.Point(74, 29);
+            this.lbName.Location = new System.Drawing.Point(79, 13);
             this.lbName.Name = "lbName";
             this.lbName.Size = new System.Drawing.Size(61, 16);
             this.lbName.TabIndex = 1;
@@ -64,7 +65,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(209, 29);
+            this.label2.Location = new System.Drawing.Point(226, 29);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 16);
             this.label2.TabIndex = 3;
@@ -84,7 +85,7 @@
             // 
             this.lbGoals.AutoSize = true;
             this.lbGoals.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbGoals.Location = new System.Drawing.Point(266, 29);
+            this.lbGoals.Location = new System.Drawing.Point(275, 29);
             this.lbGoals.Name = "lbGoals";
             this.lbGoals.Size = new System.Drawing.Size(14, 16);
             this.lbGoals.TabIndex = 5;
@@ -110,10 +111,21 @@
             this.PicBoxFavorite.TabIndex = 7;
             this.PicBoxFavorite.TabStop = false;
             // 
-            // PlayerControlRow
+            // lbShirtNumber
+            // 
+            this.lbShirtNumber.AutoSize = true;
+            this.lbShirtNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbShirtNumber.Location = new System.Drawing.Point(78, 41);
+            this.lbShirtNumber.Name = "lbShirtNumber";
+            this.lbShirtNumber.Size = new System.Drawing.Size(61, 16);
+            this.lbShirtNumber.TabIndex = 8;
+            this.lbShirtNumber.Text = "Ime i broj";
+            // 
+            // PlayerContainerRow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lbShirtNumber);
             this.Controls.Add(this.PicBoxFavorite);
             this.Controls.Add(this.lbYellowCards);
             this.Controls.Add(this.lbGoals);
@@ -121,7 +133,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lbName);
             this.Controls.Add(this.PicBoxShirt);
-            this.Name = "PlayerControlRow";
+            this.Name = "PlayerContainerRow";
             this.Size = new System.Drawing.Size(402, 73);
             this.Load += new System.EventHandler(this.PlayerControlRow_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxShirt)).EndInit();
@@ -140,5 +152,6 @@
         private System.Windows.Forms.Label lbGoals;
         private System.Windows.Forms.Label lbYellowCards;
         private System.Windows.Forms.PictureBox PicBoxFavorite;
+        private System.Windows.Forms.Label lbShirtNumber;
     }
 }

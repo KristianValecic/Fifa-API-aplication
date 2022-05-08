@@ -34,7 +34,7 @@ namespace Lib.Model
         public int YellowCards { get; set; }
 
         public override string ToString()
-         => $"{Name}, {ShirtNumber}, {Position}{(Captain ? ", Captain": "")}";
+         => $"{Name}, {ShirtNumber}, {Position}{(Captain ? ", Captain": "")} - {Goals}";
 
         public override bool Equals(object obj)
          => obj is Player other && Name == other.Name && ShirtNumber == other.ShirtNumber;

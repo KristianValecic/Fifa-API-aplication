@@ -97,7 +97,7 @@ namespace Lib.Model
             return HomeTeamStatistics.GetPlayers().Concat(AwayTeamStatistics.GetPlayers());
         }
 
-        public List<Player> GetPlayerFromTeam(Team team)
+        public List<Player> GetPlayersFromTeam(Team team)
         {
             if (HomeTeam.CompareCountryName(team))
             {
@@ -106,30 +106,77 @@ namespace Lib.Model
             return (List<Player>)AwayTeamStatistics.GetPlayers();
 
         }
+        //public void GetAllPlayersGoalsCards()
+        //{
+        //    //int goals = 0;
+        //    //StringBuilder sb = new StringBuilder();
+        //    foreach (var player in HomeTeamStatistics.GetPlayers())
+        //    {
+        //        IList<TeamEvent> teamEvents = HomeTeamEvents.FindAll(e => player.Name == e.Player);
+        //        foreach (var teamEvent in teamEvents)
+        //        {
+        //            if (teamEvent.TypeOfEvent == "goal")
+        //            {
+        //                //goals += 1;
+        //                player.Goals += 1;
+        //            }
+        //            if (teamEvent.TypeOfEvent == "yellow-card")
+        //            {
+        //                //goals += 1;
+        //                player.YellowCards += 1;
+        //            }
+        //        }
+        //        //sb.Append(player.ToString() + " - " + player.Goals + Environment.NewLine);
+        //    }
+        //    //return sb.ToString();
+        //}
 
-        public void GetAllPlayersGoalsCards()
+        //public bool PlayerHasGoalOrCardEvent(Player p)
+        //{
+            
+        //}
+
+
+        //public bool HasGoalOrCardEvent()
+        //{
+        //    IList<TeamEvent> teamEventsList = teamEvents.FindAll(e => p.Name == e.Player);
+        //    foreach (var teamEvent in teamEventsList)
+        //    {
+        //        if (teamEvent.TypeOfEvent == "goal")
+        //        {
+        //            p.Goals += 1;
+        //        }
+        //        if (teamEvent.TypeOfEvent == "yellow-card")
+        //        {
+        //            p.YellowCards += 1;
+        //        }
+        //    }
+        //}
+
+        public void GetAllPlayerGoalsCards(Player p, Team team)
         {
-            //int goals = 0;
-            //StringBuilder sb = new StringBuilder();
-            foreach (var player in HomeTeamStatistics.GetPlayers())
+            List<TeamEvent> teamEvents;
+            if (team.CompareCountryName(HomeTeam))
             {
-                IList<TeamEvent> teamEvents = HomeTeamEvents.FindAll(e => player.Name == e.Player);
-                foreach (var teamEvent in teamEvents)
-                {
-                    if (teamEvent.TypeOfEvent == "goal")
-                    {
-                        //goals += 1;
-                        player.Goals += 1;
-                    }
-                    if (teamEvent.TypeOfEvent == "yellow-card")
-                    {
-                        //goals += 1;
-                        player.YellowCards += 1;
-                    }
-                }
-                //sb.Append(player.ToString() + " - " + player.Goals + Environment.NewLine);
+                 teamEvents = HomeTeamEvents;
             }
-            //return sb.ToString();
+            else
+            {
+                 teamEvents = AwayTeamEvents;
+
+            }
+            IList<TeamEvent> teamEventsList = teamEvents.FindAll(e => p.Name == e.Player);
+            foreach (var teamEvent in teamEventsList)
+            {
+                if (teamEvent.TypeOfEvent == "goal")
+                {
+                    p.Goals += 1;
+                }
+                if (teamEvent.TypeOfEvent == "yellow-card")
+                {
+                    p.YellowCards += 1;
+                }
+            }
         }
 
         public static string GetEndpoint(bool isOnline, bool isMale, string extension)

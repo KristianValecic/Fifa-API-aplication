@@ -24,7 +24,8 @@ namespace Projekt
 
         private void PlayerControlRow_Load(object sender, EventArgs e)
         {
-            lbName.Text = player.Name;
+            lbName.Text = $"{player.Name}";
+            lbShirtNumber.Text = $"{player.ShirtNumber}";
             lbGoals.Text = player.Goals.ToString();
             lbYellowCards.Text = player.YellowCards.ToString();
 
@@ -43,10 +44,6 @@ namespace Projekt
 
         private void ChangeImage(Image image, string imgPath)
         {
-            lbName.Visible = false;
-            lbGoals.Visible = false;
-            lbYellowCards.Visible = false;
-
             playerImage.GivePlayerImage(player.Name, imgPath);
             PicBoxShirt.Image = image;
 

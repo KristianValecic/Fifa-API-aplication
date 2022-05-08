@@ -2,8 +2,10 @@ Lokalizacija stringova iz message boxa
 drag'n'drop favorita
 Stavljanje slika
 error na makni sliku, ako default 
-Sort goals i yellowcards
-Napravi Slike za druge user kontrole
+
+
+LoadPlayers skuzi kako pokupit iz svih metcheva golove i kartone i strpat u allPlayers listu
+
 
 optional-------------
 dodaj da desni klik automatski mice tog na kojem je

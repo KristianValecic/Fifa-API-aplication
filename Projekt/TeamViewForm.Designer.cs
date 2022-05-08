@@ -230,7 +230,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(315, 68);
+            this.button1.Location = new System.Drawing.Point(168, 68);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(122, 23);
             this.button1.TabIndex = 3;
@@ -240,13 +240,13 @@
             // 
             // btnSortYellowCards
             // 
-            this.btnSortYellowCards.Location = new System.Drawing.Point(168, 68);
+            this.btnSortYellowCards.Location = new System.Drawing.Point(296, 68);
             this.btnSortYellowCards.Name = "btnSortYellowCards";
             this.btnSortYellowCards.Size = new System.Drawing.Size(141, 23);
             this.btnSortYellowCards.TabIndex = 2;
             this.btnSortYellowCards.Text = "Sortiraj zute kartone \\/";
             this.btnSortYellowCards.UseVisualStyleBackColor = true;
-            this.btnSortYellowCards.Click += new System.EventHandler(this.btnSortYellowCards_Click);
+            this.btnSortYellowCards.Click += new System.EventHandler(this.SortYellowCards_Click);
             // 
             // tabPage3
             // 
