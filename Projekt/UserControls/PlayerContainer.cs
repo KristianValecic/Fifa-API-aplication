@@ -20,8 +20,12 @@ namespace Projekt
     {
         public static List<PlayerContainer> selectedList = new List<PlayerContainer>();
         public static List<PlayerContainer> selectedListFavorites = new List<PlayerContainer>();
+        public static PlayerContainer selected = new PlayerContainer();
         public Player player;
 
+        //private PlayerContainer ControlStartedDnD;
+        private Color DefaultColor = Color.White;
+        private Color SelectedColor = Color.DodgerBlue;
         private static readonly int listLimit = 3;
         private PlayerImageRepository playerImage = new PlayerImageRepository();
 
@@ -67,31 +71,31 @@ namespace Projekt
 
         public void ShowFavoriteStar() => PlayerContainerUtils.ShowFavoriteStar(PicBoxFavorite, player);
 
-        private void SelectPlayerContainer_MouseClick(object sender, System.Windows.Forms.MouseEventArgs e)
-        {
-            //if (e.Button == MouseButtons.Left)
-            //{
-                if (this.BackColor == Color.White)
-                {
-                    AddFavoriteOrPlayerList(this);
-                }
-                else
-                {
-                    RemoveFavoriteOrPlayerList(this);
-                }
-            //}
-        }
+        //private void SelectPlayerContainer_MouseClick(object sender, System.Windows.Forms.MouseEventArgs e)
+        //{
+        //    ////if (e.Button == MouseButtons.Left)
+        //    ////{
+        //    //    if (this.BackColor == DefaultColor)
+        //    //    {
+        //    //        AddFavoriteOrPlayerList(this);
+        //    //    }
+        //    //    else                                              
+        //    //    {
+        //    //        RemoveFavoriteOrPlayerList(this);
+        //    //    }
+        //    ////}
+        //}
 
         private void RemoveFavoriteOrPlayerList(PlayerContainer plContainer)
         {
             if(plContainer.Parent.Name == "flpFavorites" )
             {
-                this.BackColor = Color.White;
+                this.BackColor = DefaultColor;
                 selectedListFavorites.Remove(this);
             }
             else if (plContainer.Parent.Name == "flpPlayers" )
             {
-                this.BackColor = Color.White;
+                this.BackColor = DefaultColor;
                 selectedList.Remove(this);
             }
         }
@@ -100,12 +104,12 @@ namespace Projekt
         {
             if (plContainer.Parent.Name == "flpFavorites" && selectedListFavorites.Count < listLimit)
             {
-                this.BackColor = Color.DodgerBlue;
+                this.BackColor = SelectedColor;
                 selectedListFavorites.Add(this);
             }
             else if (plContainer.Parent.Name == "flpPlayers")
             {
-                this.BackColor = Color.DodgerBlue;
+                this.BackColor = SelectedColor;
                 selectedList.Add(this);
             }
         }
@@ -140,6 +144,56 @@ namespace Projekt
 
             playerImage.RemovePlayerImage(player.Name);
             playerImage.SaveToFile();
+        }
+
+        private void PlayerContainer_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            if (IfLeftMouse(e))
+            {
+                StartDnD(this); //sender as Control 
+                AddOrRemoveSelected();
+            }
+            else
+            {
+                selected = this;
+                //contextMenuStrip1 = new ContextMenuStrip();
+            }
+
+        }
+
+        private bool IfLeftMouse(System.Windows.Forms.MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private void AddOrRemoveSelected()
+        {
+            if (this.BackColor == DefaultColor)
+            {
+                AddFavoriteOrPlayerList(this);
+            }
+            else
+            {
+                RemoveFavoriteOrPlayerList(this);
+            }
+        }
+
+        private void StartDnD(PlayerContainer pContainer)
+        {
+            if (pContainer.BackColor == DefaultColor) return;
+
+
+            //ControlStartedDnD = pContainer;
+            pContainer.DoDragDrop(pContainer, DragDropEffects.Move);
+        }
+
+        internal void SetDefaultBackColor()
+        {
+            this.BackColor = DefaultBackColor; 
         }
     }
 }

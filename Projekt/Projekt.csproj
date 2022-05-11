@@ -59,6 +59,12 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\MatchContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\MatchContainer.Designer.cs">
+      <DependentUpon>MatchContainer.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\PlayerContainer.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -91,6 +97,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\MatchContainer.resx">
+      <DependentUpon>MatchContainer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\PlayerContainer.resx">
       <DependentUpon>PlayerContainer.cs</DependentUpon>
@@ -148,6 +157,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\captainShirt.png" />
+    <None Include="Resources\settings.png" />
+    <None Include="Resources\engFlag.png" />
+    <None Include="Resources\croFlag.png" />
     <None Include="Resources\favorite.png" />
     <None Include="Resources\star-svgrepo-com.png" />
   </ItemGroup>

@@ -28,17 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.lbPlrNumber = new System.Windows.Forms.Label();
             this.lbPlrName = new System.Windows.Forms.Label();
             this.lbPosition = new System.Windows.Forms.Label();
             this.PicBoxFavorite = new System.Windows.Forms.PictureBox();
             this.PicBoxShirt = new System.Windows.Forms.PictureBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.prebaciUFavoriteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxFavorite)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxShirt)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbPlrNumber
@@ -51,7 +47,7 @@
             this.lbPlrNumber.Size = new System.Drawing.Size(29, 31);
             this.lbPlrNumber.TabIndex = 1;
             this.lbPlrNumber.Text = "1";
-            this.lbPlrNumber.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SelectPlayerContainer_MouseClick);
+            this.lbPlrNumber.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PlayerContainer_MouseDown);
             // 
             // lbPlrName
             // 
@@ -63,7 +59,7 @@
             this.lbPlrName.Size = new System.Drawing.Size(74, 16);
             this.lbPlrName.TabIndex = 2;
             this.lbPlrName.Text = "Testno ime";
-            this.lbPlrName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SelectPlayerContainer_MouseClick);
+            this.lbPlrName.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PlayerContainer_MouseDown);
             // 
             // lbPosition
             // 
@@ -75,7 +71,7 @@
             this.lbPosition.Size = new System.Drawing.Size(74, 16);
             this.lbPosition.TabIndex = 4;
             this.lbPosition.Text = "Testno ime";
-            this.lbPosition.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SelectPlayerContainer_MouseClick);
+            this.lbPosition.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PlayerContainer_MouseDown);
             // 
             // PicBoxFavorite
             // 
@@ -88,7 +84,7 @@
             this.PicBoxFavorite.TabIndex = 5;
             this.PicBoxFavorite.TabStop = false;
             this.PicBoxFavorite.Visible = false;
-            this.PicBoxFavorite.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SelectPlayerContainer_MouseClick);
+            this.PicBoxFavorite.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PlayerContainer_MouseDown);
             // 
             // PicBoxShirt
             // 
@@ -99,20 +95,7 @@
             this.PicBoxShirt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PicBoxShirt.TabIndex = 0;
             this.PicBoxShirt.TabStop = false;
-            this.PicBoxShirt.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SelectPlayerContainer_MouseClick);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.prebaciUFavoriteToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(167, 26);
-            // 
-            // prebaciUFavoriteToolStripMenuItem
-            // 
-            this.prebaciUFavoriteToolStripMenuItem.Name = "prebaciUFavoriteToolStripMenuItem";
-            this.prebaciUFavoriteToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.prebaciUFavoriteToolStripMenuItem.Text = "Prebaci u favorite";
+            this.PicBoxShirt.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PlayerContainer_MouseDown);
             // 
             // PlayerContainer
             // 
@@ -128,10 +111,9 @@
             this.Name = "PlayerContainer";
             this.Size = new System.Drawing.Size(207, 207);
             this.Load += new System.EventHandler(this.PlayerContainer_Load);
-            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SelectPlayerContainer_MouseClick);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PlayerContainer_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxFavorite)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxShirt)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -144,7 +126,5 @@
         private System.Windows.Forms.Label lbPlrName;
         private System.Windows.Forms.Label lbPosition;
         private System.Windows.Forms.PictureBox PicBoxFavorite;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem prebaciUFavoriteToolStripMenuItem;
     }
 }

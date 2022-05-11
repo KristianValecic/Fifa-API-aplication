@@ -57,6 +57,9 @@ namespace Lib.Model
 
         [JsonProperty("goal_differential")]
         public int GoalDifferential { get; set; }
+        
+        [JsonProperty("goals")]
+        public int Goals { get; set; }
 
         public override string ToString()
             //=> $"{Id} - {Country} '{FifaCode}' W:{Wins}, D:{Draws}, L:{Losses}";

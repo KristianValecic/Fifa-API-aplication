@@ -1,5 +1,6 @@
 ﻿using Lib.Dal;
 using Lib.Model;
+using Projekt.UserControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,22 +15,26 @@ namespace Projekt
 {
     public partial class TeamViewForm : Form
     {
-        public IList<Match> matches;
+        public List<Match> matches;
         public Team team;
+        public MainForm parentForm;
+        public bool closeWithoutConfirm;
+        //public FlowLayoutPanel flpStartedDnD;
 
         private OpenFileDialog ofd = new OpenFileDialog();
         private FavoritePlayers favoritePlayers = new FavoritePlayers();
         private List<Player> allPlayers = new List<Player>();
         private List<Player> playersListForSort = new List<Player>();
         private List<Player> players = new List<Player>();
+        //private bool successfulDnD;
         private bool teamHasFavorites = false;
         private bool initialLoad = true;
         private bool goalsDesc = true;
         private bool yellowCardsDesc = true;
+        private bool matchAttendenceDesc = true;
+        //private bool matchAttendenceDesc = true;
         private string descCharacter = @"\/";
         private string ascCharacter = @"/\";
-
-
 
         public TeamViewForm()
         {
@@ -44,6 +49,7 @@ namespace Projekt
             LoadFlpPlayers();
             LoadListOfPlayers();
             LoadflpFavorites();
+            LoadMatchRangList();
         }
 
         private void LoadFavoritePlayers()
@@ -54,6 +60,19 @@ namespace Projekt
             }
         }
 
+        private void LoadMatchRangList()
+        {
+            flpMatchRangList.Controls.Clear();
+
+            matches.ToList().ForEach(m => {
+                flpMatchRangList.Controls.Add(
+                    new MatchContainer
+                    {
+                        match = m
+                    }
+                );
+            });
+        }
 
         private void LoadListOfPlayers()
         {
@@ -119,61 +138,76 @@ namespace Projekt
                 if (p != null && p.Favorite == true)
                 {
                     players.Remove(p);
-                        flpFavorites.Controls.Add(
-                        new PlayerContainer
-                        {
-                            player = p
-                        });
+                    flpFavorites.Controls.Add(
+                    new PlayerContainer
+                    {
+                        player = p
+                    });
                 }
             });
         }
 
         private void LoadPlayers()
         {
-            allPlayers = matches.ElementAt(0).GetPlayersFromTeam(team); //samo prvobitno da dobijes 
+            allPlayers = matches.ElementAt(0).GetPlayersFromTeam(team);
             foreach (var match in matches)
             {
                 var tempPlayers = match.GetPlayersFromTeam(team);
                 tempPlayers.ForEach(p => {
 
-                        match.GetAllPlayerGoalsCards(p, team);
-                        allPlayers.ForEach((player) =>
+                    match.GetAllPlayerGoalsCards(p, team);
+                    allPlayers.ForEach((player) =>
+                    {
+                        if (p.Equals(player) && (p.Goals != 0 || p.YellowCards != 0))
                         {
-                            if (p.Equals(player) && (p.Goals != 0 && p.YellowCards != 0))
-                            {
-                                player.Goals += p.Goals;
-                                player.YellowCards += p.YellowCards;
-                            }
-                        }); 
+                            player.Goals += p.Goals;
+                            player.YellowCards += p.YellowCards;
+                        }
                     }); 
+                }); 
             }
         }
 
         private void MoveToFavorites_Click(object sender, EventArgs e)
+        {
+            CheckIfSelected(PlayerContainer.selectedList.Count == 0 );
+            if (CheckFavoriteList())
+            {
+                return;
+            }
+            MoveSelectedPlayersFromToList(PlayerContainer.selectedList, flpFavorites.Controls, true);
+        }
+
+        private void RemoveFromFavorites_Click(object sender, EventArgs e)
+        { 
+            CheckIfSelected(PlayerContainer.selectedListFavorites.Count == 0);
+            MoveSelectedPlayersFromToList(PlayerContainer.selectedListFavorites, flpPlayers.Controls, false);
+        }
+
+        private bool CheckFavoriteList()
         {
             if (flpFavorites.Controls.Count >= PlayerContainer.GetListLimit() ||
             (PlayerContainer.selectedList.Count > (PlayerContainer.GetListLimit() - flpFavorites.Controls.Count)/* && flpFavorites.Controls.Count != 0*/) ||
             PlayerContainer.selectedList.Count > PlayerContainer.GetListLimit())
             {
                 MessageBox.Show($"Lista favorita prima samo {PlayerContainer.GetListLimit()} igrača");
-                return;
+                return true;
             }
-            CheckIfSelected(PlayerContainer.selectedList.Count == 0 );
-            AddPlayersToList(PlayerContainer.selectedList, flpFavorites.Controls, true);
+            return false;
         }
 
-        public void AddPlayerToFavoriteList(List<PlayerContainer> selectedList)
-        {
-            selectedList.ForEach(p => {
-                p.BackColor = Color.White;
-                p.player.Favorite = true;
-                //p.ShowFavoriteStar();
-                flpFavorites.Controls.Add(p);
-            });
+        //public void AddPlayerToFavoriteList(List<PlayerContainer> selectedList)
+        //{
+        //    selectedList.ForEach(p => {
+        //        p.BackColor = Color.White;
+        //        p.player.Favorite = true;
+        //        //p.ShowFavoriteStar();
+        //        flpFavorites.Controls.Add(p);
+        //    });
 
-            selectedList.Clear();
-            SaveFavorites();
-        }
+        //    selectedList.Clear();
+        //    SaveFavorites();
+        //}
 
         private void CheckIfSelected(bool condition)
         {
@@ -184,17 +218,11 @@ namespace Projekt
             }
         }
 
-        private void RemoveFromFavorites_Click(object sender, EventArgs e)
-        { 
-            CheckIfSelected(PlayerContainer.selectedListFavorites.Count == 0);
-            AddPlayersToList(PlayerContainer.selectedListFavorites, flpPlayers.Controls, false);
-        }
-
-        private void AddPlayersToList(List<PlayerContainer> fromList, Control.ControlCollection toList, bool isFav)
+        private void MoveSelectedPlayersFromToList(List<PlayerContainer> fromList, Control.ControlCollection toList, bool isFavorite)
         {
             fromList.ForEach(p => {
-                p.BackColor = Color.White;
-                p.player.Favorite = isFav;
+                p.SetDefaultBackColor();
+                p.player.Favorite = isFavorite;
                 p.ShowFavoriteStar();
                toList.Add(p);
             });
@@ -204,10 +232,10 @@ namespace Projekt
             LoadListOfPlayers();
         }
 
-        private void Form_FormClosing(object sender, FormClosingEventArgs e)
-        {
-           SaveFavorites();
-        }
+        //private void Form_FormClosing(object sender, FormClosingEventArgs e)
+        //{
+        //   SaveFavorites();
+        //}
 
         private void SaveFavorites()
         {
@@ -226,28 +254,30 @@ namespace Projekt
 
         private void AddPlayerImg_Click(object sender, EventArgs e) => LoadPictures();
 
+        private void RemoveImage_click(object sender, EventArgs e) => RemovePictures();
+
         private void LoadPictures()
         {
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                var selectedList = PlayerContainer.selectedList.Concat(PlayerContainer.selectedListFavorites);
-                foreach (PlayerContainer plContainer in selectedList)
-                {
-                    plContainer.ChangeImage(Image.FromFile(ofd.FileName), ofd.FileName);
-                }
+                //var selectedLi = PlayerContainer.selectedList.Concat(PlayerContainer.selectedListFavorites);
+                //foreach (PlayerContainer plContainer in selectedList)
+                //{                                                                                 THIS IS FOR CHANGING IMAGES FROM LIST OF PLAYERS
+                //    plContainer.ChangeImage(Image.FromFile(ofd.FileName), ofd.FileName);
+                //}
+                PlayerContainer.selected.ChangeImage(Image.FromFile(ofd.FileName), ofd.FileName);
             }
             LoadListOfPlayers();
         }
 
-        private void RemoveImage_click(object sender, EventArgs e) => RemovePictures();
-
         private void RemovePictures()
         {
-            var selectedList = PlayerContainer.selectedList.Concat(PlayerContainer.selectedListFavorites);
-            foreach (PlayerContainer plContainer in selectedList)
-            { 
-                plContainer.DefaultImage();
-            }
+            PlayerContainer.selected.DefaultImage();
+            //var selectedList = PlayerContainer.selectedList.Concat(PlayerContainer.selectedListFavorites);
+            //foreach (PlayerContainer plContainer in selectedList)
+            //{ 
+            //    plContainer.DefaultImage();
+            //}
             LoadListOfPlayers();
         }
 
@@ -274,7 +304,6 @@ namespace Projekt
             {
                 playersListForSort.Sort((a, b) => -a.Goals.CompareTo(b.Goals));
                 goalsDesc = false;
-                btnSortGoals.Text = $"{btnSortGoals.Text} {ascCharacter}";
                 lbGoalsSort.Text = ascCharacter;
             }
             else
@@ -291,5 +320,76 @@ namespace Projekt
             pnlSelectedPlayerPlaceholder.Controls.Clear();
             pnlSelectedPlayerPlaceholder.Controls.Add(PlayerContainerSelected.GetSelectedPlayerControl(PlayerContainerRow.selectedPlayer));
         }
+
+        private void SortMatchAttendence_Click(object sender, EventArgs e)
+        {
+            if (matchAttendenceDesc)
+            {
+                matches.Sort((a, b) => -a.Attendance.CompareTo(b.Attendance));
+                matchAttendenceDesc = false;
+                lbAttendenceSort.Text = ascCharacter;
+            }
+            else
+            {
+                matches.Sort((a, b) => a.Attendance.CompareTo(b.Attendance));
+                matchAttendenceDesc = true;
+                lbAttendenceSort.Text = descCharacter;
+            }
+            LoadMatchRangList();
+        }
+
+        private void FlpPlayers_DragEnter(object sender, DragEventArgs e)
+        {
+            //provjera je li isti 1:20
+            //if (sender == flpStartedDnD)
+            //{
+            //    return;
+            //}
+
+            e.Effect = DragDropEffects.Move;
+        }
+
+        private void FlpPlayers_DragDrop(object sender, DragEventArgs e)
+        {
+            //Prebaci liste players u favorites i orbnuto ovisno o tome tko je sender
+            MoveSelectedPlayersFromToList(PlayerContainer.selectedListFavorites, flpPlayers.Controls, false); 
+            
+        }
+
+        private void FlpFavorites_DragDrop(object sender, DragEventArgs e)
+        {
+            if (CheckFavoriteList()) {
+                return;
+            }
+            MoveSelectedPlayersFromToList(PlayerContainer.selectedList, flpFavorites.Controls, true);
+        }
+
+        private void SettingsButton_Click(object sender, EventArgs e)
+        {
+            //otvori MainFormu
+            parentForm.Show();
+        }
+
+        private void TeamViewForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (closeWithoutConfirm)
+            {
+                return;
+            }
+            if (e.CloseReason == CloseReason.ApplicationExitCall)
+            {
+                Application.Exit();
+            }
+            else if (MessageBox.Show($"Želite li izaći iz forme", "Upozorenje!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes) //ConfirmationPopUp((Form)sender)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+            //parentForm.Close();
+        }
+
     }
 }

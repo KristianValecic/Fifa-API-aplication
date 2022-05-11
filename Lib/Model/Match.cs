@@ -106,6 +106,7 @@ namespace Lib.Model
             return (List<Player>)AwayTeamStatistics.GetPlayers();
 
         }
+
         //public void GetAllPlayersGoalsCards()
         //{
         //    //int goals = 0;
@@ -133,7 +134,7 @@ namespace Lib.Model
 
         //public bool PlayerHasGoalOrCardEvent(Player p)
         //{
-            
+
         //}
 
 
@@ -152,6 +153,20 @@ namespace Lib.Model
         //        }
         //    }
         //}
+
+        public List<TeamEvent> GetTeamEvents(Team team)
+        {
+            List<TeamEvent> teamEvents;
+            if (team.CompareCountryName(HomeTeam))
+            {
+                teamEvents = HomeTeamEvents;
+            }
+            else
+            {
+                teamEvents = AwayTeamEvents;
+            }
+            return teamEvents;
+        }
 
         public void GetAllPlayerGoalsCards(Player p, Team team)
         {

@@ -27,7 +27,7 @@ namespace Lib.Utils
             }
         }
 
-        public static void Center(Label label, int width)
+        public static void Center(Control label, int width)
         {
             //int shirtWidth = (int)Math.Round((pictureBox.Width * 0.6), 0);
             //if (label.Width >= shirtWidth)

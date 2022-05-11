@@ -34,13 +34,15 @@ namespace Projekt
         {
             lbName.Text = $"{player.Name} - {player.ShirtNumber}";
             PlayerContainerUtils.Center(lbName, this.Width);
+
             lbPosition.Text = player.Position;
             lbShirtNumber.Text = player.ShirtNumber.ToString();
             PlayerContainerUtils.Center(lbShirtNumber, this.Width);
+
             lbGoals.Text = player.Goals.ToString();
             lbYellowCards.Text = player.YellowCards.ToString();
         }
-
+        
         private void SetPicture()
         {
             //PlayerContainerUtils.SetSavedPicture(PicBox, player);
@@ -59,6 +61,7 @@ namespace Projekt
             {
                 PicBox.Image = Images.shirt;
             }
+            PlayerContainerUtils.ShowFavoriteStar(PicBoxFavorite, player);
         }
     }
 }

@@ -18,7 +18,7 @@ namespace Projekt
         public static Player selectedPlayer;
         public static PlayerContainerRow selectedPlayerContainerRow;
         public Player player;
-        private static PlayerImageRepository playerImage = new PlayerImageRepository();
+        //private static PlayerImageRepository playerImage = new PlayerImageRepository();
 
         public PlayerContainerRow()
         {

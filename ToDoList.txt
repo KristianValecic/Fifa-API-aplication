@@ -1,13 +1,18 @@
 Lokalizacija stringova iz message boxa
-drag'n'drop favorita
 error na makni sliku, ako default 
 Prokuzi treba li spremati za vise timova favorite
+pdf
+potvrdu na zatvaranje aplikacije i postavljanje postavki
+Loading animacija
 
+------Procitaj i skuzi treba li zatvoriti prvu formu
 
 optional-------------
 dodaj da desni klik automatski mice tog na kojem je
 Imena na dresovima u dva reda
 napravi da je desc i asc svoj gumb i korisnik moze mijenjat po zelji kako da se sortira
+(probaj napravit funkviju koju koristi svaki gumb, samo salje svoj gumb kao kontrolu)
 
 
 PROMIJENI USER KONTROLE DA KORISTE UTILS GDJE GOD TREBA
+

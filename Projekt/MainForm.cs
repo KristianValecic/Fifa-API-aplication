@@ -147,9 +147,19 @@ namespace Projekt
 
         private async Task OpenTeamViewForm()
         {
+            //[1] is openned child form, mainForm is [0]
             TeamViewForm teamViewForm = new TeamViewForm();
             teamViewForm.team = settings.SelectedTeam;
-            //LoadMatches(teamViewForm.matches, teamViewForm.team);
+            teamViewForm.parentForm = this;
+
+            if (Application.OpenForms.Count == 2)
+            {
+                ((TeamViewForm)Application.OpenForms[1]).closeWithoutConfirm = true;
+                Application.OpenForms[1].Close();
+                //teamViewForm = (TeamViewForm)Application.OpenForms[1];
+            }
+
+            //MessageBox.Show(Application.OpenForms.Count.ToString());
 
             try
             {
@@ -161,7 +171,11 @@ namespace Projekt
                 MessageBox.Show(ex.Message);
             }
 
-            teamViewForm.Show();
+            this.Hide();
+            if (!teamViewForm.Visible)
+            {
+                teamViewForm.Show();
+            }
         }
 
         private bool IfChecked()
