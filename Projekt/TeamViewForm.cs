@@ -18,7 +18,7 @@ namespace Projekt
         public List<Match> matches;
         public Team team;
         public MainForm parentForm;
-        public bool closeWithoutConfirm;
+        //public bool closeWithoutConfirm;
         //public FlowLayoutPanel flpStartedDnD;
 
         private OpenFileDialog ofd = new OpenFileDialog();
@@ -372,24 +372,8 @@ namespace Projekt
 
         private void TeamViewForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (closeWithoutConfirm)
-            {
-                return;
-            }
-            if (e.CloseReason == CloseReason.ApplicationExitCall)
-            {
-                Application.Exit();
-            }
-            else if (MessageBox.Show($"Želite li izaći iz forme", "Upozorenje!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes) //ConfirmationPopUp((Form)sender)
-            {
-                Application.Exit();
-            }
-            else
-            {
-                e.Cancel = true;
-            }
+            MainForm.FormCloseConfirm(e);
             //parentForm.Close();
         }
-
     }
 }

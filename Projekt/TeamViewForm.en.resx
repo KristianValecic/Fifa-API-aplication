@@ -117,26 +117,117 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="removeSelectedFavoriteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>240, 22</value>
+  </data>
+  <data name="removeSelectedFavoriteToolStripMenuItem.Text" xml:space="preserve">
+    <value>Remove selected from favorites</value>
+  </data>
+  <data name="dodajSlikuToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>240, 22</value>
+  </data>
+  <data name="dodajSlikuToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Add image</value>
+  </data>
+  <data name="makniSlikuToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>240, 22</value>
+  </data>
+  <data name="makniSlikuToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Remove image</value>
+  </data>
+  <data name="cmsFavoritesList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>241, 70</value>
+  </data>
+  <data name="addPlayersToFavoriteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 22</value>
+  </data>
+  <data name="addPlayersToFavoriteToolStripMenuItem.Text" xml:space="preserve">
+    <value>Add selected to favorites</value>
+  </data>
+  <data name="addImageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 22</value>
+  </data>
+  <data name="addImageToolStripMenuItem.Text" xml:space="preserve">
+    <value>Add image</value>
+  </data>
+  <data name="removeImageGToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 22</value>
+  </data>
+  <data name="removeImageGToolStripMenuItem.Text" xml:space="preserve">
+    <value>Remove image</value>
+  </data>
+  <data name="cmsPlayerList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>205, 70</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="captainShirt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\captainShirt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="lbAttendenceSort.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="croFlag" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\croFlag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="button1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="engFlag" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\engFlag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="button1.Text" xml:space="preserve">
+    <value>Sort by attendence</value>
   </data>
-  <data name="favorite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\favorite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="tabPage3.Text" xml:space="preserve">
+    <value>Ranged list of matches</value>
   </data>
-  <data name="loading" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\loading.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="lbyellowCardsSort.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\settings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="lbGoalsSort.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="shirt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\shirt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnSortGoals.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnSortGoals.Text" xml:space="preserve">
+    <value>Sort goals</value>
+  </data>
+  <data name="btnSortYellowCards.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnSortYellowCards.Text" xml:space="preserve">
+    <value>Sort yellow cards</value>
+  </data>
+  <data name="tabPage2.Text" xml:space="preserve">
+    <value>Ranged list of players</value>
+  </data>
+  <data name="RemoveFromFavorites.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="RemoveFromFavorites.Text" xml:space="preserve">
+    <value>Remove from favorites</value>
+  </data>
+  <data name="MoveToFavorites.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="MoveToFavorites.Text" xml:space="preserve">
+    <value>Move to favorites</value>
+  </data>
+  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>78, 20</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Favorites:</value>
+  </data>
+  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 20</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Players:</value>
+  </data>
+  <data name="tabPage1.Text" xml:space="preserve">
+    <value>Favorite players</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Team view</value>
   </data>
 </root>

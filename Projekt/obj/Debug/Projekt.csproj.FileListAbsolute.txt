@@ -75,3 +75,7 @@ D:\Faks\.NET Praktikum\Fifa-API-aplication\Projekt\obj\Debug\Projekt.Images.reso
 D:\Faks\.NET Praktikum\Fifa-API-aplication\Projekt\obj\Debug\Projekt.PlayerContainerRow.resources
 D:\Faks\.NET Praktikum\Fifa-API-aplication\Projekt\obj\Debug\Projekt.PlayerContainerSelected.resources
 D:\Faks\.NET Praktikum\Fifa-API-aplication\Projekt\obj\Debug\Projekt.UserControls.MatchContainer.resources
+D:\Faks\.NET Praktikum\Fifa-API-aplication\Projekt\bin\Debug\en\Projekt.resources.dll
+D:\Faks\.NET Praktikum\Fifa-API-aplication\Projekt\obj\Debug\Projekt.MainForm.en.resources
+D:\Faks\.NET Praktikum\Fifa-API-aplication\Projekt\obj\Debug\Projekt.TeamViewForm.en.resources
+D:\Faks\.NET Praktikum\Fifa-API-aplication\Projekt\obj\Debug\en\Projekt.resources.dll

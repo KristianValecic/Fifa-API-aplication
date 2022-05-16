@@ -1,8 +1,4 @@
-Lokalizacija stringova iz message boxa
-error na makni sliku, ako default 
-Prokuzi treba li spremati za vise timova favorite
 pdf
-potvrdu na zatvaranje aplikacije i postavljanje postavki
 Loading animacija
 
 ------Procitaj i skuzi treba li zatvoriti prvu formu
@@ -13,6 +9,7 @@ Imena na dresovima u dva reda
 napravi da je desc i asc svoj gumb i korisnik moze mijenjat po zelji kako da se sortira
 (probaj napravit funkviju koju koristi svaki gumb, samo salje svoj gumb kao kontrolu)
 
-
 PROMIJENI USER KONTROLE DA KORISTE UTILS GDJE GOD TREBA
 
+Dodaj lokalizaciju u settings save
+promijeni messagebox za confirm izlaska u sovoju formu

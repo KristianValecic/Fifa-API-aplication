@@ -5,8 +5,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,14 +16,17 @@ namespace Projekt
 {
     public partial class MainForm : Form
     {
+        public static bool closeWithoutConfirm;
+
+        private const string HR = "hr", EN = "en";
         private static readonly IRepository repo = RepositoryFactory.GetRepo();
         private IList<Team> teams;
         private Settings settings = new Settings();
+        private static DialogResult KeyResult;
 
         public MainForm()
         {
             InitializeComponent();
-
             StartPosition = FormStartPosition.CenterScreen;
         }
 
@@ -34,6 +39,7 @@ namespace Projekt
                 SetSettings();
             }
             //nastavi s podesavanjem postavki
+           SetCulture(HR);
         }
 
         private void SetSettings()
@@ -61,7 +67,6 @@ namespace Projekt
                 rbOffline.Checked = true;
             }
             InitDataComboBox();
-
         }
 
         private async void InitDataComboBox()
@@ -71,8 +76,9 @@ namespace Projekt
                 return;
             }
             cbTeams.Visible = false;
-            lblInstructionForComboBox.Visible = true;
-            lblInstructionForComboBox.Text = "Pričekajte...";
+
+            PicBoxLoadingAnimation.Visible = true;
+            lblInstructionForComboBox.Visible = false;
 
             try
             {
@@ -86,11 +92,10 @@ namespace Projekt
 
             cbTeams.DataSource = teams;
             cbTeams.DisplayMember = "FifaCode";
-            //cbTeams.ValueMember = "FifaCode";
 
             TrySetSelectedTeam();
 
-            lblInstructionForComboBox.Visible = false;
+            PicBoxLoadingAnimation.Visible = false;
             cbTeams.Visible = true;
         }
 
@@ -140,11 +145,6 @@ namespace Projekt
             OpenTeamViewForm();
         }
 
-        //private async Task LoadMatches(IList<Match> matches, Team team)
-        //{
-
-        //}
-
         private async Task OpenTeamViewForm()
         {
             //[1] is openned child form, mainForm is [0]
@@ -154,7 +154,8 @@ namespace Projekt
 
             if (Application.OpenForms.Count == 2)
             {
-                ((TeamViewForm)Application.OpenForms[1]).closeWithoutConfirm = true;
+                //((TeamViewForm)Application.OpenForms[1]).closeWithoutConfirm = true;
+                closeWithoutConfirm = true;
                 Application.OpenForms[1].Close();
                 //teamViewForm = (TeamViewForm)Application.OpenForms[1];
             }
@@ -174,6 +175,7 @@ namespace Projekt
             this.Hide();
             if (!teamViewForm.Visible)
             {
+                closeWithoutConfirm = false;
                 teamViewForm.Show();
             }
         }
@@ -186,6 +188,90 @@ namespace Projekt
                 return true;
             }
             return false;
+        }
+
+        public static void FormCloseConfirm(FormClosingEventArgs e)
+        {
+            if (closeWithoutConfirm)
+            {
+                return;
+            }
+            if (e.CloseReason == CloseReason.ApplicationExitCall)
+            {
+                Application.Exit();
+            }
+            else if (MessageBox.Show($"Želite li izaći iz forme", "Upozorenje!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes ||
+                    KeyResult == DialogResult.Yes) //ConfirmationPopUp((Form)sender)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            FormCloseConfirm(e);
+            settings.SaveToFile();
+        }
+
+        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                KeyResult = DialogResult.No;
+            }
+            else if (e.KeyCode == Keys.Enter)
+            {
+                KeyResult = DialogResult.Yes;
+            }
+        }
+
+        private void MainForm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                KeyResult = DialogResult.None;
+            }
+            else if (e.KeyCode == Keys.Enter)
+            {
+                KeyResult = DialogResult.None;
+            }
+        }
+
+        private void SetCulture(string language) 
+        {
+            var culture = new CultureInfo(language);
+
+            Thread.CurrentThread.CurrentUICulture = culture;
+            Thread.CurrentThread.CurrentCulture = culture;
+
+            UpdateForm();
+        }
+
+        private void Cro_Click(object sender, EventArgs e)
+        {
+            if (Thread.CurrentThread.CurrentCulture.Name == EN)
+            {
+                SetCulture(HR);
+            }
+        }
+
+        private void Eng_Click(object sender, EventArgs e)
+        {
+            if (Thread.CurrentThread.CurrentCulture.Name == HR )
+            {
+                SetCulture(EN);
+            }
+        }
+
+        private void UpdateForm() //CultureInfo culture
+        {
+            this.Controls.Clear();
+            InitializeComponent();
+            SetSettings();
         }
     }
 }

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Lib.Dal
 {
-    class Repository : IRepository
+    internal class Repository : IRepository
     {
 
         public Task<T> GetOfflineDataAsync<T>(string endpoint)
