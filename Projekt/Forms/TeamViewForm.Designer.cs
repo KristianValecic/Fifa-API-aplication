@@ -70,79 +70,79 @@
             // 
             // cmsFavoritesList
             // 
-            resources.ApplyResources(this.cmsFavoritesList, "cmsFavoritesList");
             this.cmsFavoritesList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.removeSelectedFavoriteToolStripMenuItem,
             this.dodajSlikuToolStripMenuItem1,
             this.makniSlikuToolStripMenuItem1});
             this.cmsFavoritesList.Name = "cmsFavoritesList";
+            resources.ApplyResources(this.cmsFavoritesList, "cmsFavoritesList");
             // 
             // removeSelectedFavoriteToolStripMenuItem
             // 
-            resources.ApplyResources(this.removeSelectedFavoriteToolStripMenuItem, "removeSelectedFavoriteToolStripMenuItem");
             this.removeSelectedFavoriteToolStripMenuItem.Name = "removeSelectedFavoriteToolStripMenuItem";
+            resources.ApplyResources(this.removeSelectedFavoriteToolStripMenuItem, "removeSelectedFavoriteToolStripMenuItem");
             this.removeSelectedFavoriteToolStripMenuItem.Click += new System.EventHandler(this.RemoveFromFavorites_Click);
             // 
             // dodajSlikuToolStripMenuItem1
             // 
-            resources.ApplyResources(this.dodajSlikuToolStripMenuItem1, "dodajSlikuToolStripMenuItem1");
             this.dodajSlikuToolStripMenuItem1.Name = "dodajSlikuToolStripMenuItem1";
+            resources.ApplyResources(this.dodajSlikuToolStripMenuItem1, "dodajSlikuToolStripMenuItem1");
             this.dodajSlikuToolStripMenuItem1.Click += new System.EventHandler(this.AddPlayerImg_Click);
             // 
             // makniSlikuToolStripMenuItem1
             // 
-            resources.ApplyResources(this.makniSlikuToolStripMenuItem1, "makniSlikuToolStripMenuItem1");
             this.makniSlikuToolStripMenuItem1.Name = "makniSlikuToolStripMenuItem1";
+            resources.ApplyResources(this.makniSlikuToolStripMenuItem1, "makniSlikuToolStripMenuItem1");
             this.makniSlikuToolStripMenuItem1.Click += new System.EventHandler(this.RemoveImage_click);
             // 
             // cmsPlayerList
             // 
-            resources.ApplyResources(this.cmsPlayerList, "cmsPlayerList");
             this.cmsPlayerList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addPlayersToFavoriteToolStripMenuItem,
             this.addImageToolStripMenuItem,
             this.removeImageGToolStripMenuItem});
             this.cmsPlayerList.Name = "cmsPlayerList";
+            resources.ApplyResources(this.cmsPlayerList, "cmsPlayerList");
             // 
             // addPlayersToFavoriteToolStripMenuItem
             // 
-            resources.ApplyResources(this.addPlayersToFavoriteToolStripMenuItem, "addPlayersToFavoriteToolStripMenuItem");
             this.addPlayersToFavoriteToolStripMenuItem.Name = "addPlayersToFavoriteToolStripMenuItem";
+            resources.ApplyResources(this.addPlayersToFavoriteToolStripMenuItem, "addPlayersToFavoriteToolStripMenuItem");
             this.addPlayersToFavoriteToolStripMenuItem.Click += new System.EventHandler(this.MoveToFavorites_Click);
             // 
             // addImageToolStripMenuItem
             // 
-            resources.ApplyResources(this.addImageToolStripMenuItem, "addImageToolStripMenuItem");
             this.addImageToolStripMenuItem.Name = "addImageToolStripMenuItem";
+            resources.ApplyResources(this.addImageToolStripMenuItem, "addImageToolStripMenuItem");
             this.addImageToolStripMenuItem.Click += new System.EventHandler(this.AddPlayerImg_Click);
             // 
             // removeImageGToolStripMenuItem
             // 
-            resources.ApplyResources(this.removeImageGToolStripMenuItem, "removeImageGToolStripMenuItem");
             this.removeImageGToolStripMenuItem.Name = "removeImageGToolStripMenuItem";
+            resources.ApplyResources(this.removeImageGToolStripMenuItem, "removeImageGToolStripMenuItem");
             this.removeImageGToolStripMenuItem.Click += new System.EventHandler(this.RemoveImage_click);
             // 
             // toolStrip1
             // 
-            resources.ApplyResources(this.toolStrip1, "toolStrip1");
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1});
+            resources.ApplyResources(this.toolStrip1, "toolStrip1");
             this.toolStrip1.Name = "toolStrip1";
             // 
             // toolStripButton1
             // 
-            resources.ApplyResources(this.toolStripButton1, "toolStripButton1");
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButton1.Image = global::Projekt.Images.settings;
+            resources.ApplyResources(this.toolStripButton1, "toolStripButton1");
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Click += new System.EventHandler(this.SettingsButton_Click);
             // 
             // tabPage3
             // 
-            resources.ApplyResources(this.tabPage3, "tabPage3");
             this.tabPage3.Controls.Add(this.lbAttendenceSort);
             this.tabPage3.Controls.Add(this.button1);
             this.tabPage3.Controls.Add(this.flpMatchRangList);
+            resources.ApplyResources(this.tabPage3, "tabPage3");
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
@@ -165,13 +165,13 @@
             // 
             // tabPage2
             // 
-            resources.ApplyResources(this.tabPage2, "tabPage2");
             this.tabPage2.Controls.Add(this.pnlSelectedPlayerPlaceholder);
             this.tabPage2.Controls.Add(this.lbyellowCardsSort);
             this.tabPage2.Controls.Add(this.lbGoalsSort);
             this.tabPage2.Controls.Add(this.flpList);
             this.tabPage2.Controls.Add(this.btnSortGoals);
             this.tabPage2.Controls.Add(this.btnSortYellowCards);
+            resources.ApplyResources(this.tabPage2, "tabPage2");
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
@@ -211,13 +211,13 @@
             // 
             // tabPage1
             // 
-            resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Controls.Add(this.RemoveFromFavorites);
             this.tabPage1.Controls.Add(this.MoveToFavorites);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.flpFavorites);
             this.tabPage1.Controls.Add(this.flpPlayers);
+            resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
@@ -247,18 +247,18 @@
             // 
             // flpFavorites
             // 
-            resources.ApplyResources(this.flpFavorites, "flpFavorites");
             this.flpFavorites.AllowDrop = true;
             this.flpFavorites.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flpFavorites.ContextMenuStrip = this.cmsFavoritesList;
+            resources.ApplyResources(this.flpFavorites, "flpFavorites");
             this.flpFavorites.Name = "flpFavorites";
             this.flpFavorites.DragDrop += new System.Windows.Forms.DragEventHandler(this.FlpFavorites_DragDrop);
             this.flpFavorites.DragEnter += new System.Windows.Forms.DragEventHandler(this.FlpPlayers_DragEnter);
             // 
             // flpPlayers
             // 
-            resources.ApplyResources(this.flpPlayers, "flpPlayers");
             this.flpPlayers.AllowDrop = true;
+            resources.ApplyResources(this.flpPlayers, "flpPlayers");
             this.flpPlayers.ContextMenuStrip = this.cmsPlayerList;
             this.flpPlayers.Name = "flpPlayers";
             this.flpPlayers.DragDrop += new System.Windows.Forms.DragEventHandler(this.FlpPlayers_DragDrop);
@@ -266,10 +266,10 @@
             // 
             // tabControl
             // 
-            resources.ApplyResources(this.tabControl, "tabControl");
             this.tabControl.Controls.Add(this.tabPage1);
             this.tabControl.Controls.Add(this.tabPage2);
             this.tabControl.Controls.Add(this.tabPage3);
+            resources.ApplyResources(this.tabControl, "tabControl");
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             // 

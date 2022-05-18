@@ -1,5 +1,6 @@
 ﻿using Lib.Dal;
 using Lib.Model;
+using Projekt.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,7 @@ namespace Projekt
     public partial class MainForm : Form
     {
         public static bool closeWithoutConfirm;
+        public static bool closePending;
 
         private const string HR = "hr", EN = "en";
         private static readonly IRepository repo = RepositoryFactory.GetRepo();
@@ -152,15 +154,13 @@ namespace Projekt
             teamViewForm.team = settings.SelectedTeam;
             teamViewForm.parentForm = this;
 
-            if (Application.OpenForms.Count == 2)
+            if (Application.OpenForms.Count >= 2)
             {
                 //((TeamViewForm)Application.OpenForms[1]).closeWithoutConfirm = true;
                 closeWithoutConfirm = true;
                 Application.OpenForms[1].Close();
                 //teamViewForm = (TeamViewForm)Application.OpenForms[1];
             }
-
-            //MessageBox.Show(Application.OpenForms.Count.ToString());
 
             try
             {
@@ -192,22 +192,16 @@ namespace Projekt
 
         public static void FormCloseConfirm(FormClosingEventArgs e)
         {
-            if (closeWithoutConfirm)
+            if (e.CloseReason == CloseReason.ApplicationExitCall)
             {
                 return;
             }
-            if (e.CloseReason == CloseReason.ApplicationExitCall)
-            {
-                Application.Exit();
-            }
-            else if (MessageBox.Show($"Želite li izaći iz forme", "Upozorenje!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes ||
-                    KeyResult == DialogResult.Yes) //ConfirmationPopUp((Form)sender)
-            {
-                Application.Exit();
-            }
-            else
+            if (e.CloseReason == CloseReason.UserClosing && !closePending)
             {
                 e.Cancel = true;
+                closePending = true;
+                ConfirmExitForm f = new ConfirmExitForm();
+                f.Show();
             }
         }
 
@@ -215,30 +209,6 @@ namespace Projekt
         {
             FormCloseConfirm(e);
             settings.SaveToFile();
-        }
-
-        private void MainForm_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Escape)
-            {
-                KeyResult = DialogResult.No;
-            }
-            else if (e.KeyCode == Keys.Enter)
-            {
-                KeyResult = DialogResult.Yes;
-            }
-        }
-
-        private void MainForm_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Escape)
-            {
-                KeyResult = DialogResult.None;
-            }
-            else if (e.KeyCode == Keys.Enter)
-            {
-                KeyResult = DialogResult.None;
-            }
         }
 
         private void SetCulture(string language) 

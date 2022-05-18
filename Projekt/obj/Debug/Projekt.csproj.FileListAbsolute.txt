@@ -79,3 +79,5 @@ D:\Faks\.NET Praktikum\Fifa-API-aplication\Projekt\bin\Debug\en\Projekt.resource
 D:\Faks\.NET Praktikum\Fifa-API-aplication\Projekt\obj\Debug\Projekt.MainForm.en.resources
 D:\Faks\.NET Praktikum\Fifa-API-aplication\Projekt\obj\Debug\Projekt.TeamViewForm.en.resources
 D:\Faks\.NET Praktikum\Fifa-API-aplication\Projekt\obj\Debug\en\Projekt.resources.dll
+D:\Faks\.NET Praktikum\Fifa-API-aplication\Projekt\obj\Debug\Projekt.Forms.ConfirmExitForm.resources
+D:\Faks\.NET Praktikum\Fifa-API-aplication\Projekt\obj\Debug\Projekt.Forms.ConfirmExitForm.en.resources
