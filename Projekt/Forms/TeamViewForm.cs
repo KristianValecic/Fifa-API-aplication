@@ -149,7 +149,8 @@ namespace Projekt
 
         private void LoadPlayers()
         {
-            allPlayers = matches.ElementAt(0).GetPlayersFromTeam(team);
+            allPlayers = matches.FirstOrDefault(m => m.HomeTeam.Country == team.Country || m.AwayTeam.Country == team.Country).GetPlayersFromTeam(team);
+
             foreach (var match in matches)
             {
                 var tempPlayers = match.GetPlayersFromTeam(team);
@@ -196,19 +197,6 @@ namespace Projekt
             return false;
         }
 
-        //public void AddPlayerToFavoriteList(List<PlayerContainer> selectedList)
-        //{
-        //    selectedList.ForEach(p => {
-        //        p.BackColor = Color.White;
-        //        p.player.Favorite = true;
-        //        //p.ShowFavoriteStar();
-        //        flpFavorites.Controls.Add(p);
-        //    });
-
-        //    selectedList.Clear();
-        //    SaveFavorites();
-        //}
-
         private void CheckIfSelected(bool condition)
         {
             if (condition)
@@ -231,11 +219,6 @@ namespace Projekt
             SaveFavorites();
             LoadListOfPlayers();
         }
-
-        //private void Form_FormClosing(object sender, FormClosingEventArgs e)
-        //{
-        //   SaveFavorites();
-        //}
 
         private void SaveFavorites()
         {
@@ -273,11 +256,6 @@ namespace Projekt
         private void RemovePictures()
         {
             PlayerContainer.selected.DefaultImage();
-            //var selectedList = PlayerContainer.selectedList.Concat(PlayerContainer.selectedListFavorites);
-            //foreach (PlayerContainer plContainer in selectedList)
-            //{ 
-            //    plContainer.DefaultImage();
-            //}
             LoadListOfPlayers();
         }
 
@@ -340,12 +318,6 @@ namespace Projekt
 
         private void FlpPlayers_DragEnter(object sender, DragEventArgs e)
         {
-            //provjera je li isti 1:20
-            //if (sender == flpStartedDnD)
-            //{
-            //    return;
-            //}
-
             e.Effect = DragDropEffects.Move;
         }
 
@@ -353,7 +325,6 @@ namespace Projekt
         {
             //Prebaci liste players u favorites i orbnuto ovisno o tome tko je sender
             MoveSelectedPlayersFromToList(PlayerContainer.selectedListFavorites, flpPlayers.Controls, false); 
-            
         }
 
         private void FlpFavorites_DragDrop(object sender, DragEventArgs e)
@@ -373,7 +344,6 @@ namespace Projekt
         private void TeamViewForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             MainForm.FormCloseConfirm(e);
-            //parentForm.Close();
         }
     }
 }

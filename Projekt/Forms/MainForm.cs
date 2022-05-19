@@ -192,9 +192,13 @@ namespace Projekt
 
         public static void FormCloseConfirm(FormClosingEventArgs e)
         {
-            if (e.CloseReason == CloseReason.ApplicationExitCall)
+            if (/*e.CloseReason == CloseReason.ApplicationExitCall*/closeWithoutConfirm)
             {
                 return;
+            }
+            else if (e.CloseReason == CloseReason.ApplicationExitCall)
+            {
+                Application.Exit();
             }
             if (e.CloseReason == CloseReason.UserClosing && !closePending)
             {
@@ -203,6 +207,10 @@ namespace Projekt
                 ConfirmExitForm f = new ConfirmExitForm();
                 f.Show();
             }
+            //else
+            //{
+            //    e.Cancel = true;
+            //}
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)

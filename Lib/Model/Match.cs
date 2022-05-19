@@ -103,56 +103,12 @@ namespace Lib.Model
             {
                 return (List<Player>)HomeTeamStatistics.GetPlayers();
             }
-            return (List<Player>)AwayTeamStatistics.GetPlayers();
+            else 
+            { 
+                return (List<Player>)AwayTeamStatistics.GetPlayers();
+            }
 
         }
-
-        //public void GetAllPlayersGoalsCards()
-        //{
-        //    //int goals = 0;
-        //    //StringBuilder sb = new StringBuilder();
-        //    foreach (var player in HomeTeamStatistics.GetPlayers())
-        //    {
-        //        IList<TeamEvent> teamEvents = HomeTeamEvents.FindAll(e => player.Name == e.Player);
-        //        foreach (var teamEvent in teamEvents)
-        //        {
-        //            if (teamEvent.TypeOfEvent == "goal")
-        //            {
-        //                //goals += 1;
-        //                player.Goals += 1;
-        //            }
-        //            if (teamEvent.TypeOfEvent == "yellow-card")
-        //            {
-        //                //goals += 1;
-        //                player.YellowCards += 1;
-        //            }
-        //        }
-        //        //sb.Append(player.ToString() + " - " + player.Goals + Environment.NewLine);
-        //    }
-        //    //return sb.ToString();
-        //}
-
-        //public bool PlayerHasGoalOrCardEvent(Player p)
-        //{
-
-        //}
-
-
-        //public bool HasGoalOrCardEvent()
-        //{
-        //    IList<TeamEvent> teamEventsList = teamEvents.FindAll(e => p.Name == e.Player);
-        //    foreach (var teamEvent in teamEventsList)
-        //    {
-        //        if (teamEvent.TypeOfEvent == "goal")
-        //        {
-        //            p.Goals += 1;
-        //        }
-        //        if (teamEvent.TypeOfEvent == "yellow-card")
-        //        {
-        //            p.YellowCards += 1;
-        //        }
-        //    }
-        //}
 
         public List<TeamEvent> GetTeamEvents(Team team)
         {
