@@ -59,6 +59,8 @@
             this.flpFavorites = new System.Windows.Forms.FlowLayoutPanel();
             this.flpPlayers = new System.Windows.Forms.FlowLayoutPanel();
             this.tabControl = new System.Windows.Forms.TabControl();
+            this.btnPrintPlayerSort = new System.Windows.Forms.Button();
+            this.btnPrintMatchSort = new System.Windows.Forms.Button();
             this.cmsFavoritesList.SuspendLayout();
             this.cmsPlayerList.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -139,6 +141,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.btnPrintMatchSort);
             this.tabPage3.Controls.Add(this.lbAttendenceSort);
             this.tabPage3.Controls.Add(this.button1);
             this.tabPage3.Controls.Add(this.flpMatchRangList);
@@ -165,6 +168,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btnPrintPlayerSort);
             this.tabPage2.Controls.Add(this.pnlSelectedPlayerPlaceholder);
             this.tabPage2.Controls.Add(this.lbyellowCardsSort);
             this.tabPage2.Controls.Add(this.lbGoalsSort);
@@ -273,6 +277,18 @@
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             // 
+            // btnPrintPlayerSort
+            // 
+            resources.ApplyResources(this.btnPrintPlayerSort, "btnPrintPlayerSort");
+            this.btnPrintPlayerSort.Name = "btnPrintPlayerSort";
+            this.btnPrintPlayerSort.UseVisualStyleBackColor = true;
+            // 
+            // btnPrintMatchSort
+            // 
+            resources.ApplyResources(this.btnPrintMatchSort, "btnPrintMatchSort");
+            this.btnPrintMatchSort.Name = "btnPrintMatchSort";
+            this.btnPrintMatchSort.UseVisualStyleBackColor = true;
+            // 
             // TeamViewForm
             // 
             resources.ApplyResources(this, "$this");
@@ -328,5 +344,7 @@
         private System.Windows.Forms.FlowLayoutPanel flpFavorites;
         private System.Windows.Forms.FlowLayoutPanel flpPlayers;
         private System.Windows.Forms.TabControl tabControl;
+        private System.Windows.Forms.Button btnPrintMatchSort;
+        private System.Windows.Forms.Button btnPrintPlayerSort;
     }
 }

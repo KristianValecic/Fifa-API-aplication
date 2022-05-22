@@ -42,6 +42,7 @@
             this.button1.Name = "button1";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Yes_Click);
+            this.button1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ConfirmExitForm_KeyUp);
             // 
             // button2
             // 
@@ -49,6 +50,7 @@
             this.button2.Name = "button2";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.No_Click);
+            this.button2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ConfirmExitForm_KeyUp);
             // 
             // label1
             // 
@@ -71,7 +73,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "ConfirmExitForm";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ConfirmExitForm_KeyDown);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ConfirmExitForm_FormClosing);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ConfirmExitForm_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

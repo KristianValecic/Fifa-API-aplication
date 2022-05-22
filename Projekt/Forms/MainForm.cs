@@ -162,14 +162,25 @@ namespace Projekt
                 //teamViewForm = (TeamViewForm)Application.OpenForms[1];
             }
 
+            IList<Match> allMatches = new List<Match>();
+
             try
             {
-                teamViewForm.matches = (settings.IsOnline) ? await repo.GetOnlineDataAsync<List<Match>>(Match.GetEndpoint(settings.IsOnline, settings.IsMale, teamViewForm.team.ToString()))
+               allMatches = (settings.IsOnline) ? await repo.GetOnlineDataAsync<List<Match>>(Match.GetEndpoint(settings.IsOnline, settings.IsMale, teamViewForm.team.ToString()))
                                    : await repo.GetOfflineDataAsync<List<Match>>(Match.GetEndpoint(settings.IsOnline, settings.IsMale, teamViewForm.team.ToString()));
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+            //find all matches that have that team
+
+            foreach (var match in allMatches)
+            {
+                if (match.HomeTeam.Country == settings.SelectedTeam.Country || match.AwayTeam.Country == settings.SelectedTeam.Country)
+                {
+                    teamViewForm.matches.Add(match); 
+                }
             }
 
             this.Hide();

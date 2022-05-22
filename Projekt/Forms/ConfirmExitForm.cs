@@ -17,9 +17,15 @@ namespace Projekt.Forms
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
+            Focus();
         }
 
         private void No_Click(object sender, EventArgs e)
+        {
+            CancleExit();
+        }
+
+        private void CancleExit()
         {
             MainForm.closePending = false;
             Close();
@@ -30,11 +36,11 @@ namespace Projekt.Forms
             Application.Exit();
         }
 
-        private void ConfirmExitForm_KeyDown(object sender, KeyEventArgs e)
+        private void ConfirmExitForm_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {
-                Close();
+                CancleExit();
             }
             else if (e.KeyCode == Keys.Enter)
             {
@@ -42,15 +48,11 @@ namespace Projekt.Forms
             }
         }
 
-        private void ConfirmExitForm_KeyUp(object sender, KeyEventArgs e)
+        private void ConfirmExitForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (e.KeyCode == Keys.Escape)
+            if (e.CloseReason == CloseReason.UserClosing)
             {
-                Close();
-            }
-            else if (e.KeyCode == Keys.Enter)
-            {
-                Application.Exit();
+                e.Cancel = true;
             }
         }
     }

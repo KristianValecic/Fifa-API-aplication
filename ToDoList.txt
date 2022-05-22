@@ -12,4 +12,3 @@ napravi da je desc i asc svoj gumb i korisnik moze mijenjat po zelji kako da se 
 PROMIJENI USER KONTROLE DA KORISTE UTILS GDJE GOD TREBA
 
 Dodaj lokalizaciju u settings save
-promijeni messagebox za confirm izlaska u sovoju formu

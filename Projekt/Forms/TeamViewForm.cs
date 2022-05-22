@@ -40,6 +40,7 @@ namespace Projekt
         {
             InitializeComponent();
             InitOpenFileDialog();
+            matches = new List<Match>();
         }
 
         private void TeamViewForm_Load(object sender, EventArgs e)

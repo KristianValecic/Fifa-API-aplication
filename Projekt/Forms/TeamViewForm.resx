@@ -215,6 +215,34 @@
   <data name="&gt;&gt;toolStrip1.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnPrintMatchSort.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnPrintMatchSort.Location" type="System.Drawing.Point, System.Drawing">
+    <value>144, 28</value>
+  </data>
+  <data name="btnPrintMatchSort.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 23</value>
+  </data>
+  <data name="btnPrintMatchSort.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="btnPrintMatchSort.Text" xml:space="preserve">
+    <value>Isprintaj</value>
+  </data>
+  <data name="&gt;&gt;btnPrintMatchSort.Name" xml:space="preserve">
+    <value>btnPrintMatchSort</value>
+  </data>
+  <data name="&gt;&gt;btnPrintMatchSort.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnPrintMatchSort.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;btnPrintMatchSort.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="lbAttendenceSort.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -243,7 +271,7 @@
     <value>tabPage3</value>
   </data>
   <data name="&gt;&gt;lbAttendenceSort.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
     <value>510, 28</value>
@@ -267,12 +295,11 @@
     <value>tabPage3</value>
   </data>
   <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="flpMatchRangList.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="flpMatchRangList.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
     <value>TopDown</value>
   </data>
@@ -298,7 +325,7 @@
     <value>tabPage3</value>
   </data>
   <data name="&gt;&gt;flpMatchRangList.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="tabPage3.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
@@ -324,6 +351,33 @@
   <data name="&gt;&gt;tabPage3.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="btnPrintPlayerSort.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnPrintPlayerSort.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 68</value>
+  </data>
+  <data name="btnPrintPlayerSort.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 23</value>
+  </data>
+  <data name="btnPrintPlayerSort.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="btnPrintPlayerSort.Text" xml:space="preserve">
+    <value>Isprintaj</value>
+  </data>
+  <data name="&gt;&gt;btnPrintPlayerSort.Name" xml:space="preserve">
+    <value>btnPrintPlayerSort</value>
+  </data>
+  <data name="&gt;&gt;btnPrintPlayerSort.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnPrintPlayerSort.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;btnPrintPlayerSort.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="pnlSelectedPlayerPlaceholder.Location" type="System.Drawing.Point, System.Drawing">
     <value>469, 97</value>
   </data>
@@ -343,7 +397,7 @@
     <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;pnlSelectedPlayerPlaceholder.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="lbyellowCardsSort.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -373,7 +427,7 @@
     <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;lbyellowCardsSort.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="lbGoalsSort.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -403,7 +457,7 @@
     <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;lbGoalsSort.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="flpList.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -433,7 +487,7 @@
     <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;flpList.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="btnSortGoals.Location" type="System.Drawing.Point, System.Drawing">
     <value>154, 68</value>
@@ -457,7 +511,7 @@
     <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;btnSortGoals.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="btnSortYellowCards.Location" type="System.Drawing.Point, System.Drawing">
     <value>295, 68</value>
@@ -481,7 +535,7 @@
     <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;btnSortYellowCards.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="tabPage2.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
