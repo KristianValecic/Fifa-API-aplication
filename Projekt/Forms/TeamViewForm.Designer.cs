@@ -41,14 +41,16 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnPrintMatchSort = new System.Windows.Forms.Button();
             this.lbAttendenceSort = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.flpMatchRangList = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnPrintPlayerSort = new System.Windows.Forms.Button();
             this.pnlSelectedPlayerPlaceholder = new System.Windows.Forms.Panel();
             this.lbyellowCardsSort = new System.Windows.Forms.Label();
             this.lbGoalsSort = new System.Windows.Forms.Label();
-            this.flpList = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpPlayerSortList = new System.Windows.Forms.FlowLayoutPanel();
             this.btnSortGoals = new System.Windows.Forms.Button();
             this.btnSortYellowCards = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -59,8 +61,8 @@
             this.flpFavorites = new System.Windows.Forms.FlowLayoutPanel();
             this.flpPlayers = new System.Windows.Forms.FlowLayoutPanel();
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.btnPrintPlayerSort = new System.Windows.Forms.Button();
-            this.btnPrintMatchSort = new System.Windows.Forms.Button();
+            this.printDocumentPlayersSort = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialogPlayersSort = new System.Windows.Forms.PrintPreviewDialog();
             this.cmsFavoritesList.SuspendLayout();
             this.cmsPlayerList.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -149,6 +151,12 @@
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // btnPrintMatchSort
+            // 
+            resources.ApplyResources(this.btnPrintMatchSort, "btnPrintMatchSort");
+            this.btnPrintMatchSort.Name = "btnPrintMatchSort";
+            this.btnPrintMatchSort.UseVisualStyleBackColor = true;
+            // 
             // lbAttendenceSort
             // 
             resources.ApplyResources(this.lbAttendenceSort, "lbAttendenceSort");
@@ -172,12 +180,19 @@
             this.tabPage2.Controls.Add(this.pnlSelectedPlayerPlaceholder);
             this.tabPage2.Controls.Add(this.lbyellowCardsSort);
             this.tabPage2.Controls.Add(this.lbGoalsSort);
-            this.tabPage2.Controls.Add(this.flpList);
+            this.tabPage2.Controls.Add(this.flpPlayerSortList);
             this.tabPage2.Controls.Add(this.btnSortGoals);
             this.tabPage2.Controls.Add(this.btnSortYellowCards);
             resources.ApplyResources(this.tabPage2, "tabPage2");
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnPrintPlayerSort
+            // 
+            resources.ApplyResources(this.btnPrintPlayerSort, "btnPrintPlayerSort");
+            this.btnPrintPlayerSort.Name = "btnPrintPlayerSort";
+            this.btnPrintPlayerSort.UseVisualStyleBackColor = true;
+            this.btnPrintPlayerSort.Click += new System.EventHandler(this.btnPrintPlayerSort_Click);
             // 
             // pnlSelectedPlayerPlaceholder
             // 
@@ -194,10 +209,10 @@
             resources.ApplyResources(this.lbGoalsSort, "lbGoalsSort");
             this.lbGoalsSort.Name = "lbGoalsSort";
             // 
-            // flpList
+            // flpPlayerSortList
             // 
-            resources.ApplyResources(this.flpList, "flpList");
-            this.flpList.Name = "flpList";
+            resources.ApplyResources(this.flpPlayerSortList, "flpPlayerSortList");
+            this.flpPlayerSortList.Name = "flpPlayerSortList";
             // 
             // btnSortGoals
             // 
@@ -277,17 +292,15 @@
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             // 
-            // btnPrintPlayerSort
+            // printDocumentPlayersSort
             // 
-            resources.ApplyResources(this.btnPrintPlayerSort, "btnPrintPlayerSort");
-            this.btnPrintPlayerSort.Name = "btnPrintPlayerSort";
-            this.btnPrintPlayerSort.UseVisualStyleBackColor = true;
+            this.printDocumentPlayersSort.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocumentPlayersSort_PrintPage);
             // 
-            // btnPrintMatchSort
+            // printPreviewDialogPlayersSort
             // 
-            resources.ApplyResources(this.btnPrintMatchSort, "btnPrintMatchSort");
-            this.btnPrintMatchSort.Name = "btnPrintMatchSort";
-            this.btnPrintMatchSort.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.printPreviewDialogPlayersSort, "printPreviewDialogPlayersSort");
+            this.printPreviewDialogPlayersSort.Document = this.printDocumentPlayersSort;
+            this.printPreviewDialogPlayersSort.Name = "printPreviewDialogPlayersSortedByGoals";
             // 
             // TeamViewForm
             // 
@@ -333,7 +346,7 @@
         private System.Windows.Forms.Panel pnlSelectedPlayerPlaceholder;
         private System.Windows.Forms.Label lbyellowCardsSort;
         private System.Windows.Forms.Label lbGoalsSort;
-        private System.Windows.Forms.FlowLayoutPanel flpList;
+        private System.Windows.Forms.FlowLayoutPanel flpPlayerSortList;
         private System.Windows.Forms.Button btnSortGoals;
         private System.Windows.Forms.Button btnSortYellowCards;
         private System.Windows.Forms.TabPage tabPage1;
@@ -345,6 +358,8 @@
         private System.Windows.Forms.FlowLayoutPanel flpPlayers;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.Button btnPrintMatchSort;
+        private System.Drawing.Printing.PrintDocument printDocumentPlayersSort;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialogPlayersSort;
         private System.Windows.Forms.Button btnPrintPlayerSort;
     }
 }

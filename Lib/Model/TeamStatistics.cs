@@ -71,8 +71,9 @@ namespace Lib.Model
 
         public List<Player> GetPlayers()
         {
-            StartingEleven.AddRange(Substitutes);
-            return StartingEleven;
+            List<Player> tempList = new List<Player>(StartingEleven);
+            tempList.AddRange(Substitutes);
+            return tempList;
         }
 
         public string GetPlayerStrings()

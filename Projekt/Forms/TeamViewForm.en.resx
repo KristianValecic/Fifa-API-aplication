@@ -160,6 +160,9 @@
   <data name="cmsPlayerList.Size" type="System.Drawing.Size, System.Drawing">
     <value>205, 70</value>
   </data>
+  <data name="btnPrintMatchSort.Text" xml:space="preserve">
+    <value>Print</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lbAttendenceSort.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -172,6 +175,9 @@
   </data>
   <data name="tabPage3.Text" xml:space="preserve">
     <value>Ranged list of matches</value>
+  </data>
+  <data name="btnPrintPlayerSort.Text" xml:space="preserve">
+    <value>Print</value>
   </data>
   <data name="lbyellowCardsSort.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>

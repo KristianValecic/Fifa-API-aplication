@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,8 +26,10 @@ namespace Projekt
         private OpenFileDialog ofd = new OpenFileDialog();
         private FavoritePlayers favoritePlayers = new FavoritePlayers();
         private List<Player> allPlayers = new List<Player>();
+        //private HashSet<Player> allPlayers = new HashSet<Player>();
         private List<Player> playersListForSort = new List<Player>();
         private List<Player> players = new List<Player>();
+        private HashSet<Player> printedPlayers = new HashSet<Player>(); // control list for players who have been printed
         //private bool successfulDnD;
         private bool teamHasFavorites = false;
         private bool initialLoad = true;
@@ -35,6 +39,9 @@ namespace Projekt
         //private bool matchAttendenceDesc = true;
         private string descCharacter = @"\/";
         private string ascCharacter = @"/\";
+        //private int passesCounter = 0;
+        private int printanoStranica;
+
 
         public TeamViewForm()
         {
@@ -83,11 +90,11 @@ namespace Projekt
                 initialLoad = false;
             }
 
-            flpList.Controls.Clear();
+            flpPlayerSortList.Controls.Clear();
 
             playersListForSort.ForEach(p =>
             {
-                flpList.Controls.Add(
+                flpPlayerSortList.Controls.Add(
                     new PlayerContainerRow
                     {
                         player = p
@@ -345,6 +352,124 @@ namespace Projekt
         private void TeamViewForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             MainForm.FormCloseConfirm(e);
+        }
+
+        private void printDocumentPlayersSort_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.SmoothingMode = SmoothingMode.HighQuality;
+
+            int x = 0;
+            int y = e.MarginBounds.Top;
+            int controlHeightCounter = 0;
+            int passCount = 0;
+            Rectangle tempRect = new Rectangle();
+
+            List<Bitmap> bitmaps = new List<Bitmap>();
+
+            //ovaj foreach trpa listu s bitmapama
+            foreach (Control control in flpPlayerSortList.Controls)
+            {
+                //if (!printedPlayers.Exists(p => p.Equals(((PlayerContainerRow)control).player)))
+                //{
+                //    printedPlayers.Add(((PlayerContainerRow)control).player); 
+                //}
+
+                passCount++;
+
+                tempRect.Width = control.Width;
+                tempRect.Height = control.Height;
+
+                if (printedPlayers.Add(((PlayerContainerRow)control).player)) // ako uspije ubacit 
+                {
+                    controlHeightCounter += control.Height;
+                    var tempBmp = new Bitmap(tempRect.Width, tempRect.Height);
+                    control.DrawToBitmap(tempBmp, tempRect);
+                    bitmaps.Add(tempBmp);
+
+                    if (controlHeightCounter >= e.MarginBounds.Height)
+                    {
+                        x = GetCenterFromPage(e.PageBounds.Width, control.Width);
+
+                        DrawBitmaps(e, x, y, bitmaps);
+
+                        e.HasMorePages = true;
+                        controlHeightCounter = 0;
+                        return; // you need to return, then it will go into this function again
+                    }
+                    else if(flpPlayerSortList.Controls.Count == passCount)
+                    {
+                        //e.Graphics.Clear(Color.White);
+                        DrawBitmaps(e, x, y, bitmaps);
+                        e.HasMorePages = false;
+                    }
+                    
+                }
+                else
+                {
+                    //bitmaps.Clear();
+                    //return;
+                }
+
+
+                //IfHasMorePages(e.HasMorePages, e.PageBounds.Height);
+            }
+
+            //Bitmap bmp = Combine(bitmaps);
+            //e.Graphics.DrawImage(bmp, x, y);
+        }
+
+        private static void DrawBitmaps(PrintPageEventArgs e, int x, int y, List<Bitmap> bitmaps)
+        {
+            Bitmap bmp = Combine(bitmaps);
+            bitmaps.Clear();
+            e.Graphics.DrawImage(bmp, x, y);
+        }
+
+        private void IfHasMorePages(bool hasMorePages, int pageHeight, int offsetY)
+        {
+            if (offsetY >= pageHeight)
+            {
+                hasMorePages = true;
+                offsetY = 0;
+                return; // you need to return, then it will go into this function again
+            }
+            else
+            {
+                hasMorePages = false;
+            }
+        }
+
+        private int GetCenterFromPage(int pageLength, int controlLength)
+        => (pageLength - controlLength) / 2;
+     
+        public static Bitmap Combine(List<Bitmap> bitmaps /*params Bitmap[] sources*/)
+        {
+            List<int> imageHeights = new List<int>();
+            List<int> imageWidths = new List<int>();
+            int imageHeight = 0;
+            int imageStartPointY = 0;
+            foreach (Bitmap img in bitmaps) //sources
+            {
+                //imageHeights.Add(img.Height);
+                imageWidths.Add(img.Width);
+                imageHeight += img.Height;
+            }
+            Bitmap result = new Bitmap(imageWidths.Max(), imageHeight);//imageHeights.Max()
+            using (Graphics g = Graphics.FromImage(result))
+            {
+                foreach (Bitmap img in bitmaps) //sources
+                {
+                    g.DrawImage(img, new Point(0, imageStartPointY));
+                    imageStartPointY += img.Height;
+                }
+            }
+            return result;
+        }
+
+        private void btnPrintPlayerSort_Click(object sender, EventArgs e)
+        {
+
+            printPreviewDialogPlayersSort.ShowDialog();
         }
     }
 }

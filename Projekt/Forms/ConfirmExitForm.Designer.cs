@@ -73,7 +73,6 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "ConfirmExitForm";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ConfirmExitForm_FormClosing);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ConfirmExitForm_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

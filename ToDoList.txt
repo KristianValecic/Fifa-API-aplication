@@ -12,3 +12,16 @@ napravi da je desc i asc svoj gumb i korisnik moze mijenjat po zelji kako da se 
 PROMIJENI USER KONTROLE DA KORISTE UTILS GDJE GOD TREBA
 
 Dodaj lokalizaciju u settings save
+Napravi na vise stranica print
+Popravi sort
+
+-------Pseudo kod za printanje-------
+
+napuni prvu stranicu
+napuni drugu
+itd
+setaj da ima vise str, ako ima - hasMorePages = true
+
+ispisi stranicu 
+itd
+nakon zadnje hasMorePages = false

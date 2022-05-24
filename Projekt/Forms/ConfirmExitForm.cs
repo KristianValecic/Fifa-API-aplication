@@ -17,6 +17,7 @@ namespace Projekt.Forms
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
+            this.ControlBox = false;
             Focus();
         }
 
@@ -45,14 +46,6 @@ namespace Projekt.Forms
             else if (e.KeyCode == Keys.Enter)
             {
                 Application.Exit();
-            }
-        }
-
-        private void ConfirmExitForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (e.CloseReason == CloseReason.UserClosing)
-            {
-                e.Cancel = true;
             }
         }
     }
