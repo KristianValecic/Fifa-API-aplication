@@ -83,8 +83,6 @@ namespace Lib.Model
         [JsonProperty("last_score_update_at")]
         public string LastScoreUpdateAt { get; set; }
 
-        //private object IfIntIsNull(int? n) => n == null ? 0 : n;
-
         public override string ToString()
          //=> $"{Venue}, {Location} {Datetime} - {AwayTeam}, {AwayTeam}";
          => $"{Venue}, {Location}\t\t H:{HomeTeam.Country}, A:{AwayTeam.Country}";

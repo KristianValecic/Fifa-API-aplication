@@ -46,7 +46,11 @@ namespace Projekt
 
         private void SetSettings()
         {
-            settings.LoadFromFile();
+            if (settings.IfFileExists())
+            {
+                settings.LoadFromFile(); 
+            }
+
             if (settings.IsMale)
             {
                 rbMale.Checked = true;
@@ -68,6 +72,9 @@ namespace Projekt
                 rbOnline.Checked = false;
                 rbOffline.Checked = true;
             }
+
+            //SetCulture(settings.Culture);
+
             InitDataComboBox();
         }
 
@@ -230,12 +237,13 @@ namespace Projekt
             settings.SaveToFile();
         }
 
-        private void SetCulture(string language) 
+        private void SetCulture(string language)
         {
             var culture = new CultureInfo(language);
 
             Thread.CurrentThread.CurrentUICulture = culture;
             Thread.CurrentThread.CurrentCulture = culture;
+            settings.Culture = language;
 
             UpdateForm();
         }

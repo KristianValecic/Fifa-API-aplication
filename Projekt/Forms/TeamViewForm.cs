@@ -366,98 +366,69 @@ namespace Projekt
 
             List<Bitmap> bitmaps = new List<Bitmap>();
 
-            //ovaj foreach trpa listu s bitmapama
-            foreach (Control control in flpPlayerSortList.Controls)
+            foreach (PlayerContainerRow control in flpPlayerSortList.Controls)
             {
-                //if (!printedPlayers.Exists(p => p.Equals(((PlayerContainerRow)control).player)))
-                //{
-                //    printedPlayers.Add(((PlayerContainerRow)control).player); 
-                //}
-
                 passCount++;
 
                 tempRect.Width = control.Width;
                 tempRect.Height = control.Height;
 
-                if (printedPlayers.Add(((PlayerContainerRow)control).player)) // ako uspije ubacit 
+                if (printedPlayers.Add(((PlayerContainerRow)control).player))
                 {
                     controlHeightCounter += control.Height;
-                    var tempBmp = new Bitmap(tempRect.Width, tempRect.Height);
-                    control.DrawToBitmap(tempBmp, tempRect);
-                    bitmaps.Add(tempBmp);
+                    bitmaps.Add(CreatBitmapOf(control, tempRect));
+
+                    x = GetCenterFromPage(e.PageBounds.Width, control.Width);
 
                     if (controlHeightCounter >= e.MarginBounds.Height)
                     {
-                        x = GetCenterFromPage(e.PageBounds.Width, control.Width);
-
-                        DrawBitmaps(e, x, y, bitmaps);
+                        DrawBitmapsToPage(e, x, y, bitmaps);
 
                         e.HasMorePages = true;
                         controlHeightCounter = 0;
-                        return; // you need to return, then it will go into this function again
+                        return;
                     }
-                    else if(flpPlayerSortList.Controls.Count == passCount)
+                    else if (flpPlayerSortList.Controls.Count == passCount)
                     {
-                        //e.Graphics.Clear(Color.White);
-                        DrawBitmaps(e, x, y, bitmaps);
+                        DrawBitmapsToPage(e, x, y, bitmaps);
                         e.HasMorePages = false;
                     }
-                    
                 }
-                else
-                {
-                    //bitmaps.Clear();
-                    //return;
-                }
-
-
-                //IfHasMorePages(e.HasMorePages, e.PageBounds.Height);
             }
-
-            //Bitmap bmp = Combine(bitmaps);
-            //e.Graphics.DrawImage(bmp, x, y);
         }
 
-        private static void DrawBitmaps(PrintPageEventArgs e, int x, int y, List<Bitmap> bitmaps)
+        private Bitmap CreatBitmapOf(Control control, Rectangle area)
+        {
+            var tempBmp = new Bitmap(area.Width, area.Height);
+            control.DrawToBitmap(tempBmp, area);
+            return tempBmp;
+        }
+
+        private static void DrawBitmapsToPage(PrintPageEventArgs e, int x, int y, List<Bitmap> bitmaps)
         {
             Bitmap bmp = Combine(bitmaps);
             bitmaps.Clear();
             e.Graphics.DrawImage(bmp, x, y);
         }
 
-        private void IfHasMorePages(bool hasMorePages, int pageHeight, int offsetY)
-        {
-            if (offsetY >= pageHeight)
-            {
-                hasMorePages = true;
-                offsetY = 0;
-                return; // you need to return, then it will go into this function again
-            }
-            else
-            {
-                hasMorePages = false;
-            }
-        }
-
         private int GetCenterFromPage(int pageLength, int controlLength)
         => (pageLength - controlLength) / 2;
      
-        public static Bitmap Combine(List<Bitmap> bitmaps /*params Bitmap[] sources*/)
+        public static Bitmap Combine(List<Bitmap> bitmaps)
         {
             List<int> imageHeights = new List<int>();
             List<int> imageWidths = new List<int>();
             int imageHeight = 0;
             int imageStartPointY = 0;
-            foreach (Bitmap img in bitmaps) //sources
+            foreach (Bitmap img in bitmaps)
             {
-                //imageHeights.Add(img.Height);
                 imageWidths.Add(img.Width);
                 imageHeight += img.Height;
             }
-            Bitmap result = new Bitmap(imageWidths.Max(), imageHeight);//imageHeights.Max()
+            Bitmap result = new Bitmap(imageWidths.Max(), imageHeight);
             using (Graphics g = Graphics.FromImage(result))
             {
-                foreach (Bitmap img in bitmaps) //sources
+                foreach (Bitmap img in bitmaps)
                 {
                     g.DrawImage(img, new Point(0, imageStartPointY));
                     imageStartPointY += img.Height;
@@ -468,8 +439,8 @@ namespace Projekt
 
         private void btnPrintPlayerSort_Click(object sender, EventArgs e)
         {
-
             printPreviewDialogPlayersSort.ShowDialog();
+            printedPlayers.Clear();
         }
     }
 }

@@ -20,9 +20,11 @@ namespace Lib.Model
 
         public Team SelectedTeam { get; set; }
 
+        public string Culture { get; set; }
+
 
         private string FormatForFileLine()
-            => $"{IsMale}{DELIM}{IsOnline}{DELIM}{SelectedTeam.FifaCode}"; //dodati jezik
+            => $"{IsMale}{DELIM}{IsOnline}{DELIM}{SelectedTeam.FifaCode}{DELIM}{Culture}"; //dodati jezik
 
 
         public bool IfFileExists()
@@ -49,6 +51,7 @@ namespace Lib.Model
             IsMale = bool.Parse(text[0]);
             IsOnline = bool.Parse(text[1]);
             SelectedTeam = Team.ParseFromFileLine(text[2]);
+            Culture = text[3];
         }
     }
 }

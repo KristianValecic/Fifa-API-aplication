@@ -8,7 +8,6 @@ namespace Lib.Dal
 {
     internal interface ISaveable
     {
-        //bool IfFileExists();
         void SaveToFile();
         void LoadFromFile();
     }
