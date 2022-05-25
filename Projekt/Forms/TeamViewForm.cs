@@ -30,6 +30,7 @@ namespace Projekt
         private List<Player> playersListForSort = new List<Player>();
         private List<Player> players = new List<Player>();
         private HashSet<Player> printedPlayers = new HashSet<Player>(); // control list for players who have been printed
+        private HashSet<Match> printedMatches = new HashSet<Match>(); // control list for players who have been printed
         //private bool successfulDnD;
         private bool teamHasFavorites = false;
         private bool initialLoad = true;
@@ -365,7 +366,7 @@ namespace Projekt
             Rectangle tempRect = new Rectangle();
 
             List<Bitmap> bitmaps = new List<Bitmap>();
-
+            
             foreach (PlayerContainerRow control in flpPlayerSortList.Controls)
             {
                 passCount++;
@@ -373,10 +374,10 @@ namespace Projekt
                 tempRect.Width = control.Width;
                 tempRect.Height = control.Height;
 
-                if (printedPlayers.Add(((PlayerContainerRow)control).player))
+                if (printedPlayers.Add(control.player))
                 {
                     controlHeightCounter += control.Height;
-                    bitmaps.Add(CreatBitmapOf(control, tempRect));
+                    bitmaps.Add(CreateBitmapOf(control, tempRect));
 
                     x = GetCenterFromPage(e.PageBounds.Width, control.Width);
 
@@ -397,7 +398,52 @@ namespace Projekt
             }
         }
 
-        private Bitmap CreatBitmapOf(Control control, Rectangle area)
+        private void printDocumentMatchSort_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            //PrintFLPList<MatchContainer, Match>(e, flpMatchRangList, printedMatches);
+            e.Graphics.SmoothingMode = SmoothingMode.HighQuality;
+
+            int x = 0;
+            int y = e.MarginBounds.Top;
+            int controlHeightCounter = 0;
+            int passCount = 0;
+            Rectangle tempRect = new Rectangle();
+
+            List<Bitmap> bitmaps = new List<Bitmap>();
+
+            foreach (MatchContainer control in flpMatchRangList.Controls)
+            {
+                passCount++;
+
+                tempRect.Width = control.Width;
+                tempRect.Height = control.Height;
+                controlHeightCounter += control.Height;
+
+                if (printedMatches.Add(control.match))
+                {
+                    bitmaps.Add(CreateBitmapOf(control, tempRect));
+
+                    x = GetCenterFromPage(e.PageBounds.Width, control.Width);
+
+                    if (controlHeightCounter >= e.MarginBounds.Height - control.Height)
+                    {
+                        DrawBitmapsToPage(e, x, y, bitmaps);
+
+                        e.HasMorePages = true;
+                        controlHeightCounter = 0;
+                        return;
+                    }
+                    else if (flpMatchRangList.Controls.Count == passCount)
+                    {
+                        DrawBitmapsToPage(e, x, y, bitmaps);
+                        e.HasMorePages = false;
+                    }
+                }
+            }
+        }
+
+
+        private Bitmap CreateBitmapOf(Control control, Rectangle area)
         {
             var tempBmp = new Bitmap(area.Width, area.Height);
             control.DrawToBitmap(tempBmp, area);
@@ -441,6 +487,12 @@ namespace Projekt
         {
             printPreviewDialogPlayersSort.ShowDialog();
             printedPlayers.Clear();
+        }
+
+        private void btnPrintMatchSort_Click(object sender, EventArgs e)
+        {
+            printPreviewDialogMatchSort.ShowDialog();
+            printedMatches.Clear();
         }
     }
 }

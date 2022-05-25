@@ -116,14 +116,23 @@
     <EmbeddedResource Include="Forms\TeamViewForm.en.resx">
       <DependentUpon>TeamViewForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\MatchContainer.en.resx">
+      <DependentUpon>MatchContainer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MatchContainer.resx">
       <DependentUpon>MatchContainer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\PlayerContainer.resx">
       <DependentUpon>PlayerContainer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\PlayerContainerRow.en.resx">
+      <DependentUpon>PlayerContainerRow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\PlayerContainerRow.resx">
       <DependentUpon>PlayerContainerRow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\PlayerContainerSelected.en.resx">
+      <DependentUpon>PlayerContainerSelected.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\PlayerContainerSelected.resx">
       <DependentUpon>PlayerContainerSelected.cs</DependentUpon>

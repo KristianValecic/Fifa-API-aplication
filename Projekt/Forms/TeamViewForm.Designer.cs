@@ -63,6 +63,8 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.printDocumentPlayersSort = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialogPlayersSort = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDocumentMatchSort = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialogMatchSort = new System.Windows.Forms.PrintPreviewDialog();
             this.cmsFavoritesList.SuspendLayout();
             this.cmsPlayerList.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -156,6 +158,7 @@
             resources.ApplyResources(this.btnPrintMatchSort, "btnPrintMatchSort");
             this.btnPrintMatchSort.Name = "btnPrintMatchSort";
             this.btnPrintMatchSort.UseVisualStyleBackColor = true;
+            this.btnPrintMatchSort.Click += new System.EventHandler(this.btnPrintMatchSort_Click);
             // 
             // lbAttendenceSort
             // 
@@ -302,6 +305,16 @@
             this.printPreviewDialogPlayersSort.Document = this.printDocumentPlayersSort;
             this.printPreviewDialogPlayersSort.Name = "printPreviewDialogPlayersSortedByGoals";
             // 
+            // printDocumentMatchSort
+            // 
+            this.printDocumentMatchSort.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocumentMatchSort_PrintPage);
+            // 
+            // printPreviewDialogMatchSort
+            // 
+            resources.ApplyResources(this.printPreviewDialogMatchSort, "printPreviewDialogMatchSort");
+            this.printPreviewDialogMatchSort.Document = this.printDocumentMatchSort;
+            this.printPreviewDialogMatchSort.Name = "printPreviewDialogMatchSort";
+            // 
             // TeamViewForm
             // 
             resources.ApplyResources(this, "$this");
@@ -361,5 +374,7 @@
         private System.Drawing.Printing.PrintDocument printDocumentPlayersSort;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialogPlayersSort;
         private System.Windows.Forms.Button btnPrintPlayerSort;
+        private System.Drawing.Printing.PrintDocument printDocumentMatchSort;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialogMatchSort;
     }
 }
