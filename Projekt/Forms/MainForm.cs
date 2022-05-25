@@ -41,7 +41,14 @@ namespace Projekt
                 SetSettings();
             }
             //nastavi s podesavanjem postavki
-           SetCulture(HR);
+            if (settings.Culture == String.Empty)
+            {
+                SetCulture(HR);
+            }
+            else
+            {
+                SetCulture(settings.Culture);  
+            }
         }
 
         private void SetSettings()
@@ -148,7 +155,6 @@ namespace Projekt
                 return;
             }
             settings.SelectedTeam = teams.FirstOrDefault(cbTeams.SelectedItem.Equals);
-            //settings.TeamCode = cbTeams.SelectedItem.ToString();
             //Spremi postavke.
             settings.SaveToFile();
             OpenTeamViewForm();
@@ -225,10 +231,6 @@ namespace Projekt
                 ConfirmExitForm f = new ConfirmExitForm();
                 f.Show();
             }
-            //else
-            //{
-            //    e.Cancel = true;
-            //}
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -243,9 +245,8 @@ namespace Projekt
 
             Thread.CurrentThread.CurrentUICulture = culture;
             Thread.CurrentThread.CurrentCulture = culture;
-            settings.Culture = language;
-
             UpdateForm();
+            settings.Culture = language;
         }
 
         private void Cro_Click(object sender, EventArgs e)
