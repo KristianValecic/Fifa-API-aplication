@@ -1,1 +1,1 @@
-True|False|CRO|en
+True|True|CRO|hr|Small

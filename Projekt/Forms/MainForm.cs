@@ -38,10 +38,18 @@ namespace Projekt
             {
                 ////otvori s postojecim postavkama.
                 //this.Visible = false;
+                settings.LoadFromFile();
                 SetSettings();
             }
+            //else
+            //{
+            //    rbFemale.Checked = false;
+            //    rbMale.Checked = false;
+            //    rbOffline.Checked = false;
+            //    rbOnline.Checked = false;
+            //}
             //nastavi s podesavanjem postavki
-            if (settings.Culture == String.Empty)
+            if (settings.Culture == String.Empty || settings.Culture == null)
             {
                 SetCulture(HR);
             }
@@ -53,10 +61,10 @@ namespace Projekt
 
         private void SetSettings()
         {
-            if (settings.IfFileExists())
-            {
-                settings.LoadFromFile(); 
-            }
+            //if (settings.IfFileExists())
+            //{
+            //    settings.LoadFromFile(); 
+            //}
 
             if (settings.IsMale)
             {
@@ -107,7 +115,12 @@ namespace Projekt
             }
 
             cbTeams.DataSource = teams;
-            cbTeams.DisplayMember = "FifaCode";
+            cbTeams.DisplayMember = nameof(Team.DisplayName); //FifaCode
+
+            //if (cbTeams.HasChildren)
+            //{
+            //    cbTeams.SelectedValue = teams.First(); 
+            //}
 
             TrySetSelectedTeam();
 
@@ -120,6 +133,10 @@ namespace Projekt
             if (settings.SelectedTeam != null)
             {
                 cbTeams.SelectedItem = teams.FirstOrDefault(settings.SelectedTeam.Equals);
+            }
+            else
+            {
+                settings.SelectedTeam = teams.FirstOrDefault(cbTeams.SelectedItem.Equals);
             }
         }
 
@@ -154,7 +171,15 @@ namespace Projekt
                 MessageBox.Show("Molim Vas odaberite potrebne opcije.");
                 return;
             }
-            settings.SelectedTeam = teams.FirstOrDefault(cbTeams.SelectedItem.Equals);
+            try
+            {
+                settings.SelectedTeam = teams.FirstOrDefault(cbTeams.SelectedItem.Equals);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
             //Spremi postavke.
             settings.SaveToFile();
             OpenTeamViewForm();

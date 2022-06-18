@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekt", "Projekt\Projekt.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib", "Lib\Lib.csproj", "{77C118A2-DDE5-420A-BC67-AE9B6508AFAA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF Projekt", "WPF Projekt\WPF Projekt.csproj", "{FA5C0067-4E3B-4263-89BF-733642714EEC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{77C118A2-DDE5-420A-BC67-AE9B6508AFAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77C118A2-DDE5-420A-BC67-AE9B6508AFAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77C118A2-DDE5-420A-BC67-AE9B6508AFAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA5C0067-4E3B-4263-89BF-733642714EEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA5C0067-4E3B-4263-89BF-733642714EEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA5C0067-4E3B-4263-89BF-733642714EEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA5C0067-4E3B-4263-89BF-733642714EEC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

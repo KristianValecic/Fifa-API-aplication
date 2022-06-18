@@ -1,5 +1,4 @@
-pdf
-Loading animacija
+Popravi exception kada save-ana slika ne valja
 
 ------Procitaj i skuzi treba li zatvoriti prvu formu
 
