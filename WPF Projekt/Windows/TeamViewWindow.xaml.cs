@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lib.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,16 @@ namespace WPF_Projekt.Windows
     /// </summary>
     public partial class TeamViewWindow : Window
     {
+        public Team team { get; set; }
+        public List<Match> matches = new List<Match>();
         public TeamViewWindow()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            lblTest.Content = team.DisplayName;
         }
     }
 }

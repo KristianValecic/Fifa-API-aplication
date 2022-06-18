@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Projekt.Windows"
         mc:Ignorable="d"
+        Loaded="Window_Loaded"
         Title="TeamViewWindow" Height="450" Width="800">
     <Grid>
-        
+        <Label 
+            x:Name="lblTest"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"/>
     </Grid>
 </Window>

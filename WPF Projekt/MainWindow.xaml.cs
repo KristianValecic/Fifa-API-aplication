@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPF_Projekt.Windows;
 
 namespace WPF_Projekt
 {
@@ -58,10 +59,7 @@ namespace WPF_Projekt
 
         private void SetSettings()
         {
-            if (settings.IfFileExists())
-            {
-                settings.LoadFromFile();
-            }
+            
 
             if (settings.IsMale)
             {
@@ -76,13 +74,13 @@ namespace WPF_Projekt
 
             if (settings.IsOnline)
             {
-                rbMale.IsChecked = true;
-                rbFemale.IsChecked = false;
+                rbOnline.IsChecked = true;
+                rbOffline.IsChecked = false;
             }
             else
             {
-                rbMale.IsChecked = false;
-                rbFemale.IsChecked = true;
+                rbOnline.IsChecked = false;
+                rbOffline.IsChecked = true;
             }
 
             switch (settings.ScreenSize)
@@ -137,7 +135,8 @@ namespace WPF_Projekt
         private bool IfChecked()
         {
             if ((rbFemale.IsChecked == true || rbMale.IsChecked == true) &&
-                (rbOnline.IsChecked == true || rbOffline.IsChecked == true))
+                (rbOnline.IsChecked == true || rbOffline.IsChecked == true) /*&&
+                (rbSmall.IsChecked == true || rbSmall.IsChecked == true || rbSmall.IsChecked == true)*/)
             {
                 return true;
             }
@@ -184,11 +183,53 @@ namespace WPF_Projekt
 
         private void IfCheckScreenSize()
         {
-            if (rbSmall.IsChecked == false && rbSmall.IsChecked == false && rbSmall.IsChecked == false)
+            if (rbSmall.IsChecked == false && rbMedium.IsChecked == false && rbLarge.IsChecked == false)
             {
                 lbCheckedScreenSizeMessage.Visibility = Visibility.Visible;
                 return;
             }
+
+            try
+            {
+                settings.SelectedTeam = teams.FirstOrDefault(cbTeams.SelectedItem.Equals);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+
+            settings.SaveToFile();
+            OpenTeamViewWindowAsync();
+        }
+
+        private async Task OpenTeamViewWindowAsync()
+        {
+            TeamViewWindow teamViewWindow = new TeamViewWindow();
+            teamViewWindow.team = settings.SelectedTeam;
+
+            IList<Match> allMatches = new List<Match>();
+
+            try
+            {
+                allMatches = (settings.IsOnline) ? await repo.GetOnlineDataAsync<List<Match>>(Match.GetEndpoint(settings.IsOnline, settings.IsMale, settings.SelectedTeam.ToString()))
+                                    : await repo.GetOfflineDataAsync<List<Match>>(Match.GetEndpoint(settings.IsOnline, settings.IsMale, settings.SelectedTeam.ToString()));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            //find all matches that have that team
+
+            foreach (var match in allMatches)
+            {
+                if (match.HomeTeam.Country == settings.SelectedTeam.Country || match.AwayTeam.Country == settings.SelectedTeam.Country)
+                {
+                    teamViewWindow.matches.Add(match);
+                }
+            }
+
+            teamViewWindow.Show();
         }
     }
 }
