@@ -105,7 +105,6 @@ namespace Lib.Model
             { 
                 return (List<Player>)AwayTeamStatistics.GetPlayers();
             }
-
         }
 
         public List<TeamEvent> GetTeamEvents(Team team)
@@ -145,6 +144,18 @@ namespace Lib.Model
                 {
                     p.YellowCards += 1;
                 }
+            }
+        }
+
+        public Team GetTeamOpponent(Team team)
+        {
+            if (team.Country == HomeTeam.Country)
+            {
+                return AwayTeam;
+            }
+            else
+            {
+                return HomeTeam;
             }
         }
 

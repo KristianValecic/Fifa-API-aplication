@@ -171,13 +171,10 @@ namespace WPF_Projekt
         private void ShowPlayers_Click(object sender, RoutedEventArgs e)
         {
             IfCheckScreenSize();
-
         }
-
 
         private void rbScreenSize_Checked(object sender, RoutedEventArgs e)
         {
-
             lbCheckedScreenSizeMessage.Visibility = Visibility.Hidden;
         }
 
