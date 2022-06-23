@@ -87,5 +87,21 @@ namespace WPF_Projekt.Windows
             detailWin.Show();
         }
 
+        private void PlrPosition_Click(object sender, RoutedEventArgs e)
+        {
+            lblOpponentValidation.Visibility = Visibility.Hidden;
+            if (cbOpponents.SelectedItem != null)
+            {
+                FieldPositionWindow fpw = new FieldPositionWindow();
+                fpw.selectedTeam = team;
+                fpw.oppponentTeam = (Team)cbOpponents.SelectedItem;
+                fpw.match = currentMatch;
+                fpw.Show();
+            }
+            else
+            {
+                lblOpponentValidation.Visibility = Visibility.Visible;
+            }
+        }
     }
 }

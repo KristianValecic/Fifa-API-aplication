@@ -1,0 +1,104 @@
+﻿<Window x:Class="WPF_Projekt.Windows.FieldPositionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Projekt.UserControls"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Title="FieldPositionWindow" Height="719" Width="500">
+    <Window.Resources>
+        <Style TargetType="local:PlayerFieldControl">
+            <Setter Property="Grid.Row" Value="0"/>
+            <!--<Setter Property="FontWeight" Value="Bold"/>-->
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="HorizontalAlignment" Value="center"/>
+        </Style>
+
+        <Style x:Key="styleGoalie" TargetType="local:PlayerFieldControl">
+            <Setter Property="Grid.Row" Value="0"/>
+            <!--<Setter Property="FontSize" Value="15"/>-->
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="HorizontalAlignment" Value="center"/>
+        </Style>
+        <Style x:Key="styleOpponentGoalie" TargetType="local:PlayerFieldControl">
+            <Setter Property="Grid.Row" Value="7"/>
+            <!--<Setter Property="FontSize" Value="15"/>-->
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="HorizontalAlignment" Value="center"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid x:Name="gridField">
+
+        <!--<Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>-->
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Image
+            x:Name="imgField"
+            Grid.RowSpan="9"
+            Grid.ColumnSpan="6"
+            Source="\Resources\field.jpg"
+            ></Image>
+        
+        <!--<local:PlayerFieldControl
+            Style="{StaticResource styleGoalie}"
+            />-->
+
+        <StackPanel 
+            Grid.Row="1"
+            x:Name="stckpnlDefender"   
+            Orientation="Horizontal"
+            HorizontalAlignment="Center"
+            />
+        <StackPanel 
+            Grid.Row="2"
+            x:Name="stckpnlMidfield"   
+            Orientation="Horizontal"
+            HorizontalAlignment="Center"
+            />
+        <StackPanel 
+            Grid.Row="3"
+            x:Name="stckpnlForward"   
+            Orientation="Horizontal"
+            HorizontalAlignment="Center"
+            />
+        
+        <StackPanel 
+            Grid.Row="4"
+            x:Name="stckpnlOpponentDefender"   
+            Orientation="Horizontal"
+            HorizontalAlignment="Center"
+            />
+        <StackPanel 
+            Grid.Row="5"
+            x:Name="stckpnlOpponentMidfield"   
+            Orientation="Horizontal"
+            HorizontalAlignment="Center"
+            />
+        <StackPanel 
+            Grid.Row="6"
+            x:Name="stckpnlOpponentForward"   
+            Orientation="Horizontal"
+            HorizontalAlignment="Center"
+            />
+
+    </Grid>
+</Window>

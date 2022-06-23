@@ -7,6 +7,12 @@ using System.Threading.Tasks;
 
 namespace Lib.Model
 {
+    public enum PlayerPosition {
+        Goalie,
+        Defender,
+        Midfield,
+        Forward
+    }
     public class Player
     {
         private int goals = 0;

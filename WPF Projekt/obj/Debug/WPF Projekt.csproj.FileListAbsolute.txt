@@ -1,47 +1,57 @@
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\WPF Projekt.exe.config
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\WPF Projekt.exe
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\WPF Projekt.pdb
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\WPF Projekt.csproj.AssemblyReference.cache
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\WPF Projekt.csproj.SuggestedBindingRedirects.cache
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\App.g.cs
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\WPF Projekt_MarkupCompile.cache
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\WPF Projekt_MarkupCompile.lref
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\WPF Projekt.g.resources
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\WPF_Projekt.Properties.Resources.resources
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\WPF Projekt.csproj.GenerateResource.cache
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\WPF Projekt.csproj.CoreCompileInputs.cache
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\WPF Projekt.exe
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\WPF Projekt.pdb
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\MainWindow.g.cs
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\MainWindow.baml
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\Lib.dll
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\Newtonsoft.Json.dll
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\RestSharp.dll
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\System.Threading.Tasks.Extensions.dll
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\System.Text.Json.dll
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\System.Memory.dll
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\System.ValueTuple.dll
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\System.Text.Encodings.Web.dll
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\System.Numerics.Vectors.dll
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\System.Buffers.dll
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\Lib.pdb
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\Lib.dll.config
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\Newtonsoft.Json.xml
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\RestSharp.xml
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\System.Threading.Tasks.Extensions.xml
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\System.Text.Json.xml
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\System.Memory.xml
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\System.ValueTuple.xml
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\System.Text.Encodings.Web.xml
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\System.Numerics.Vectors.xml
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\System.Buffers.xml
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\WPF Projekt.csproj.CopyComplete
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\WPF Projekt.exe.config
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\Windows\TeamViewWindow.g.cs
-D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\Windows\TeamViewWindow.baml
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\WPF Projekt.exe.config
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\WPF Projekt.exe
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\WPF Projekt.pdb
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\Lib.dll
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\RestSharp.dll
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\System.Buffers.dll
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\System.Memory.dll
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\System.Numerics.Vectors.dll
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\System.Text.Encodings.Web.dll
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\System.Text.Json.dll
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\System.ValueTuple.dll
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\Newtonsoft.Json.dll
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\Lib.pdb
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\Lib.dll.config
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\RestSharp.xml
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\System.Buffers.xml
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\System.Memory.xml
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\System.Numerics.Vectors.xml
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\System.Text.Encodings.Web.xml
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\System.Text.Json.xml
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\System.ValueTuple.xml
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\Newtonsoft.Json.xml
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\WPF Projekt.csproj.AssemblyReference.cache
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\WPF Projekt.csproj.SuggestedBindingRedirects.cache
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\WPF Projekt.exe.config
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\MainWindow.g.cs
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\UserControls\PlayerFieldControl.g.cs
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\Windows\FieldPositionWindow.g.cs
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\Windows\TeamViewWindow.g.cs
 D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\Windows\WindowForTeam.g.cs
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\App.g.cs
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\WPF Projekt_MarkupCompile.cache
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\WPF Projekt_MarkupCompile.lref
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\App.baml
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\MainWindow.baml
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\UserControls\PlayerFieldControl.baml
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\Windows\FieldPositionWindow.baml
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\Windows\TeamViewWindow.baml
 D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\Windows\WindowForTeam.baml
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\WPF Projekt.g.resources
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\WPF_Projekt.Properties.Resources.resources
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\WPF_Projekt.Resource1.resources
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\WPF Projekt.csproj.GenerateResource.cache
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\WPF Projekt.csproj.CoreCompileInputs.cache
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\WPF Projekt.csproj.CopyComplete
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\WPF Projekt.exe
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\WPF Projekt.pdb
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\Resources\field.jpg
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\WPF Projekt_Content.g.cs
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\Resources\shirt.png

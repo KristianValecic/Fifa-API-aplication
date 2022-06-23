@@ -4,6 +4,8 @@
              xmlns:local="clr-namespace:WPF_Projekt"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <BitmapImage x:Key="FieldImage" UriSource="\Resources\field.jpg" />
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -1,4 +1,6 @@
-Dovrsi windowforTeam
+napravi zajednicki save file 
+
+popravi ispis kada su 5 igraca u liniji
 
 Popravi exception kada save-ana slika ne valja
 

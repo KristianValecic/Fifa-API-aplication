@@ -95,6 +95,18 @@ namespace Lib.Model
             return HomeTeamStatistics.GetPlayers().Concat(AwayTeamStatistics.GetPlayers());
         }
 
+        public IList<Player> GetStartingEleven(Team team)
+        {
+            if (HomeTeam.CompareCountryName(team))
+            {
+                return HomeTeamStatistics.StartingEleven;
+            }
+            else
+            {
+                return AwayTeamStatistics.StartingEleven;
+            }
+        }
+
         public List<Player> GetPlayersFromTeam(Team team)
         {
             if (HomeTeam.CompareCountryName(team))

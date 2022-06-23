@@ -272,7 +272,7 @@ namespace WPF_Projekt
             else if (rbSmall.IsChecked == true)
             {
                 teamViewWindow.Width = 500;
-                teamViewWindow.Height = 275;
+                teamViewWindow.Height = 370;
                 settings.ScreenSize = ScreenSizes.Small;
             }
         }
