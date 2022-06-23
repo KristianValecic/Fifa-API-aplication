@@ -12,7 +12,8 @@ namespace Lib.Model
     public enum ScreenSizes { 
         Small,
         Medium,
-        Large
+        Large,
+        Fullscreen
     }
     public class Settings : ISaveable
     {
@@ -72,6 +73,9 @@ namespace Lib.Model
                     break;
                 case "Large":
                     return ScreenSizes.Large;
+                    break;
+                case "Fullscreen":
+                    return ScreenSizes.Fullscreen;
                     break;
                 default:
                     return ScreenSizes.Small;

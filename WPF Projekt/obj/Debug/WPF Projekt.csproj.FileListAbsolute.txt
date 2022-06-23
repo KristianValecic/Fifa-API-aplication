@@ -43,3 +43,5 @@ D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\System.Runtime.
 D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\Windows\TeamViewWindow.g.cs
 D:\Faks\.NET praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\Windows\TeamViewWindow.baml
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\Windows\WindowForTeam.g.cs
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\Windows\WindowForTeam.baml

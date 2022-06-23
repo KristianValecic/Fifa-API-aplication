@@ -1,15 +1,12 @@
+Dovrsi windowforTeam
+
 Popravi exception kada save-ana slika ne valja
 
-------Procitaj i skuzi treba li zatvoriti prvu formu
-
-optional-------------
-dodaj da desni klik automatski mice tog na kojem je
-Imena na dresovima u dva reda
-napravi da je desc i asc svoj gumb i korisnik moze mijenjat po zelji kako da se sortira
-(probaj napravit funkviju koju koristi svaki gumb, samo salje svoj gumb kao kontrolu)
-
-PROMIJENI USER KONTROLE DA KORISTE UTILS GDJE GOD TREBA
+popravi combobox u teamviewWindowu
 
 Popravi lokalizaciju u settings save
 nece se saveat i treba napravit loadanje
 
+Pitanja: 
+combobox zasto ne radi
+Moramo li i za offline dohvacat podatke o pobjedama, gubitcima itd...

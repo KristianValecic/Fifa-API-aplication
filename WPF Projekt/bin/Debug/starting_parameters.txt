@@ -1,1 +1,1 @@
-True|False|KOR||Small
+True|False|CRO||Small

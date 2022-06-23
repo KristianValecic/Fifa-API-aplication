@@ -89,6 +89,9 @@
     <Compile Include="Windows\TeamViewWindow.xaml.cs">
       <DependentUpon>TeamViewWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\WindowForTeam.xaml.cs">
+      <DependentUpon>WindowForTeam.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -102,6 +105,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Windows\TeamViewWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\WindowForTeam.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

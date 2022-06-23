@@ -21,6 +21,9 @@ namespace WPF_Projekt.Windows
     public partial class TeamViewWindow : Window
     {
         public Team team { get; set; }
+        public List<Team> teams { get; set; }
+
+        private Match currentMatch;
         public List<Match> matches = new List<Match>();
         private List<Team> opponentList =new List<Team>();
         public TeamViewWindow()
@@ -39,22 +42,50 @@ namespace WPF_Projekt.Windows
             matches.ForEach(m =>
             {
                 opponentList.Add(m.GetTeamOpponent(team));
+                //cbOpponentTeams.Items.Add(m.GetTeamOpponent(team));
             });
 
-            cbOpponentTeams.SetBinding(
+            cbOpponents.SetBinding(
             ItemsControl.ItemsSourceProperty,
             new Binding { Source = opponentList });
 
-            cbOpponentTeams.DisplayMemberPath = nameof(Team.DisplayName);
+            cbOpponents.DisplayMemberPath = nameof(Team.DisplayName);
 
             //cbOpponentTeams.SelectedValue = opponentList.First();
         }
 
+        private void cbOpponentTeams_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            currentMatch = matches.FirstOrDefault(m => m.GetTeamOpponent(team).Country == ((Team)cbOpponents.SelectedValue).Country);
+            lblTeamGoals.Content = (currentMatch.HomeTeam.Country == team.Country) ? currentMatch.HomeTeam.Goals : currentMatch.AwayTeam.Goals;
+            lblOpponentGoals.Content = (currentMatch.HomeTeam.Country == currentMatch.GetTeamOpponent(team).Country) ? currentMatch.HomeTeam.Goals : currentMatch.AwayTeam.Goals;
+        }
 
 
-        //private void cbOpponentTeams_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        //{
-        //    cbOpponentTeams.Background = Brushes.Teal;
-        //}
+        private void OpponentTeamDetail_Click(object sender, RoutedEventArgs e)
+        {
+            if (cbOpponents.SelectedItem != null)
+            {
+                OpenWinForTeam(teams.FirstOrDefault(t => t.Country == ((Team)cbOpponents.SelectedItem).Country));
+            }
+            else
+            {
+                lblOpponentValidation.Visibility = Visibility.Visible;
+            }
+        }
+        private void SelectedTeamDetail_Click(object sender, RoutedEventArgs e)
+        {
+            //OpenWinForTeam(team);
+            OpenWinForTeam(teams.FirstOrDefault(t => t.Country == team.Country));
+        }
+
+        private void OpenWinForTeam(Team team)
+        {
+            lblOpponentValidation.Visibility = Visibility.Hidden;
+            WindowForTeam detailWin = new WindowForTeam();
+            detailWin.team = team;
+            detailWin.Show();
+        }
+
     }
 }

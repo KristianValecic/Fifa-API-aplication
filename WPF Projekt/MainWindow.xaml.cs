@@ -28,6 +28,7 @@ namespace WPF_Projekt
         private const string HR = "hr", EN = "en";
         private Settings settings = new Settings();
         private IList<Team> teams;
+       // private IList<Control> screenRBs;
         private static readonly IRepository repo = RepositoryFactory.GetRepo();
 
         public MainWindow()
@@ -59,8 +60,6 @@ namespace WPF_Projekt
 
         private void SetSettings()
         {
-            
-
             if (settings.IsMale)
             {
                 rbMale.IsChecked = true;
@@ -89,20 +88,32 @@ namespace WPF_Projekt
                     rbSmall.IsChecked = true;
                     rbMedium.IsChecked = false;
                     rbLarge.IsChecked = false;
+                    rbFullscreen.IsChecked = false;
+
                     break;
                 case ScreenSizes.Medium:
                     rbSmall.IsChecked = false;
                     rbMedium.IsChecked = true;
                     rbLarge.IsChecked = false;
+                    rbFullscreen.IsChecked = false;
                     break;
                 case ScreenSizes.Large:
                     rbSmall.IsChecked = false;
                     rbMedium.IsChecked = false;
                     rbLarge.IsChecked = true;
+                    rbFullscreen.IsChecked = false;
+                    break;
+                case ScreenSizes.Fullscreen:
+                    rbSmall.IsChecked = false;
+                    rbMedium.IsChecked = false;
+                    rbLarge.IsChecked = false;
+                    rbFullscreen.IsChecked = true;
                     break;
                     // default:
                     //     break;
             }
+
+            
 
             InitDataComboBoxAsync();
         }
@@ -128,8 +139,15 @@ namespace WPF_Projekt
             new Binding { Source = teams });
 
             //cbTeams.DataContext = teams;
+            if (settings.SelectedTeam == null)
+            {
+                cbTeams.SelectedValue = teams.First(); 
+            }
+            else
+            {
+                cbTeams.SelectedValue = teams.FirstOrDefault(t => t.FifaCode == settings.SelectedTeam.FifaCode);
+            }
             cbTeams.DisplayMemberPath = nameof(Team.DisplayName);
-            cbTeams.SelectedValue = teams.First();
         }
 
         private bool IfChecked()
@@ -171,6 +189,7 @@ namespace WPF_Projekt
         private void ShowPlayers_Click(object sender, RoutedEventArgs e)
         {
             IfCheckScreenSize();
+
         }
 
         private void rbScreenSize_Checked(object sender, RoutedEventArgs e)
@@ -180,7 +199,8 @@ namespace WPF_Projekt
 
         private void IfCheckScreenSize()
         {
-            if (rbSmall.IsChecked == false && rbMedium.IsChecked == false && rbLarge.IsChecked == false)
+            if (rbSmall.IsChecked == false && rbMedium.IsChecked == false && rbLarge.IsChecked == false
+                && rbFullscreen.IsChecked == false)
             {
                 lbCheckedScreenSizeMessage.Visibility = Visibility.Visible;
                 return;
@@ -196,7 +216,6 @@ namespace WPF_Projekt
                 return;
             }
 
-            settings.SaveToFile();
             OpenTeamViewWindowAsync();
         }
 
@@ -225,8 +244,37 @@ namespace WPF_Projekt
                     teamViewWindow.matches.Add(match);
                 }
             }
-
+            teamViewWindow.teams = (List<Team>)teams;
+            SetScreenSize(teamViewWindow);
+            settings.SaveToFile();
             teamViewWindow.Show();
+        }
+        
+        private void SetScreenSize(TeamViewWindow teamViewWindow)
+        {
+            if (rbFullscreen.IsChecked == true)
+            {
+                teamViewWindow.WindowState = WindowState.Maximized;
+                settings.ScreenSize = ScreenSizes.Fullscreen;
+            }
+            else if (rbLarge.IsChecked == true)
+            {
+                teamViewWindow.Width = SystemParameters.WorkArea.Width - (SystemParameters.WorkArea.Width / 3);
+                teamViewWindow.Height = SystemParameters.WorkArea.Height - (SystemParameters.WorkArea.Height / 3);
+                settings.ScreenSize = ScreenSizes.Large;
+            }
+            else if (rbMedium.IsChecked == true)
+            {
+                teamViewWindow.Width = SystemParameters.WorkArea.Width - (SystemParameters.WorkArea.Width / 2);
+                teamViewWindow.Height = SystemParameters.WorkArea.Height - (SystemParameters.WorkArea.Height / 2);
+                settings.ScreenSize = ScreenSizes.Medium;
+            }
+            else if (rbSmall.IsChecked == true)
+            {
+                teamViewWindow.Width = 500;
+                teamViewWindow.Height = 275;
+                settings.ScreenSize = ScreenSizes.Small;
+            }
         }
     }
 }

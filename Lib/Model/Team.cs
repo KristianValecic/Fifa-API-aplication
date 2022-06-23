@@ -60,9 +60,12 @@ namespace Lib.Model
         
         [JsonProperty("goals")]
         public int Goals { get; set; }
+
+        [JsonProperty("code")]
+        public string Code { get; set; }
         public string DisplayName 
         { 
-            get => $"{Country} ({FifaCode})";
+            get => $"{Country} ({((FifaCode != null) ? FifaCode : Code)})";
         }
 
         public override string ToString()

@@ -18,32 +18,81 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            
-            <Label 
+
+            <StackPanel
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+
+                <Label 
                 x:Name="lblSelectedTeam"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Center"/>
+                VerticalAlignment="Center"
+                />
 
-            <ComboBox 
-                x:Name="cbOpponentTeams"
-                Grid.Column="1"
-                Height="30"
-                Width="200"
-                ></ComboBox>
+                <Button 
+                Margin="10"
+                Padding="5"
+                Click="SelectedTeamDetail_Click"
+                >Show team detail</Button>
 
+            </StackPanel>
             <Label
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Grid.ColumnSpan="2"
                 FontSize="50"
                 >VS</Label>
+            <StackPanel
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Grid.Column="1">
+                <ComboBox 
+                x:Name="cbOpponents"
+                MaxHeight="40"
+                MaxWidth="200"
+                MinHeight="35"
+                MinWidth="150"
+                SelectionChanged="cbOpponentTeams_SelectionChanged"
+                ></ComboBox>
+
+                <Button 
+                Margin="10"
+                Padding="5"
+                Click="OpponentTeamDetail_Click"
+                >Show team detail</Button>
+
+                <Label
+                    x:Name="lblOpponentValidation"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Center"
+                    Foreground="Red"
+                    Visibility="Hidden">
+                    You must select a team first.
+                </Label>
+            </StackPanel>
         </Grid>
 
-        <Label
-            Grid.Row="1"    
+        <StackPanel
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Grid.Row="1"
+                Orientation="Horizontal">
+            <Label
+            x:Name="lblTeamGoals" 
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             FontSize="75"
-            ></Label>
+            >0</Label>
+            <Label
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="75"
+            >:</Label>
+            <Label
+            x:Name="lblOpponentGoals"
+            FontSize="75"
+            Content="0"
+            />
+        </StackPanel>
     </Grid>
 </Window>
