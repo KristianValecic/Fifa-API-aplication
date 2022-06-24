@@ -6,12 +6,11 @@
         xmlns:local="clr-namespace:WPF_Projekt.UserControls"
         mc:Ignorable="d"
         Loaded="Window_Loaded"
-        Title="FieldPositionWindow" Height="719" Width="500">
+        Title="FieldPositionWindow" Height="1000" Width="700">
     <Window.Resources>
         <Style TargetType="local:PlayerFieldControl">
             <Setter Property="Grid.Row" Value="0"/>
-            <!--<Setter Property="FontWeight" Value="Bold"/>-->
-            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <!--<Setter Property="VerticalAlignment" Value="Bottom"/>-->
             <Setter Property="HorizontalAlignment" Value="center"/>
         </Style>
 

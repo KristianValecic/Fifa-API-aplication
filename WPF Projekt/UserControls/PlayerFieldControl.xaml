@@ -5,10 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPF_Projekt.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="120">
+             d:DesignHeight="100" d:DesignWidth="100">
     <Grid>
 
         <Grid.RowDefinitions>
+            <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -16,18 +17,28 @@
 
         <Image
             Grid.RowSpan="2"
-            Height="50"
             VerticalAlignment="Top"
             Source="\Resources\shirt.png"
             ></Image>
 
-
-        <Label
-            x:Name="lblPlrName"
+        <!--<StackPanel
+            x:Name="stcpnlPlrName"
             VerticalAlignment="Bottom"
             HorizontalAlignment="Center"
-            Grid.Row="2"
-            ></Label>
+            Grid.Row="2">-->
+            <Label
+                x:Name="lblPlrName"
+                Grid.Row="2"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Center"
+                ></Label>
+            <Label
+                Grid.Row="3"
+                x:Name="lblPlrSurame"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Center"
+                ></Label>
+        <!--</StackPanel>-->
 
         <Label
             x:Name="lblPlrShrtNmbr"
