@@ -24,6 +24,7 @@ namespace WPF_Projekt.Windows
         public List<Team> teams { get; set; }
 
         private Match currentMatch;
+        
         public List<Match> matches = new List<Match>();
         private List<Team> opponentList =new List<Team>();
         public TeamViewWindow()

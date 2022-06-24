@@ -10,7 +10,7 @@ namespace Lib.Dal
 {
     public class PlayerImageRepository : ISaveable
     {
-        private const string PATH = "images.txt";
+        private const string PATH = "../../../SaveFiles/images.txt";
         private const char DELIM = '|';
 
         //public static List<string> playerImagesList = new List<string>();

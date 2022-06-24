@@ -10,7 +10,7 @@ namespace Lib.Dal
 {
     public class FavoritePlayers : ISaveable
     {
-        private const string FAVORITES_PATH = "favorites.txt";
+        private const string FAVORITES_PATH = "../../../SaveFiles/favorites.txt";
         private const char DELIM = '|';
 
         public List<Player> favoritePlayersList = new List<Player>();
