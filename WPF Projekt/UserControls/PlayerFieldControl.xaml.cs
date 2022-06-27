@@ -1,4 +1,5 @@
-﻿using Lib.Model;
+﻿using Lib.Dal;
+using Lib.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,9 +23,26 @@ namespace WPF_Projekt.UserControls
     /// </summary>
     public partial class PlayerFieldControl : UserControl
     {
+        private bool hasimg;
         public Team Team { get; set; }
         public Player Player { get; set; }
         public Match Match { get; set; }
+        public bool hasImg
+        {
+            //get => hasimg;
+            set
+            {
+                if (value)
+                {
+                    hasimg = true;
+
+                }
+                else
+                {
+                    hasimg = false;
+                }
+            }
+        }
 
         public PlayerFieldControl()
         {
@@ -44,6 +62,7 @@ namespace WPF_Projekt.UserControls
             cpw.Player = Player;
             cpw.Team = Team;
             cpw.Match = Match;
+            cpw.hasImg = hasimg;
 
             cpw.Show();
         }

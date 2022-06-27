@@ -1,15 +1,10 @@
-Popravi lokalizaciju u settings save
-nece se saveat i treba napravit loadanje
+greska s show team detail
 
 Popravi exception kada save-ana slika ne valja (win forms)
 
 popravi combobox u teamviewWindowu (wpf)
 
 prikaz slike za igrace u wpf
-
-dodati animacije
-
-Pregled igrača, kada se klikne na njega otvara se novi prozor s info
 
 Zatvaranje aplikacije i postavke(zadnja točka pdf-a)
 

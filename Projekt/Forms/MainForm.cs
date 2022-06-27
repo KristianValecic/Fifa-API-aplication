@@ -25,6 +25,8 @@ namespace Projekt
         private IList<Team> teams;
         private Settings settings = new Settings();
         private static DialogResult KeyResult;
+        private PlayerImageRepository playerImage = new PlayerImageRepository();
+
 
         public MainForm()
         {
@@ -40,6 +42,10 @@ namespace Projekt
                 //this.Visible = false;
                 settings.LoadFromFile();
                 SetSettings();
+            }
+            if (PlayerImageRepository.IfFileExists())
+            {
+                playerImage.LoadFromFile();
             }
             //else
             //{
@@ -262,6 +268,7 @@ namespace Projekt
         {
             FormCloseConfirm(e);
             settings.SaveToFile();
+            PlayerImageRepository.SaveImgToFile();
         }
 
         private void SetCulture(string language)

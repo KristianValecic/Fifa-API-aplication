@@ -62,7 +62,6 @@ namespace WPF_Projekt.Windows
             lblOpponentGoals.Content = (currentMatch.HomeTeam.Country == currentMatch.GetTeamOpponent(team).Country) ? currentMatch.HomeTeam.Goals : currentMatch.AwayTeam.Goals;
         }
 
-
         private void OpponentTeamDetail_Click(object sender, RoutedEventArgs e)
         {
             if (cbOpponents.SelectedItem != null)
@@ -74,6 +73,7 @@ namespace WPF_Projekt.Windows
                 lblOpponentValidation.Visibility = Visibility.Visible;
             }
         }
+
         private void SelectedTeamDetail_Click(object sender, RoutedEventArgs e)
         {
             //OpenWinForTeam(team);

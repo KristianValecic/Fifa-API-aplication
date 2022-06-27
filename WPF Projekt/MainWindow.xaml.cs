@@ -109,11 +109,7 @@ namespace WPF_Projekt
                     rbLarge.IsChecked = false;
                     rbFullscreen.IsChecked = true;
                     break;
-                    // default:
-                    //     break;
             }
-
-            
 
             InitDataComboBoxAsync();
         }
@@ -225,6 +221,7 @@ namespace WPF_Projekt
             teamViewWindow.team = settings.SelectedTeam;
 
             IList<Match> allMatches = new List<Match>();
+            teamViewWindow.teams = (List<Team>)teams;
 
             try
             {
@@ -244,10 +241,10 @@ namespace WPF_Projekt
                     teamViewWindow.matches.Add(match);
                 }
             }
-            teamViewWindow.teams = (List<Team>)teams;
             SetScreenSize(teamViewWindow);
             settings.SaveToFile();
             teamViewWindow.Show();
+            this.Close();
         }
         
         private void SetScreenSize(TeamViewWindow teamViewWindow)

@@ -54,7 +54,7 @@ namespace Lib.Utils
             playerImage.GivePlayerImage(player.Name, imgPath);
             picBox.Image = Image.FromFile(imgPath);
 
-            playerImage.SaveToFile();
+            PlayerImageRepository.SaveImgToFile();
         }
     }
 }

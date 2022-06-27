@@ -1,4 +1,5 @@
-﻿using Lib.Model;
+﻿using Lib.Dal;
+using Lib.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,7 @@ namespace WPF_Projekt.Windows
 
         private IList<Player> selectedPlayers;
         private IList<Player> opponentPlayers;
+        private PlayerImageRepository playerImage = new PlayerImageRepository();
 
         // TODO load player image
         public FieldPositionWindow()
@@ -36,6 +38,11 @@ namespace WPF_Projekt.Windows
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            if (PlayerImageRepository.IfFileExists())
+            {
+                playerImage.LoadFromFile();
+            }
+
             selectedPlayers = Match.GetStartingEleven(SelectedTeam);
             opponentPlayers = Match.GetStartingEleven(OppponentTeam);
 
@@ -49,9 +56,7 @@ namespace WPF_Projekt.Windows
             {
                 PlayerFieldControl pfc = new PlayerFieldControl();
 
-                pfc.Player = plr;
-                pfc.Team = OppponentTeam;
-                pfc.Match = Match;
+                SetPlayerFieldControl(pfc, plr);
 
                 if (plr.Position == nameof(PlayerPosition.Goalie))
                 {
@@ -79,9 +84,7 @@ namespace WPF_Projekt.Windows
             {
                 PlayerFieldControl pfc = new PlayerFieldControl();
 
-                pfc.Match = Match;
-                pfc.Team = SelectedTeam;
-                pfc.Player = plr;
+                SetPlayerFieldControl(pfc, plr);
 
                 if (plr.Position == nameof(PlayerPosition.Goalie))
                 {
@@ -100,6 +103,18 @@ namespace WPF_Projekt.Windows
                 {
                     stckpnlForward.Children.Add(pfc);
                 }
+            }
+        }
+
+        private void SetPlayerFieldControl(PlayerFieldControl pfc, Player plr)
+        {
+            pfc.Match = Match;
+            pfc.Team = SelectedTeam;
+            pfc.Player = plr;
+            if (PlayerImageRepository.PlayerHasPicture(plr.Name))
+            {
+                pfc.hasImg = true;
+                pfc.imgPlr.Source = new BitmapImage(new Uri(PlayerImageRepository.GetImage(plr.Name)));
             }
         }
     }

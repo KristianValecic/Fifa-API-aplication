@@ -1,1 +1,1 @@
-True|False|ARG|hr|Small
+True|False|CRO|en|Small

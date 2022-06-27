@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Lib.Dal
 {
-    public class PlayerImageRepository : ISaveable
+    public class PlayerImageRepository //: ISaveable
     {
         private const string PATH = "../../../SaveFiles/images.txt";
         private const char DELIM = '|';
@@ -16,10 +16,10 @@ namespace Lib.Dal
         //public static List<string> playerImagesList = new List<string>();
         public static Dictionary<string, string> playerImages = new Dictionary<string, string>();
 
-        private string FormatForFileLine(string player, string imagePath)
+        private static string FormatForFileLine(string player, string imagePath)
             => $"{player}{DELIM}{imagePath}\n";
 
-        public bool IfFileExists()
+        public static bool IfFileExists()
         {
             if (File.Exists(PATH))
             {
@@ -38,15 +38,15 @@ namespace Lib.Dal
             }
         }
 
-        public static string GetImage(string name) //remove static?
-            => playerImages[name];
+        public static string GetImage(string playerName)
+            => playerImages[playerName];
 
-        public void SaveToFile()
+        public static void SaveImgToFile()
         {
-            if (!File.Exists(PATH))
-            {
-                File.Create(PATH).Close();
-            }
+            //if (!File.Exists(PATH))
+            //{
+            //    File.Create(PATH).Close();
+            //}
 
             //clears file
             File.Create(PATH).Close();
@@ -60,22 +60,31 @@ namespace Lib.Dal
             }
         }
 
+
         public void GivePlayerImage(string playerName, string filePath)
         {
             //playerImagesList.Add(FormatForFileLine(player.Name, filePath));
             playerImages[playerName] = filePath;
         }
 
-        public static bool PlayerHasPicture(string playerName) //remove static?
+        public static bool PlayerHasPicture(string playerName)
         {
             if (playerImages.ContainsKey(playerName))
             {
-                return true;
+                if (File.Exists(playerImages[playerName]))
+                {
+                    return true;
+                }
+                else
+                {
+                    playerImages.Remove(playerName);
+                    SaveImgToFile();
+                }
             }
             return false;
         }
 
-        public void RemovePlayerImage(string playerName) //remove static?
+        public void RemovePlayerImage(string playerName)
         {
             playerImages.Remove(playerName);
         }

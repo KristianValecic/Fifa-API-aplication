@@ -65,6 +65,7 @@
         </Grid>
 
         <Image
+            x:Name="imgPlr"
             Grid.Row="1"
             VerticalAlignment="Top"
             Source="\Resources\shirt.png"

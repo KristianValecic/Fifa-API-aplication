@@ -8,8 +8,6 @@
         Loaded="Window_Loaded"
         Title="FieldPositionWindow" Height="1000" Width="700">
 
-    <!--<Window.Opacity-->
-    
     <Window.Triggers>
         <EventTrigger RoutedEvent="Window.Loaded">
             <EventTrigger.Actions>

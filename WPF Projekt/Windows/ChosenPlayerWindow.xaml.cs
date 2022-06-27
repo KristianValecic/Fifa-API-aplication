@@ -1,4 +1,5 @@
-﻿using Lib.Model;
+﻿using Lib.Dal;
+using Lib.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,9 +21,26 @@ namespace WPF_Projekt.Windows
     /// </summary>
     public partial class ChosenPlayerWindow : Window
     {
+        private bool hasimg;
         public Team Team { get; set; }
         public Player Player { get; set; }
         public Match Match { get; set; }
+        public bool hasImg
+        {
+            //get => hasimg;
+            set
+            {
+                if (value)
+                {
+                    hasimg = true;
+
+                }
+                else
+                {
+                    hasimg = false;
+                }
+            }
+        }
 
         public ChosenPlayerWindow()
         {
@@ -37,6 +55,10 @@ namespace WPF_Projekt.Windows
             lblPlrIsCaptain.Visibility = Player.Captain ? Visibility.Visible : Visibility.Hidden;
             lblPlrGoalCount.Content = Match.GetGoalsForPlayer(Player, Team);
             lblPlryellowCardCount.Content = Match.GetYellowCardsForPlayer(Player, Team);
+            if (hasimg)
+            {
+                imgPlr.Source = new BitmapImage(new Uri(PlayerImageRepository.GetImage(Player.Name)));
+            }
         }
     }
 }

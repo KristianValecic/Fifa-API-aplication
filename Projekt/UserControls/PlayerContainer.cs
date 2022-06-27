@@ -32,16 +32,18 @@ namespace Projekt
         public PlayerContainer()
         {
             InitializeComponent();
-            if (playerImage.IfFileExists())
-            {
-                playerImage.LoadFromFile(); 
-            }
+
         }
 
         internal static int GetListLimit() => listLimit;
 
         private void PlayerContainer_Load(object sender, EventArgs e)
         {
+            if (PlayerImageRepository.PlayerHasPicture(player.Name))
+            {
+                playerImage.LoadFromFile();
+            }
+
             lbPlrName.Text = player.Name;
             PlayerContainerUtils.Center(lbPlrName, this.Width);
 
@@ -58,6 +60,10 @@ namespace Projekt
         {
             if (PlayerImageRepository.PlayerHasPicture(player.Name))
             {
+                //if (PlayerImageRepository.PalyerPictureExists())
+                //{
+
+                //}
                 string imgPath = PlayerImageRepository.GetImage(player.Name);
                 ChangeImage(Image.FromFile(imgPath), imgPath);
             }
@@ -70,21 +76,6 @@ namespace Projekt
         }
 
         public void ShowFavoriteStar() => PlayerContainerUtils.ShowFavoriteStar(PicBoxFavorite, player);
-
-        //private void SelectPlayerContainer_MouseClick(object sender, System.Windows.Forms.MouseEventArgs e)
-        //{
-        //    ////if (e.Button == MouseButtons.Left)
-        //    ////{
-        //    //    if (this.BackColor == DefaultColor)
-        //    //    {
-        //    //        AddFavoriteOrPlayerList(this);
-        //    //    }
-        //    //    else                                              
-        //    //    {
-        //    //        RemoveFavoriteOrPlayerList(this);
-        //    //    }
-        //    ////}
-        //}
 
         private void RemoveFavoriteOrPlayerList(PlayerContainer plContainer)
         {
@@ -124,7 +115,7 @@ namespace Projekt
             PicBoxShirt.Image = image;
             
 
-            playerImage.SaveToFile();
+            PlayerImageRepository.SaveImgToFile();
         }
 
         internal void DefaultImage()
@@ -143,7 +134,7 @@ namespace Projekt
             }
 
             playerImage.RemovePlayerImage(player.Name);
-            playerImage.SaveToFile();
+            PlayerImageRepository.SaveImgToFile();
         }
 
         private void PlayerContainer_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
