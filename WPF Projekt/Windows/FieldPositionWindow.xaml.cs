@@ -41,38 +41,7 @@ namespace WPF_Projekt.Windows
 
             SetPlayerPositons(selectedPlayers);
             SetOpponentPlayerPositons(opponentPlayers);
-
         }
-
-        //private void SetOpponentPlayerPositons(IList<Player> Players)
-        //{
-        //    foreach (Player plr in Players)
-        //    {
-        //        PlayerFieldControl pfc = new PlayerFieldControl();
-        //        pfc.lblPlrName.Content = plr.Name;
-        //        pfc.lblPlrShrtNmbr.Content = plr.ShirtNumber;
-
-        //        if (plr.Position == nameof(PlayerPosition.Goalie))
-        //        {
-        //            gridField.RowDefinitions.Add(new RowDefinition());
-
-        //            gridField.Children.Add(pfc);
-        //            Grid.SetRow(pfc, gridField.RowDefinitions.Count - 1);
-        //        }
-        //        else if (plr.Position == nameof(PlayerPosition.Defender))
-        //        {
-
-        //        }
-        //        else if (plr.Position == nameof(PlayerPosition.Midfield))
-        //        {
-
-        //        }
-        //        else if (plr.Position == nameof(PlayerPosition.Forward))
-        //        {
-
-        //        }
-        //    }
-        //}
 
         private void SetOpponentPlayerPositons(IList<Player> Players)
         {

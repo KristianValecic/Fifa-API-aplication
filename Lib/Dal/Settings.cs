@@ -68,19 +68,14 @@ namespace Lib.Model
             {
                 case "Small":
                     return ScreenSizes.Small;
-                    break;
                 case "Medium":
                     return ScreenSizes.Medium;
-                    break;
                 case "Large":
                     return ScreenSizes.Large;
-                    break;
                 case "Fullscreen":
                     return ScreenSizes.Fullscreen;
-                    break;
                 default:
                     return ScreenSizes.Small;
-                    break;
             }
         }
     }

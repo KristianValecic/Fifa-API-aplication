@@ -7,22 +7,38 @@
         mc:Ignorable="d"
         Loaded="Window_Loaded"
         Title="FieldPositionWindow" Height="1000" Width="700">
+
+    <!--<Window.Opacity-->
+    
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Window.Loaded">
+            <EventTrigger.Actions>
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation  Storyboard.TargetProperty="(Window.Opacity)" 
+                                          From="0" To="1" 
+                                          BeginTime="0:0:0" 
+                                          Duration="0:0:0.5"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger.Actions>
+        </EventTrigger>
+    </Window.Triggers>
+
+
     <Window.Resources>
         <Style TargetType="local:PlayerFieldControl">
             <Setter Property="Grid.Row" Value="0"/>
-            <!--<Setter Property="VerticalAlignment" Value="Bottom"/>-->
             <Setter Property="HorizontalAlignment" Value="center"/>
         </Style>
 
         <Style x:Key="styleGoalie" TargetType="local:PlayerFieldControl">
             <Setter Property="Grid.Row" Value="0"/>
-            <!--<Setter Property="FontSize" Value="15"/>-->
             <Setter Property="VerticalAlignment" Value="Bottom"/>
             <Setter Property="HorizontalAlignment" Value="center"/>
         </Style>
         <Style x:Key="styleOpponentGoalie" TargetType="local:PlayerFieldControl">
             <Setter Property="Grid.Row" Value="7"/>
-            <!--<Setter Property="FontSize" Value="15"/>-->
             <Setter Property="VerticalAlignment" Value="Bottom"/>
             <Setter Property="HorizontalAlignment" Value="center"/>
         </Style>

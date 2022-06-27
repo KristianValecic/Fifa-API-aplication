@@ -8,6 +8,21 @@
         Loaded="Window_Loaded"
         Title="ChosenPlayerWindow" Height="450" Width="400">
 
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Window.Loaded">
+            <EventTrigger.Actions>
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation  Storyboard.TargetProperty="(Window.Top)" 
+                                          From="0" To="100" 
+                                          BeginTime="0:0:0" 
+                                          Duration="0:0:0.3"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger.Actions>
+        </EventTrigger>
+    </Window.Triggers>
+
     <Window.Resources>
         <Style TargetType="Label">
             <Setter Property="FontSize" Value="17"/>
