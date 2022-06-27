@@ -13,7 +13,8 @@ namespace Lib.Model
     {
         public const string MATCH_ONLINE_MEN_ENDPOINT = "http://world-cup-json-2018.herokuapp.com/matches";
         public const string MATCH_ONLINE_WOMEN_ENDPOINT = "http://worldcup.sfg.io/matches";
-
+        private const string YELLOW_CHARDS = "yellow-card";
+        private const string GOAL = "goal";
         public static string MATCH_OFFLINE_MEN_PATH = @"men\matches.json";
         public static string MATCH_OFFLINE_WOMEN_PATH = @"women\matches.json";
 
@@ -148,15 +149,63 @@ namespace Lib.Model
             IList<TeamEvent> teamEventsList = teamEvents.FindAll(e => p.Name == e.Player);
             foreach (var teamEvent in teamEventsList)
             {
-                if (teamEvent.TypeOfEvent == "goal")
+                if (teamEvent.TypeOfEvent == GOAL)
                 {
                     p.Goals += 1;
                 }
-                if (teamEvent.TypeOfEvent == "yellow-card")
+                if (teamEvent.TypeOfEvent == YELLOW_CHARDS)
                 {
                     p.YellowCards += 1;
                 }
             }
+        }
+
+        public int GetGoalsForPlayer(Player player, Team team)
+        {
+            int goals = 0;
+            List<TeamEvent> teamEvents;
+            if (team.CompareCountryName(HomeTeam))
+            {
+                teamEvents = HomeTeamEvents;
+            }
+            else
+            {
+                teamEvents = AwayTeamEvents;
+
+            }
+            IList<TeamEvent> teamEventsList = teamEvents.FindAll(e => player.Name == e.Player);
+            foreach (var teamEvent in teamEventsList)
+            {
+                if (teamEvent.TypeOfEvent == GOAL)
+                {
+                    goals += 1;
+                }
+            }
+            return goals;
+        }
+
+        public int GetYellowCardsForPlayer(Player player, Team team)
+        {
+            int goals = 0;
+            List<TeamEvent> teamEvents;
+            if (team.CompareCountryName(HomeTeam))
+            {
+                teamEvents = HomeTeamEvents;
+            }
+            else
+            {
+                teamEvents = AwayTeamEvents;
+
+            }
+            IList<TeamEvent> teamEventsList = teamEvents.FindAll(e => player.Name == e.Player);
+            foreach (var teamEvent in teamEventsList)
+            {
+                if (teamEvent.TypeOfEvent == YELLOW_CHARDS)
+                {
+                    goals += 1;
+                }
+            }
+            return goals;
         }
 
         public Team GetTeamOpponent(Team team)

@@ -95,6 +95,9 @@
     <Compile Include="UserControls\PlayerFieldControl.xaml.cs">
       <DependentUpon>PlayerFieldControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\ChosenPlayerWindow.xaml.cs">
+      <DependentUpon>ChosenPlayerWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\FieldPositionWindow.xaml.cs">
       <DependentUpon>FieldPositionWindow.xaml</DependentUpon>
     </Compile>
@@ -117,6 +120,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="UserControls\PlayerFieldControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ChosenPlayerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -55,3 +55,5 @@ D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\WPF Projekt.pdb
 D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\Resources\field.jpg
 D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\WPF Projekt_Content.g.cs
 D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\Resources\shirt.png
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\Windows\ChosenPlayerWindow.g.cs
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\Windows\ChosenPlayerWindow.baml

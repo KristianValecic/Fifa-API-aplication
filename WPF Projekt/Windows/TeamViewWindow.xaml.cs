@@ -94,9 +94,9 @@ namespace WPF_Projekt.Windows
             if (cbOpponents.SelectedItem != null)
             {
                 FieldPositionWindow fpw = new FieldPositionWindow();
-                fpw.selectedTeam = team;
-                fpw.oppponentTeam = (Team)cbOpponents.SelectedItem;
-                fpw.match = currentMatch;
+                fpw.SelectedTeam = team;
+                fpw.OppponentTeam = (Team)cbOpponents.SelectedItem;
+                fpw.Match = currentMatch;
                 fpw.Show();
             }
             else

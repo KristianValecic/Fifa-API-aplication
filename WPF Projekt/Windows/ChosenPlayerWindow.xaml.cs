@@ -11,41 +11,32 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WPF_Projekt.Windows;
 
-namespace WPF_Projekt.UserControls
+namespace WPF_Projekt.Windows
 {
     /// <summary>
-    /// Interaction logic for PlayerFieldControl.xaml
+    /// Interaction logic for ChosenPlayerWindow.xaml
     /// </summary>
-    public partial class PlayerFieldControl : UserControl
+    public partial class ChosenPlayerWindow : Window
     {
         public Team Team { get; set; }
         public Player Player { get; set; }
         public Match Match { get; set; }
 
-        public PlayerFieldControl()
+        public ChosenPlayerWindow()
         {
             InitializeComponent();
         }
 
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             lblPlrName.Content = Player.Name;
-            lblPlrShrtNmbr.Content = Player.ShirtNumber;
-        }
-
-        private void UserControl_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            ChosenPlayerWindow cpw = new ChosenPlayerWindow();
-
-            cpw.Player = Player;
-            cpw.Team = Team;
-            cpw.Match = Match;
-
-            cpw.Show();
+            lblPlrNumber.Content = Player.ShirtNumber;
+            lblPlrPosition.Content = Player.Position;
+            lblPlrIsCaptain.Visibility = Player.Captain ? Visibility.Visible : Visibility.Hidden;
+            lblPlrGoalCount.Content = Match.GetGoalsForPlayer(Player, Team);
+            lblPlryellowCardCount.Content = Match.GetYellowCardsForPlayer(Player, Team);
         }
     }
 }

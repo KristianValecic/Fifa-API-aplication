@@ -1,0 +1,107 @@
+﻿<Window x:Class="WPF_Projekt.Windows.ChosenPlayerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Projekt.Windows"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Title="ChosenPlayerWindow" Height="450" Width="400">
+
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="17"/>
+            <Setter Property="HorizontalAlignment" Value="center"/>
+        </Style>
+        <Style TargetType="StackPanel">
+            <Setter Property="HorizontalAlignment" Value="center"/>
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <Label
+                x:Name="lblPlrName"
+                FontSize="30"
+                FontWeight="Bold">
+                Placeholder
+            </Label>
+            
+            <Label
+                x:Name="lblPlrNumber"
+                FontSize="30"
+                FontWeight="Bold"
+                Grid.Column="1">
+                00
+            </Label>
+        </Grid>
+
+        <Image
+            Grid.Row="1"
+            VerticalAlignment="Top"
+            Source="\Resources\shirt.png"
+            ></Image>
+
+      
+        <Grid Grid.Row="2">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+
+            <StackPanel Orientation="Horizontal">
+                <Label>Goals:</Label>
+                <Label
+                    x:Name="lblPlrGoalCount"
+                    >0</Label>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal"
+                        Grid.Column="1"
+                        Grid.Row="0">
+                <Label>Yellow cards:</Label>
+                <Label
+                    x:Name="lblPlryellowCardCount"
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    >0</Label>
+            </StackPanel>
+            
+            <Label
+                Grid.Column="0"
+                Grid.Row="1"
+                x:Name="lblPlrPosition"
+                >position</Label>
+
+
+            <Label
+                Grid.Column="1"
+                Grid.Row="1"
+                x:Name="lblPlrIsCaptain"
+                Visibility="Hidden"
+                >Captain</Label>
+
+        </Grid>
+
+    </Grid>
+</Window>

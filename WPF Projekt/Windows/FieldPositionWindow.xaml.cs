@@ -21,9 +21,9 @@ namespace WPF_Projekt.Windows
     /// </summary>
     public partial class FieldPositionWindow : Window
     {
-        public Team selectedTeam { get; set; }
-        public Team oppponentTeam { get; set; }
-        public Match match { get; set; }
+        public Team SelectedTeam { get; set; }
+        public Team OppponentTeam { get; set; }
+        public Match Match { get; set; }
 
         private IList<Player> selectedPlayers;
         private IList<Player> opponentPlayers;
@@ -36,8 +36,8 @@ namespace WPF_Projekt.Windows
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            selectedPlayers = match.GetStartingEleven(selectedTeam);
-            opponentPlayers = match.GetStartingEleven(oppponentTeam);
+            selectedPlayers = Match.GetStartingEleven(SelectedTeam);
+            opponentPlayers = Match.GetStartingEleven(OppponentTeam);
 
             SetPlayerPositons(selectedPlayers);
             SetOpponentPlayerPositons(opponentPlayers);
@@ -80,12 +80,9 @@ namespace WPF_Projekt.Windows
             {
                 PlayerFieldControl pfc = new PlayerFieldControl();
 
-                //string[] name = plr.Name.Split(' ');
-                //pfc.lblPlrName.Content = name[0];
-                //pfc.lblPlrSurame.Content = name[1];
-                //pfc.lblPlrShrtNmbr.Content = plr.ShirtNumber;
-                pfc.lblPlrName.Content = plr.Name;
-                pfc.lblPlrShrtNmbr.Content = plr.ShirtNumber;
+                pfc.Player = plr;
+                pfc.Team = OppponentTeam;
+                pfc.Match = Match;
 
                 if (plr.Position == nameof(PlayerPosition.Goalie))
                 {
@@ -113,12 +110,9 @@ namespace WPF_Projekt.Windows
             {
                 PlayerFieldControl pfc = new PlayerFieldControl();
 
-                //string[] name = plr.Name.Split(' ');
-                //pfc.lblPlrName.Content = name[0];
-                //pfc.lblPlrSurame.Content = name[1];
-                //pfc.lblPlrShrtNmbr.Content = plr.ShirtNumber;
-                pfc.lblPlrName.Content = plr.Name;
-                pfc.lblPlrShrtNmbr.Content = plr.ShirtNumber;
+                pfc.Match = Match;
+                pfc.Team = SelectedTeam;
+                pfc.Player = plr;
 
                 if (plr.Position == nameof(PlayerPosition.Goalie))
                 {
