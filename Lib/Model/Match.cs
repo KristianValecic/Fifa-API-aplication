@@ -15,8 +15,10 @@ namespace Lib.Model
         public const string MATCH_ONLINE_WOMEN_ENDPOINT = "http://worldcup.sfg.io/matches";
         private const string YELLOW_CHARDS = "yellow-card";
         private const string GOAL = "goal";
-        public static string MATCH_OFFLINE_MEN_PATH = @"men\matches.json";
-        public static string MATCH_OFFLINE_WOMEN_PATH = @"women\matches.json";
+        //public static string MATCH_OFFLINE_MEN_PATH = @"men\matches.json";
+        //public static string MATCH_OFFLINE_WOMEN_PATH = "women/matches.json";
+        public static string MATCH_OFFLINE_WOMEN_PATH = "../../../OfflineJSON/women/matches.json";
+        public static string MATCH_OFFLINE_MEN_PATH = "../../../OfflineJSON/men/matches.json";
 
         [JsonProperty("venue")]
         public string Venue { get; set; }

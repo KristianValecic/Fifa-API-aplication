@@ -13,8 +13,8 @@ namespace Lib.Model
     {
         public const string TEAMS_ONLINE_MEN_ENDPOINT = "http://world-cup-json-2018.herokuapp.com/teams/results";
         public const string TEAMS_ONLINE_WOMEN_ENDPOINT = "http://worldcup.sfg.io/teams/results";
-        public static string TEAMS_OFFLINE_MEN_PATH = @"men\teams.json";
-        public static string TEAMS_OFFLINE_WOMEN_PATH = @"women\teams.json";
+        public static string TEAMS_OFFLINE_MEN_PATH = "../../../OfflineJSON/men/teams.json";
+        public static string TEAMS_OFFLINE_WOMEN_PATH = "../../../OfflineJSON/women/teams.json";
 
         [JsonProperty("id")]
         public int Id { get; set; }
