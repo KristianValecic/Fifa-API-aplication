@@ -22,6 +22,7 @@ namespace WPF_Projekt.Windows
         private static bool choice;
         public ConfirmWindow()
         {
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             InitializeComponent();
         }
 

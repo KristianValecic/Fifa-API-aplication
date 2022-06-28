@@ -7,6 +7,7 @@
         xmlns:props="clr-namespace:WPF_Projekt.Properties"
         mc:Ignorable="d"
         Loaded="Window_Loaded"
+        Top="10"
         Title="{x:Static props:Resources.fieldPositionTitle}" Height="1000" Width="700">
 
     <Window.Triggers>

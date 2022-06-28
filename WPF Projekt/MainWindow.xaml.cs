@@ -38,8 +38,7 @@ namespace WPF_Projekt
         public MainWindow()
         {
             LoadSettings();
-            //LoadCulture();
-            //SetCulture(currentCultureString);
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             InitializeComponent();
         }
 
@@ -314,6 +313,7 @@ namespace WPF_Projekt
             }
         }
 
+
         private void btnEng_Click(object sender, RoutedEventArgs e)
         {
             if (Thread.CurrentThread.CurrentUICulture.Name == HR)
@@ -321,7 +321,6 @@ namespace WPF_Projekt
                 SetCulture(EN);
                 settings.Culture = EN;
                 settings.SaveToFile();
-
             }
         }
 

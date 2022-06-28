@@ -24,11 +24,14 @@ namespace WPF_Projekt.Windows
         public List<Team> teams { get; set; }
 
         private Match currentMatch;
-        
+
         public List<Match> matches = new List<Match>();
-        private List<Team> opponentList =new List<Team>();
+        private List<Team> opponentList = new List<Team>();
+        private bool closeWithoutConfirm;
+
         public TeamViewWindow()
         {
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             InitializeComponent();
         }
 
@@ -108,7 +111,22 @@ namespace WPF_Projekt.Windows
         {
             MainWindow mw = new MainWindow();
             mw.Show();
+            closeWithoutConfirm = true;
             this.Close();
+
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!closeWithoutConfirm)
+            {
+                ConfirmWindow window = new ConfirmWindow();
+                window.ShowDialog();
+                if (!ConfirmWindow.Choice())
+                {
+                    e.Cancel = true;
+                }
+            }
         }
     }
 }

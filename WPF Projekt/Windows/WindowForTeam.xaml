@@ -8,6 +8,26 @@
         mc:Ignorable="d"
         Loaded="Window_Loaded"
         Title="{x:Static props:Resources.windowForTeamTitle}" Height="300" Width="350">
+
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Window.Loaded">
+            <EventTrigger.Actions>
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation  Storyboard.TargetProperty="(Window.Width)" 
+                                          From="0" To="350" 
+                                          BeginTime="0:0:0" 
+                                          Duration="0:0:0.5"/>
+                        <DoubleAnimation  Storyboard.TargetProperty="(Control.Opacity)" 
+                                          From="0" To="1" 
+                                          BeginTime="0:0:0" 
+                                          Duration="0:0:0.5"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger.Actions>
+        </EventTrigger>
+    </Window.Triggers>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

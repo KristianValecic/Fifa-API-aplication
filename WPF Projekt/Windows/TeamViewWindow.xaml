@@ -7,6 +7,7 @@
         xmlns:props="clr-namespace:WPF_Projekt.Properties"
         mc:Ignorable="d"
         Loaded="Window_Loaded"
+        Closing="Window_Closing"
         Title="{x:Static props:Resources.windowForTeamTitle}" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
