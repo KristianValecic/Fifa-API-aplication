@@ -4,9 +4,5 @@ popravi combobox u teamviewWindowu (wpf)
 
 animacije ucitavanja gdje treba
 
-dodati animaciju na detalje o timu
-
-dodati i na 2. win da pita kada confirm se gasi
-
 Pitanja: 
 combobox zasto ne radi
