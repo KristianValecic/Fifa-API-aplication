@@ -1,10 +1,15 @@
 dodati da se broj ispise s imenom kada igrac ima sliku ui fieldWin
 
 lokalizacija wpf-a
+saveanje sitog
 
 provjeri zadnju tocku wpfa
 
 popravi combobox u teamviewWindowu (wpf)
+
+animacije ucitavanja gdje treba
+
+dodati animaciju na detalje o timu
 
 Pitanja: 
 combobox zasto ne radi

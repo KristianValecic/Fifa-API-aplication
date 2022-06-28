@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPF_Projekt.UserControls"
+        xmlns:props="clr-namespace:WPF_Projekt.Properties"
              mc:Ignorable="d" 
              Loaded="UserControl_Loaded"
              MouseDown="UserControl_MouseDown"
@@ -14,7 +15,6 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-            <!--<RowDefinition/>-->
         </Grid.RowDefinitions>
 
         <Image
@@ -24,24 +24,13 @@
             Source="\Resources\shirt.png"
             ></Image>
 
-        <!--<StackPanel
-            x:Name="stcpnlPlrName"
-            VerticalAlignment="Bottom"
-            HorizontalAlignment="Center"
-            Grid.Row="2">-->
-            <Label
+
+        <Label
                 x:Name="lblPlrName"
                 Grid.Row="2"
                 VerticalAlignment="Bottom"
                 HorizontalAlignment="Center"
                 ></Label>
-            <!--<Label
-                Grid.Row="3"
-                x:Name="lblPlrSurame"
-                VerticalAlignment="Top"
-                HorizontalAlignment="Center"
-                ></Label>-->
-        <!--</StackPanel>-->
 
         <Label
             x:Name="lblPlrShrtNmbr"

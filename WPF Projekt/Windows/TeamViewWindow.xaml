@@ -4,9 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Projekt.Windows"
+        xmlns:props="clr-namespace:WPF_Projekt.Properties"
         mc:Ignorable="d"
         Loaded="Window_Loaded"
-        Title="TeamViewWindow" Height="450" Width="800">
+        Title="{x:Static props:Resources.windowForTeamTitle}" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -35,7 +36,7 @@
                 Margin="10"
                 Padding="5"
                 Click="SelectedTeamDetail_Click"
-                >Show team detail</Button>
+                Content="{x:Static props:Resources.btnTeamDetail}"/>
 
             </StackPanel>
             <Label
@@ -61,7 +62,7 @@
                 Margin="10"
                 Padding="5"
                 Click="OpponentTeamDetail_Click"
-                >Show team detail</Button>
+                Content="{x:Static props:Resources.btnTeamDetail}"/>
 
                 <Label
                     x:Name="lblOpponentValidation"
@@ -105,7 +106,7 @@
             MaxWidth="300"
             Margin="30"
             Click="PlrPosition_Click"
-            >Show player positions</Button>
+            Content="{x:Static props:Resources.btnShowPlayerPosition}"/>
 
         <!--<Line
             Grid.Row="3"

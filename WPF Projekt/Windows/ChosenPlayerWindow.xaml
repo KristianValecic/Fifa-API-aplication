@@ -4,9 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Projekt.Windows"
+        xmlns:props="clr-namespace:WPF_Projekt.Properties"
         mc:Ignorable="d"
         Loaded="Window_Loaded"
-        Title="ChosenPlayerWindow" Height="450" Width="400">
+        Title="{x:Static props:Resources.chosenPlayerWindowTitle}" Height="450" Width="400">
 
     <Window.Triggers>
         <EventTrigger RoutedEvent="Window.Loaded">
@@ -86,7 +87,8 @@
 
 
             <StackPanel Orientation="Horizontal">
-                <Label>Goals:</Label>
+                <Label
+                    Content="{x:Static props:Resources.goals}"/>
                 <Label
                     x:Name="lblPlrGoalCount"
                     >0</Label>
@@ -95,7 +97,8 @@
             <StackPanel Orientation="Horizontal"
                         Grid.Column="1"
                         Grid.Row="0">
-                <Label>Yellow cards:</Label>
+                <Label
+                    Content="{x:Static props:Resources.yellowCards}"/>
                 <Label
                     x:Name="lblPlryellowCardCount"
                     Grid.Column="1"

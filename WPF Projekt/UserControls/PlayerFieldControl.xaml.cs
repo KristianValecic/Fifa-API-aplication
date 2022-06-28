@@ -29,7 +29,6 @@ namespace WPF_Projekt.UserControls
         public Match Match { get; set; }
         public bool hasImg
         {
-            //get => hasimg;
             set
             {
                 if (value)
@@ -51,8 +50,15 @@ namespace WPF_Projekt.UserControls
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            lblPlrName.Content = Player.Name;
-            lblPlrShrtNmbr.Content = Player.ShirtNumber;
+            if (hasimg)
+            {
+                lblPlrName.Content = $"{Player.Name} {Player.ShirtNumber}"; 
+            }
+            else
+            {
+                lblPlrName.Content = Player.Name;
+                lblPlrShrtNmbr.Content = Player.ShirtNumber;
+            }
         }
 
         private void UserControl_MouseDown(object sender, MouseButtonEventArgs e)

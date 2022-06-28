@@ -4,9 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Projekt.Windows"
+        xmlns:props="clr-namespace:WPF_Projekt.Properties"
         mc:Ignorable="d"
         KeyDown="Window_KeyDown"
-        Title="Potvrda" Height="150" Width="300">
+        Title="{x:Static props:Resources.confrimWindowTitle}" Height="150" Width="300">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -22,9 +23,9 @@
                    Height="50"/>
 
             <Label
-            FontSize="18"
-            VerticalAlignment="Center"
-            >Jeste li sigurni?</Label>
+                FontSize="18"
+                VerticalAlignment="Center"
+                Content="{x:Static props:Resources.confrimMessage}"/>
         </StackPanel>
         
         <Grid
@@ -40,14 +41,16 @@
                 Width="75"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Click="Confirm_Click">Da</Button>
+                Click="Confirm_Click"
+                Content="{x:Static props:Resources.yes}"/>
             <Button
                 Padding="5"
                 Width="75"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Grid.Column="1"
-                Click="Cancle_Click">Ne</Button>
+                Click="Cancle_Click"
+                Content="{x:Static props:Resources.no}"/>
             
         </Grid>
         

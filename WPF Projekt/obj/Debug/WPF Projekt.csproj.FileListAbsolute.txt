@@ -46,7 +46,6 @@ D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\Windows\TeamVie
 D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\Windows\WindowForTeam.baml
 D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\WPF Projekt.g.resources
 D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\WPF_Projekt.Properties.Resources.resources
-D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\WPF_Projekt.Resource1.resources
 D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\WPF Projekt.csproj.GenerateResource.cache
 D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\WPF Projekt.csproj.CoreCompileInputs.cache
 D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\WPF Projekt.csproj.CopyComplete
@@ -61,3 +60,9 @@ D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\Resources\setti
 D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\Windows\ConfirmWindow.g.cs
 D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\Windows\ConfirmWindow.baml
 D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\Resources\question.png
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\Resources\croFlag.png
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\Resources\engFlag.png
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\WPF_Projekt.Resource.resources
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\bin\Debug\hr\WPF Projekt.resources.dll
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\WPF_Projekt.Properties.Resources.hr.resources
+D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\obj\Debug\hr\WPF Projekt.resources.dll

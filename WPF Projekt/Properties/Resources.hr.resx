@@ -117,23 +117,94 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="croFlag" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\croFlag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnShowPlayerPosition" xml:space="preserve">
+    <value>Priakaži pozicije igraca</value>
   </data>
-  <data name="engFlag" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\engFlag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnSohwPlayers" xml:space="preserve">
+    <value>Prikazi igrače</value>
   </data>
-  <data name="field" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\field.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnTeamDetail" xml:space="preserve">
+    <value>Prikaži detalje o timu</value>
   </data>
-  <data name="question" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\question.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="chosenPlayerWindowTitle" xml:space="preserve">
+    <value>Igrač</value>
   </data>
-  <data name="settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\settings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="confrimMessage" xml:space="preserve">
+    <value>Jeste li sigurni?</value>
   </data>
-  <data name="shirt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\shirt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="confrimWindowTitle" xml:space="preserve">
+    <value>Potvrda</value>
+  </data>
+  <data name="draws" xml:space="preserve">
+    <value>Izjedačenja:</value>
+  </data>
+  <data name="female" xml:space="preserve">
+    <value>Ženski</value>
+  </data>
+  <data name="fieldPositionTitle" xml:space="preserve">
+    <value>Pozicije na terenu</value>
+  </data>
+  <data name="fullscreen" xml:space="preserve">
+    <value>Puni ekran</value>
+  </data>
+  <data name="gamesPlayed" xml:space="preserve">
+    <value>Odigrane utakmice:</value>
+  </data>
+  <data name="goalDifferentials" xml:space="preserve">
+    <value>Razlika u golovima:</value>
+  </data>
+  <data name="goals" xml:space="preserve">
+    <value>Golovi:</value>
+  </data>
+  <data name="goalsAgainst" xml:space="preserve">
+    <value>Primljeni golovi:</value>
+  </data>
+  <data name="goalsFor" xml:space="preserve">
+    <value>Golovi:</value>
+  </data>
+  <data name="large" xml:space="preserve">
+    <value>Veliki</value>
+  </data>
+  <data name="loses" xml:space="preserve">
+    <value>Gubitci:</value>
+  </data>
+  <data name="mainWindowTitle" xml:space="preserve">
+    <value>Postavke</value>
+  </data>
+  <data name="male" xml:space="preserve">
+    <value>Muški</value>
+  </data>
+  <data name="medium" xml:space="preserve">
+    <value>Srednju</value>
+  </data>
+  <data name="no" xml:space="preserve">
+    <value>Ne</value>
+  </data>
+  <data name="offline" xml:space="preserve">
+    <value>Lokalno</value>
+  </data>
+  <data name="online" xml:space="preserve">
+    <value>Online</value>
+  </data>
+  <data name="small" xml:space="preserve">
+    <value>Mali</value>
+  </data>
+  <data name="teamViewWindowTitle" xml:space="preserve">
+    <value>Utakmice</value>
+  </data>
+  <data name="title" xml:space="preserve">
+    <value>Fifa timovi</value>
+  </data>
+  <data name="windowForTeamTitle" xml:space="preserve">
+    <value>Detalji o timu</value>
+  </data>
+  <data name="wins" xml:space="preserve">
+    <value>Pobjede:</value>
+  </data>
+  <data name="yellowCards" xml:space="preserve">
+    <value>Žuti kartoni:</value>
+  </data>
+  <data name="yes" xml:space="preserve">
+    <value>Da</value>
   </data>
 </root>

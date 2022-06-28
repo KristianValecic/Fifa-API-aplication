@@ -4,9 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Projekt.Windows"
+        xmlns:props="clr-namespace:WPF_Projekt.Properties"
         mc:Ignorable="d"
         Loaded="Window_Loaded"
-        Title="WindowForTeam" Height="300" Width="350">
+        Title="{x:Static props:Resources.windowForTeamTitle}" Height="300" Width="350">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -29,7 +30,7 @@
             Grid.ColumnSpan="3"
             FontSize="30"
             FontWeight="Bold"
-            >Placeholder</Label>
+            Content="placeholder"/>
         
         
         <Label
@@ -38,28 +39,28 @@
             HorizontalAlignment="Right"
             VerticalAlignment="Center"
             FontWeight="Bold"
-            >Wins:</Label>
+            Content="{x:Static props:Resources.wins}"/>
         <Label
             Grid.Row="2"
             Grid.Column="0"
             HorizontalAlignment="Right"
             VerticalAlignment="Center"
             FontWeight="Bold"
-            >Loses:</Label>
+            Content="{x:Static props:Resources.loses}" />
         <Label
             Grid.Row="3"
             Grid.Column="0"
             HorizontalAlignment="Right"
             VerticalAlignment="Center"
             FontWeight="Bold"
-            >Draws:</Label>
+            Content="{x:Static props:Resources.draws}"/>
         <Label
             Grid.Row="4"
             Grid.Column="0"
             HorizontalAlignment="Right"
             VerticalAlignment="Center"
             FontWeight="Bold"
-            >Games played:</Label>
+            Content="{x:Static props:Resources.gamesPlayed}"/>
         
         
         <Label
@@ -68,21 +69,21 @@
             HorizontalAlignment="Right"
             VerticalAlignment="Center"
             FontWeight="Bold"
-            >Goals for:</Label>
+            Content="{x:Static props:Resources.goalsFor}"/>
         <Label
             Grid.Row="6"
             Grid.Column="0"
             HorizontalAlignment="Right"
             VerticalAlignment="Center"
             FontWeight="Bold"
-            >Goals against:</Label>
+            Content="{x:Static props:Resources.goalsAgainst}"/>
         <Label
             Grid.Row="7"
             Grid.Column="0"
             HorizontalAlignment="Right"
             VerticalAlignment="Center"
             FontWeight="Bold"
-            >Goal differentials:</Label>
+            Content="{x:Static props:Resources.goalDifferentials}"/>
         
              <!---->
 

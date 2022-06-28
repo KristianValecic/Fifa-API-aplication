@@ -2,8 +2,10 @@
 using Lib.Model;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -29,35 +31,60 @@ namespace WPF_Projekt
         private Settings settings = new Settings();
         private IList<Team> teams;
         private bool closeWithoutConfirm;
+        private static bool fileExists;
+        //private static String currentCultureString;
         private static readonly IRepository repo = RepositoryFactory.GetRepo();
-       // private IList<Control> screenRBs;
 
         public MainWindow()
         {
+            LoadSettings();
+            //LoadCulture();
+            //SetCulture(currentCultureString);
             InitializeComponent();
         }
-        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+
+        private void LoadCulture()
+        {
+            if (settings.Culture == String.Empty || settings.Culture == null)
+            {
+                SetCulture(HR);
+            }
+            else
+            {
+                SetCulture(settings.Culture);
+            }
+        }
+
+        private void LoadSettings()
         {
             if (settings.IfFileExists())
             {
+                fileExists = true;
                 settings.LoadFromFile();
+                SetCulture(settings.Culture);
+                //currentCultureString = settings.Culture;
+            }
+            else
+            {
+                fileExists = false;
+                SetCulture(EN);
+            }
+        }
+
+        private void SetCulture(string lang)
+        {
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang);
+            settings.Culture = lang;
+        }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (fileExists)
+            {
                 SetSettings();
             }
-
-            //if (settings.Culture == String.Empty)
-            //{
-            //    SetCulture(HR);
-            //}
-            //else
-            //{
-            //    SetCulture(settings.Culture);
-            //}
         }
-        // //////////
-        //private void SetCulture(object hR)
-        //{
-        //    throw new NotImplementedException();
-        //}
+
 
         private void SetSettings()
         {
@@ -272,9 +299,29 @@ namespace WPF_Projekt
                 window.ShowDialog();
                 if (!ConfirmWindow.Choice())
                 {
-                    //this.Close();
                     e.Cancel = true;
                 }
+            }
+        }
+
+        private void btnCro_Click(object sender, RoutedEventArgs e)
+        {
+            if (Thread.CurrentThread.CurrentUICulture.Name == EN)
+            {
+                SetCulture(HR);
+                settings.Culture = HR;
+                settings.SaveToFile();
+            }
+        }
+
+        private void btnEng_Click(object sender, RoutedEventArgs e)
+        {
+            if (Thread.CurrentThread.CurrentUICulture.Name == HR)
+            {
+                SetCulture(EN);
+                settings.Culture = EN;
+                settings.SaveToFile();
+
             }
         }
 

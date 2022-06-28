@@ -4,10 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Projekt"
+        xmlns:props="clr-namespace:WPF_Projekt.Properties"
         mc:Ignorable="d"
         Loaded="MainWindow_Loaded"
         Closing="Window_Closing"
-        Title="Postavke" Height="400" Width="515">
+        Title="{x:Static props:Resources.mainWindowTitle}" Height="400" Width="515">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -18,8 +19,9 @@
         <Label HorizontalAlignment="Center" 
                VerticalAlignment="Center"
                FontSize="30"
-               FontWeight="Bold">
-            Fifa teams</Label>
+               FontWeight="Bold"
+               Content="{x:Static props:Resources.title}"/>
+
 
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
@@ -42,8 +44,8 @@
                           >
                 <Label
                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center">
-                    Male</Label>
+                    VerticalAlignment="Center"
+                    Content="{x:Static props:Resources.male}"/>
                 <RadioButton GroupName="Sex"
                              x:Name="rbMale"
                              Checked="rbMale_Checked"
@@ -56,7 +58,9 @@
                          HorizontalAlignment="Center"
                          VerticalAlignment="Center">
                 <Label 
-                    HorizontalAlignment="Center">Female</Label>
+                    HorizontalAlignment="Center"
+                    Content="{x:Static props:Resources.female}"/>
+                
                 <RadioButton GroupName="Sex"
                              x:Name="rbFemale"
                              Checked="rbFemale_Checked"
@@ -72,8 +76,8 @@
                           HorizontalAlignment="Center">
                 <Label
                         HorizontalAlignment="Center"
-                         VerticalAlignment="Center">
-                    Online</Label>
+                        VerticalAlignment="Center"
+                        Content="{x:Static props:Resources.online}"/>
                 <RadioButton GroupName="Source"
                              x:Name="rbOnline"
                              Checked="rbOnline_Checked"
@@ -88,8 +92,8 @@
                          HorizontalAlignment="Center">
                 <Label 
                     HorizontalAlignment="Center"
-                    VerticalAlignment="Center">
-                    Offline</Label>
+                    VerticalAlignment="Center"
+                    Content="{x:Static props:Resources.offline}"/>
                 <RadioButton GroupName="Source"
                              x:Name="rbOffline"
                              Checked="rbOffline_Checked"
@@ -97,16 +101,6 @@
                         HorizontalAlignment="Center"
                          VerticalAlignment="Center"/>
             </UniformGrid>
-
-            <!--<Label
-                x:Name="lbCheckedMessage"
-                Grid.Column="1"
-                Grid.Row="1"
-                VerticalAlignment="Bottom"
-                HorizontalAlignment="Center"
-                Foreground="Red"
-                Visibility="Hidden"
-                >Please select Team</Label>-->
 
             <ComboBox
                 x:Name="cbTeams" 
@@ -131,8 +125,8 @@
                           HorizontalAlignment="Center">
                     <Label
                         HorizontalAlignment="Center"
-                         VerticalAlignment="Center">
-                        Small</Label>
+                         VerticalAlignment="Center"
+                        Content="{x:Static props:Resources.small}"/>
                     <RadioButton GroupName="WindowSize"
                         x:Name="rbSmall"
                         Checked="rbScreenSize_Checked"
@@ -146,8 +140,8 @@
                          HorizontalAlignment="Center">
                     <Label 
                         HorizontalAlignment="Center"
-                         VerticalAlignment="Center">
-                        Medium</Label>
+                         VerticalAlignment="Center"
+                        Content="{x:Static props:Resources.medium}"/>
                     <RadioButton GroupName="WindowSize"
                              x:Name="rbMedium"
                              Checked="rbScreenSize_Checked"
@@ -161,8 +155,8 @@
                          HorizontalAlignment="Center">
                     <Label 
                         HorizontalAlignment="Center"
-                         VerticalAlignment="Center">
-                        Large</Label>
+                         VerticalAlignment="Center"
+                        Content="{x:Static props:Resources.large}"/>
                     <RadioButton GroupName="WindowSize"
                              x:Name="rbLarge"
                              Checked="rbScreenSize_Checked"
@@ -176,8 +170,8 @@
                          HorizontalAlignment="Center">
                     <Label 
                         HorizontalAlignment="Center"
-                         VerticalAlignment="Center">
-                        Fullscreen</Label>
+                         VerticalAlignment="Center"
+                        Content="{x:Static props:Resources.fullscreen}"/>
                     <RadioButton GroupName="WindowSize"
                                 x:Name="rbFullscreen"
                                 Checked="rbScreenSize_Checked"
@@ -198,9 +192,8 @@
             <Button Grid.Row="4"
                     Grid.Column="1"
                     Click="ShowPlayers_Click"
-                    Margin="10">
-                Show players
-            </Button>
+                    Margin="10"
+                    Content="{x:Static props:Resources.btnSohwPlayers}"/>
         </Grid>
 
         <StackPanel Orientation="Horizontal"
@@ -209,9 +202,9 @@
                 x:Name="btnCro"
                 
                 Height="20"
-                Width="25"
+                Width="35"
                 HorizontalAlignment="Left"
-                Click=""
+                Click="btnCro_Click"
                 >
                 <DockPanel>
                     <Image Source="\Resources\croFlag.png"/>
@@ -221,9 +214,9 @@
             <Button
             x:Name="btnEng"
             Height="20"
-            Width="25"
+            Width="35"
             HorizontalAlignment="Left"
-            Click=""
+            Click="btnEng_Click"
             >
                 <DockPanel>
                     <Image Source="\Resources\engFlag.png"/>
