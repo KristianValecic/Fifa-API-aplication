@@ -56,7 +56,7 @@ namespace WPF_Projekt.Windows
             {
                 PlayerFieldControl pfc = new PlayerFieldControl();
 
-                SetPlayerFieldControl(pfc, plr);
+                SetPlayerFieldControl(pfc, plr, OppponentTeam);
 
                 if (plr.Position == nameof(PlayerPosition.Goalie))
                 {
@@ -84,7 +84,7 @@ namespace WPF_Projekt.Windows
             {
                 PlayerFieldControl pfc = new PlayerFieldControl();
 
-                SetPlayerFieldControl(pfc, plr);
+                SetPlayerFieldControl(pfc, plr, SelectedTeam);
 
                 if (plr.Position == nameof(PlayerPosition.Goalie))
                 {
@@ -106,10 +106,10 @@ namespace WPF_Projekt.Windows
             }
         }
 
-        private void SetPlayerFieldControl(PlayerFieldControl pfc, Player plr)
+        private void SetPlayerFieldControl(PlayerFieldControl pfc, Player plr, Team team)
         {
             pfc.Match = Match;
-            pfc.Team = SelectedTeam;
+            pfc.Team = team;
             pfc.Player = plr;
             if (PlayerImageRepository.PlayerHasPicture(plr.Name))
             {

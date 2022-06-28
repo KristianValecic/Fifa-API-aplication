@@ -76,7 +76,6 @@ namespace WPF_Projekt.Windows
 
         private void SelectedTeamDetail_Click(object sender, RoutedEventArgs e)
         {
-            //OpenWinForTeam(team);
             OpenWinForTeam(teams.FirstOrDefault(t => t.Country == team.Country));
         }
 
@@ -103,6 +102,13 @@ namespace WPF_Projekt.Windows
             {
                 lblOpponentValidation.Visibility = Visibility.Visible;
             }
+        }
+
+        private void btnSetting_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mw = new MainWindow();
+            mw.Show();
+            this.Close();
         }
     }
 }

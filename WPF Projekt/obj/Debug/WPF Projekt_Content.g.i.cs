@@ -8,7 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/croflag.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/engflag.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/field.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/question.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/settings.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/shirt.png")]
 
 

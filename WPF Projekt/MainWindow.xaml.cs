@@ -28,8 +28,9 @@ namespace WPF_Projekt
         private const string HR = "hr", EN = "en";
         private Settings settings = new Settings();
         private IList<Team> teams;
-       // private IList<Control> screenRBs;
+        private bool closeWithoutConfirm;
         private static readonly IRepository repo = RepositoryFactory.GetRepo();
+       // private IList<Control> screenRBs;
 
         public MainWindow()
         {
@@ -123,8 +124,16 @@ namespace WPF_Projekt
 
             try
             {
-                teams = (settings.IsOnline) ? await repo.GetOnlineDataAsync<List<Team>>(Team.GetEndpoint(settings.IsOnline, settings.IsMale))
-                                   : await repo.GetOfflineDataAsync<List<Team>>(Team.GetEndpoint(settings.IsOnline, settings.IsMale));
+                if (settings.IsOnline)
+                {
+                    teams = await repo.GetOnlineDataAsync<List<Team>>(Team.GetEndpoint(settings.IsOnline, settings.IsMale));
+                }
+                else
+                {
+                    List<GroupResult> groupResults = await repo.GetOfflineDataAsync<List<GroupResult>>(GroupResult.GetEndpoint(settings.IsMale));
+                    teams = new List<Team>();
+                    groupResults.ForEach(r => r.OrderedTeams.ForEach(t => teams.Add(t)));
+                }
             }
             catch (Exception ex)
             {
@@ -184,8 +193,26 @@ namespace WPF_Projekt
 
         private void ShowPlayers_Click(object sender, RoutedEventArgs e)
         {
-            IfCheckScreenSize();
+            if (IfCheckScreenSize())
+            {
+                try
+                {
+                    settings.SelectedTeam = teams.FirstOrDefault(cbTeams.SelectedItem.Equals);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
 
+                ConfirmWindow window = new ConfirmWindow();
+
+                window.ShowDialog();
+                if (ConfirmWindow.Choice())
+                {
+                    OpenTeamViewWindowAsync();
+                }
+            }
         }
 
         private void rbScreenSize_Checked(object sender, RoutedEventArgs e)
@@ -193,26 +220,15 @@ namespace WPF_Projekt
             lbCheckedScreenSizeMessage.Visibility = Visibility.Hidden;
         }
 
-        private void IfCheckScreenSize()
+        private bool IfCheckScreenSize()
         {
             if (rbSmall.IsChecked == false && rbMedium.IsChecked == false && rbLarge.IsChecked == false
                 && rbFullscreen.IsChecked == false)
             {
                 lbCheckedScreenSizeMessage.Visibility = Visibility.Visible;
-                return;
+                return false;
             }
-
-            try
-            {
-                settings.SelectedTeam = teams.FirstOrDefault(cbTeams.SelectedItem.Equals);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return;
-            }
-
-            OpenTeamViewWindowAsync();
+            return true;
         }
 
         private async Task OpenTeamViewWindowAsync()
@@ -244,9 +260,24 @@ namespace WPF_Projekt
             SetScreenSize(teamViewWindow);
             settings.SaveToFile();
             teamViewWindow.Show();
+            closeWithoutConfirm = true;
             this.Close();
         }
-        
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!closeWithoutConfirm)
+            {
+                ConfirmWindow window = new ConfirmWindow();
+                window.ShowDialog();
+                if (!ConfirmWindow.Choice())
+                {
+                    //this.Close();
+                    e.Cancel = true;
+                }
+            }
+        }
+
         private void SetScreenSize(TeamViewWindow teamViewWindow)
         {
             if (rbFullscreen.IsChecked == true)
@@ -269,7 +300,7 @@ namespace WPF_Projekt
             else if (rbSmall.IsChecked == true)
             {
                 teamViewWindow.Width = 500;
-                teamViewWindow.Height = 370;
+                teamViewWindow.Height = 400;
                 settings.ScreenSize = ScreenSizes.Small;
             }
         }

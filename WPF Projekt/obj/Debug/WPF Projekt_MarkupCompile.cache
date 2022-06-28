@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Faks\.NET Praktikum\Fifa-API-aplication\WPF Projekt\App.xaml
-6183142848
-22019373012
-11-1404675126
+7-449807353
+41457942143
+12994631051
 271463389
-MainWindow.xaml;UserControls\PlayerFieldControl.xaml;Windows\ChosenPlayerWindow.xaml;Windows\FieldPositionWindow.xaml;Windows\TeamViewWindow.xaml;Windows\WindowForTeam.xaml;
+MainWindow.xaml;UserControls\PlayerFieldControl.xaml;Windows\ChosenPlayerWindow.xaml;Windows\ConfirmWindow.xaml;Windows\FieldPositionWindow.xaml;Windows\TeamViewWindow.xaml;Windows\WindowForTeam.xaml;
 
 False
 

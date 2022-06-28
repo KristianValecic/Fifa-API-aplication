@@ -84,6 +84,7 @@
     <Compile Include="Dal\Repository.cs" />
     <Compile Include="Dal\RepositoryFactory.cs" />
     <Compile Include="Model\Match.cs" />
+    <Compile Include="Model\GroupResult.cs" />
     <Compile Include="Model\Player.cs" />
     <Compile Include="Dal\Settings.cs" />
     <Compile Include="Model\RowComparer.cs" />

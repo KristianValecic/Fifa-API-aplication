@@ -96,7 +96,7 @@
         
         <StackPanel 
             Grid.Row="4"
-            x:Name="stckpnlOpponentDefender"   
+            x:Name="stckpnlOpponentForward"   
             Orientation="Horizontal"
             HorizontalAlignment="Center"
             />
@@ -108,7 +108,7 @@
             />
         <StackPanel 
             Grid.Row="6"
-            x:Name="stckpnlOpponentForward"   
+            x:Name="stckpnlOpponentDefender"   
             Orientation="Horizontal"
             HorizontalAlignment="Center"
             />
