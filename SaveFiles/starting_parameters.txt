@@ -1,1 +1,1 @@
-True|False|RUS|hr|Small
+True|False|RUS|en|Small

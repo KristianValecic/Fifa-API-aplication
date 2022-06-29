@@ -1,8 +1,0 @@
-provjeri zadnju tocku wpfa
-
-popravi combobox u teamviewWindowu (wpf)
-
-animacije ucitavanja gdje treba
-
-Pitanja: 
-combobox zasto ne radi
